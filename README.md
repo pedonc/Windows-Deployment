@@ -15,13 +15,14 @@ All documentation in this repository is licensed under the GNU Free Documentatio
 Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the license is included in the section entitled "GNU Free Documentation License".  Additionally, a copy of the license is available [in this repository](https://raw.githubusercontent.com/pedonc/windows-deployment/master/fdl.txt) and from the Free Software Foundation at [https://www.gnu.org/licenses/fdl.txt](https://www.gnu.org/licenses/fdl.txt).
 
 ## GNU Free Documentation License
+
 Version 1.3, 3 November 2008
 
 Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc. <https://fsf.org/>
 
 Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 
-0. PREAMBLE
+0\. PREAMBLE
 
 The purpose of this License is to make a manual, textbook, or other functional and useful document "free" in the sense of freedom: to assure everyone the effective freedom to copy and redistribute it, with or without modifying it, either commercially or noncommercially. Secondarily, this License preserves for the author and publisher a way to get credit for their work, while not being considered responsible for modifications made by others.
 
@@ -29,7 +30,7 @@ This License is a kind of "copyleft", which means that derivative works of the d
 
 We have designed this License in order to use it for manuals for free software, because free software needs free documentation: a free program should come with manuals providing the same freedoms that the software does. But this License is not limited to software manuals; it can be used for any textual work, regardless of subject matter or whether it is published as a printed book. We recommend this License principally for works whose purpose is instruction or reference.
 
-1. APPLICABILITY AND DEFINITIONS
+1\. APPLICABILITY AND DEFINITIONS
 
 This License applies to any manual or other work, in any medium, that contains a notice placed by the copyright holder saying it can be distributed under the terms of this License. Such a notice grants a world-wide, royalty-free license, unlimited in duration, to use that work under the conditions stated herein. The "Document", below, refers to any such manual or work. Any member of the public is a licensee, and is addressed as "you". You accept the license if you copy, modify or distribute the work in a way requiring permission under copyright law.
 
