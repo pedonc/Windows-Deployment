@@ -1,5 +1,686 @@
 # Tools And Documentation To Automate And Manage Windows Deployment
 
+PART 1 - DOWNLOAD WINDOWS 10
+
+1.  On a Windows 10 Professional computer running Windows version 1809 64-bit, go to Microsoft's Download Windows 10 page (currently available at <https://www.microsoft.com/en-us/software-download/windows10>).
+2.  Download the Create Windows 10 installation media tool (currently MediaCreationTool1809.exe available from <https://go.microsoft.com/fwlink/?LinkId=691209>).
+3.  Run the downloaded tool.  In the User Account Control window that appears, click **Yes** when asked Do you want to allow this app to make changes to your device?
+
+4.  In the Windows 10 Setup window that appears, click **Accept**.
+5.  On the What do you want to do? screen, select **Create installation media (USB flash drive, DVD, or ISO file) for another PC**.
+6.  Click the **Next** button.
+7.  On the Select language, architecture, and edition screen, uncheck **Use the recommended options for this PC**.
+8.  Set the Language field to **English (United States)**, set the Edition field to **Windows 10**, set the Architecture to **Both**.
+9.  Click the **Next** button.
+10. On the Choose which media to use screen, select **ISO file**.
+11. Click the **Next** button.
+12. In the Select a path window that appears, select a folder to store the ISO file, and enter Windows1809.iso in the File name field, then click **Save**.
+13. The computer will download the ISO file (this may take several minutes).
+14. When the download is complete, click the **Finish** button.
+
+PART 2 - DOWNLOAD WINDOWS ADK
+
+1.  Go to Microsoft's Download and install the Windows ADK page (currently available at <https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install>).
+2.  Download the Windows ADK for Windows 10, version 1809 (currently available from [https://go.microsoft.com/fwlink/?linkid=2026036](https://go.microsoft.com/fwlink/?LinkId=691209)).
+3.  Download the Windows PE add-on for the ADK (currently available from <https://go.microsoft.com/fwlink/?linkid=2022233>).
+
+4.  Run the adksetup.exe tool.  In the installation window that appears, click **Next**.
+5.  Click **No** then click **Next**.
+6.  Click **Accept**.
+
+7.  Check all the installable features and click **Install**.
+8.  Click **Yes** when prompted to allow installation.
+9.  When the installation process is complete, click **Close**.
+10. Run the adkwinpesetup.exe tool.  In the installation window that appears, ensure that Install the Windows Assessment and Deployment Kit Windows Preinstallation Enviromnet Add-ons - Windows 10 to this computer is selected and clcik the **Next** button.
+11. Click **No** then click **Next**.
+12. Click **Accept**.
+13. Check all the installable features and click **Install**.
+14. In the User Account Control window, click **Yes**.
+
+15. When the installation is complete, click the **Close** button.
+
+PART 3 - ENABLE HYPER-V
+
+1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen, then select **Run**.
+2.  In the Run window that appears, enter control panel in the Open field and click **OK**.
+3.  In the upper-right corner of the window that appears, from the View by pull down menu, select **Large icons**.
+4.  Click on **Programs and Features**.
+5.  In the Programs and Features window, click on **Turn Windows features on or off** in the left column.
+6.  In the Windows Features window that appears, check the box to the left of **Hyper-V** and click **OK**.
+7.  Windows will take a moment to enable Hyper-V, then will prompt you to restart the computer.  Click **Restart now**.
+
+PART 4 - CONFIGURE EFI 64 BIT VM
+
+1.  After the computer has restarted, click on the **Windows Start Menu** icon in the lower-left corner of the screen, then go to **Windows Administrative Tools** and select **Hyper-V Manager**.
+2.  In the left column of the Hyper-V Manager, click on the name of your computer.
+3.  In the right-most pane that appears, click **New** and select **Virtual Machine...**.
+4.  In the New Virtual Machine Wizard, click **Next**.
+5.  In the Name: field, enter WindowsEFI64.
+6.  Check the box next to **Store the virtual machine in a different location** and click the **Browse...** button.
+7.  In the Select Folder window that appears, navigate to the Documents folder for your Windows user account, create a folder named Virtual Machines.
+8.  Open the Virtual Machines folder, then click **Select Folder** to save the virtual machine in that folder.
+9.  On the Specify Name and Location screen, click the **Next** button.
+10. On the Specify Generation screen, choose **Generation 2** and click **Next**.
+11. On the Assign Memory screen, specify 4096 MB as the Startup memory amount, ensure that **Use Dynamic Memory for this virtual machine** is checked, and click **Next**.
+12. On the Configure Networking screen, ensure that Connection: is set to **Not Connected**, then click **Next**.
+13. On the Connect Virtual Hard Disk screen, ensure that **Create a virtual hard disk** is selected, then specify 64 GB as the Size and click **Next**.
+14. On the Installation Options screen, click **Finish**.
+15. In the Hyper-V Manager window, in the Virtual Machines pane, select WindowsEFI64 and in the right-most Actions pane, under WindowsEFI64, click **Settings...**.
+16. In the window that appears, in the left column under Hardware, click on **Network Adapter** then click the **Remove** button.
+17. In the left column, click **Memory**.
+18. In the Memory pane on the right side of the window, enter 1024 as the Minimum RAM.
+
+19. In the left column, click SCSI Controller.
+20. In the SCSI Controller pane on the right side of the window, click **DVD Drive** then click **Add**.
+21. In the DVD Drive pane that appears on the right, select **Image file:** and click the **Browse...** button.
+22. Select the Windows1809.iso file you downloaded in PART 1 and click **Open**.
+23. In the left column, under the Management section, click on **Checkpoints**.
+24. Uncheck **Enable checkpoints**.
+
+25. Click the **OK** button.
+26. To enable nested Hyper-V (allowing the Hyper-V client to also be a Hyper-V host), right-click on the Start button on the host computer and select **Windows PowerShell (Admin)**.  In the PowerShell window that appears, enter set-vmprocessor -vmname WindowsEFI64 -exposevirtualizationextensions $true and press the **Enter** key.
+27. Type exit and press the **Enter** key to close the PowerShell window.
+
+PART 5 - BOOT WINDOWS INSTALLER IN VM
+
+1.  In the Hyper-V Manager window, in the Virtual Machines pane, click on **WindowsEFI64**.
+2.  In the right Actions pane, under WindowsEFI64, click **Start**.
+3.  Wait a few moments while the virtual machine is started.  In the middle Virtual Machines tab, the WindowsEFI64 state should eventually change to Running.
+
+4.  In the right Actions pane, under WindowsEFI64, click **Connect...**.
+5.  Once the connection to the Virtual Machine is established, you should see a message indicating that No operating system was loaded.  Click in the virtual machine window to activate it.  Press the **Tab** key on the keyboard to highlight the **Restart now** button and press the **Enter** key.
+6.  The virtual machine will restart and will display a message reading "Press any key to boot from CD or DVD..."  While this message is displayed, click the mouse inside the virtual machine window to activate it and then press the **A** key on the keyboard.  This sequence happens quickly and is time sensitive.  If the Windows Boot Manager screen does not appear, repeat step 5 and this step again until the black Windows Boot Manager screen appears.
+7.  Until noted, the following procedure applies to actions inside the virtual machine environment.
+8.  When the black Windows Boot Manager screen appears, ensure that **Windows 10 Setup (64-bit)** is selected, then press the **Enter** key.  Windows Setup will load.
+
+PART 6 - INSTALL WINDOWS IN VM
+
+1.  On the first Windows Setup screen, click the **Next** button.
+2.  Click **Install now**.
+3.  On the Activate Windows screen, click the **I don't have a product key** link.
+4.  On the Select the operating system you want to install screen, select **Windows 10 Pro** and click the **Next** button.
+5.  On the Applicable notices and license terms screen, check **I accept the license terms** and click **Next**.
+6.  On the Which type of installation do you want screen, click **Custom: Install Windows only (advanced)**.
+7.  Ensure that **Drive 0 Unallocated Space** is selected, then click **Next**.
+8.  The Windows installation will begin.  Please wait while files are copied to the virtual machine's disk.  The virtual machine will automatically restart.
+
+9.  Eventually, the Let's start with region screen will appear.
+
+PART 7 - ENABLE WINDOWS AUDIT MODE
+
+1.  To bypass the Windows configuration wizard and enter Audit Mode, press and hold the **Control** and **Shift** keys at the same time, then press the **F3** key (for a moment, all three keys should be pressed at the same time).  Release all the keyboard keys.
+2.  The virtual machine will restart and will log the built-in Administrator account into Windows in Audit Mode.
+3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
+
+PART 8 - ENABLE ADDITIONAL WINDOWS FEATURES
+
+1.  Right-click on the Start button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
+2.  In the PowerShell window that appears, to enable Microsoft Hyper-V, enter dism /online /enable-feature /featurename:microsoft-hyper-v /norestart /all and press the **Enter** key.
+3.  Optionally, to enable the older .Net 3.5 framework, enter dism /online /enable-feature /featurename:netfx3 /limitaccess /source:d:\x64\sources\sxs /norestart /all and press the **Enter** key.
+
+4.  Optionally, to enable the older SMB1 protocol, enter dism /online /enable-feature /featurename:smb1protocol /norestart and press the **Enter** key.  After the feature is enabled, enter dism /online /disable-feature /featurename:smb1protocol-deprecation /norestart and press the **Enter** key.   After the feature is disabled, enter dism /online /disable-feature /featurename:smb1protocol-server /norestart and press the **Enter** key.
+5.  Type exit and press the **Enter** key to close the PowerShell window.
+
+PART 9 - DISABLE SERVER SERVICE
+
+1.  Right-click on the Start button in the lower-left corner of the screen and click **Computer Management**.
+2.  In the Computer Management window, in the left column, under Computer Management (Local), double-click on **Services and Applications** to expand it.
+3.  Double-click on **Services**, then, in the Services pane in the middle of the window, scroll down to the service named Server and double click on **Server** to open the Server service.
+4.  In the Server Properties (Local Computer) window that appears, switch the Startup type pull down menu to **Disabled** and click the **Stop** button.
+5.  Wait for the service to stop, then click the **OK** button to close the Server Properties (Local Computer) window.
+6.  In the Computer Management window, click the **File** menu, then click **Exit** to close the Computer Management window.
+
+PART 10 - CONFIGURE GROUP POLICIES
+
+1.  Right-click on the Start button in the lower-left corner of the screen and click **Run**.
+2.  In the Run window that appears, in the Open field, type gpedit.msc and press the **Enter** key.
+3.  In the Local Group Policy Editor window that appears, in the left column, under Local Computer Policy, Computer Configuration, double-click on **Administrative Templates** to expand it.
+4.  Under the expanded Administrative Templates section in the left column, double-click **Windows Components** to expand it.
+5.  Double-click **AutoPlay Policies**.
+6.  In the AutoPlay Policies pane on the right of the window, double-click **Turn Off AutoPlay**.
+7.  In the Turn Off AutoPlay window that appears, click the radio button to select **Enabled** then click the **OK** button.
+8.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, scroll down until Windows Update is visible and double-click **Windows Update**.
+9.  In the Windows Update pane on the right of the window, double-click **Configure Automatic Updates**.
+10. In the Configure Automatic Updates window that appears, click the radio button to select **Disabled** then click the **OK** button.
+
+11. In the Local Group Policy Editor window, click the **File** menu, then click **Exit** to close the Local Group Policy Editor.
+
+PART 11 - CONFIGURE CONTROL PANELS
+
+1.  Right-click on the Start button in the lower-left corner of the screen and click **Run**.
+2.  In the Open field, type control panel and press the **Enter** key.
+3.  In the upper-right corner of the Control Panel window that appears, click on the **View by** pull down menu and click **Large icons** to switch from the Category option to Large icons.
+4.  Click **AutoPlay**, uncheck **Use AutoPlay for all media and devices** and click the **Save** button.
+5.  Click **Date and Time**, click **Change time zone...** select **(UTC-05:00) Eastern Time (US & Canada)** and click the **OK** button.
+6.  In the Date and Time window, uncheck **Notify me when the clock changes** and click the **OK** button.
+7.  Click **File Explorer Options**.
+8.  Change Open File Explorer to to **This PC**.
+9.  Uncheck **Show recently used files in Quick access**.
+10. Uncheck **Show frequently used files in Quick access**.
+11. Click the **Clear** button.
+12. Click the **View** tab at the top of the File Explorer Options window.
+13. In the Advanced settings list, uncheck **Hide extensions for known file types**.
+14. Scroll down in the Advanced settings list and uncheck **Use Sharing Wizard (Recommended)**.
+15. Click the **OK** button to close the File Explorer Options window.
+16. Click **Network and Sharing Center**.
+17. In the left column of the Network and Sharing window, click **Change advanced sharing settings**.
+18. In the Advanced sharing settings window, expand the **Private** section (click on the arrow to the right of the section heading) and uncheck **Turn on automatic setup of network connected devices**.
+19. Click the radio button to select **Turn off network discovery** and click the **Save changes** button.
+20. In the left column of the Network and Sharing Center window, click **Control Panel Home**.
+21. Click **Power Options**.
+22. To the right of Balanced (recommended) click **Change plan settings**.
+23. Click **Change advanced power settings**.
+24. In the Power Options window that appears, under Hard disk, Turn off hard disk after set Setting (Minutes) to 0/Never.
+25. Under USB settings, USB selective suspend setting set Setting to **Disabled**.
+26. Under PCI Express, Link State Power Management, set Setting to **Off**.
+27. Click the **OK** button.
+28. At the top left of the Edit Plan Settings window, press the Back arrow button twice to return to the All Control Panel Items window.
+29. Click **Sound**.
+30. In the Sound window, go to the **Sounds** tab.
+31. Change Sound Scheme to **No Sounds**, then click the **OK** button.
+32. Click the X close button in the upper right corner of the All Control Panel Items window to close the window.
+
+PART 12 - RENAME THE BOOT VOLUME
+
+1.  Right-click on the Start button in the lower-left corner of the screen and click **File Explorer**.
+2.  Right-click on **Local Disk (C:)** and click **Rename**.
+3.  Enter the drive name Windows and press the **Enter** key.
+4.  Click the **File** menu in the upper-right corner of the screen, then click **Close**.
+
+PART 13 - CONFIGURE SETTINGS
+
+1.  Click on **Start**, then **Settings** (gear icon).
+2.  Go to **Personalization**.
+3.  Go to **Colors**.
+4.  Scroll down and set **Choose your default app mode** to **Dark**.
+5.  Turn **Transparency effects** **Off**.
+6.  Go to **Background**.
+7.  Set **Background** to **Solid color**.
+8.  Go to **Lock screen**.
+9.  Set **Background** to **Picture**.
+10. Set **Get fun facts, tips, and more from Windows and Cortana on your lock screen** to **Off**.
+11. Go to **Themes**.
+12. Click **Save theme**.
+13. In the Save your theme popup that appears, in the Name your theme field, enter Default and click the **Save** button.
+
+14. Go to **Start**.
+15. Turn **Show recently added apps** **Off**.
+16. Turn **Show suggestions occasionally in Start** **Off**.
+17. Turn **Show recently opened items in Jump Lists on Start or the taskbar** **Off**.
+18. Go to **Taskbar**.
+19. Turn **Show badges on taskbar buttons** **Off**.
+20. Click **Select which icons appear on the taskbar**.
+21. Turn **Always show all icons in the notification area** **On**.
+22. In the upper-left corner of the window, click the **Back** arrow button.
+23. Go to **Turn system icons on or off**.
+24. Set **Action Center**, **Location**, **Input indicator**, **Network** to **Off**.
+25. In the upper-left corner of the window, click the **Back** arrow button.
+26. Scroll down to the bottom of the window.
+27. Turn **Show My People app suggestions** **Off**.
+28. Turn **Play a sound when a My People notification arrives** **Off**.
+29. Turn **Show My People notifications** **Off**.
+30. Turn **Show contacts on the taskbar** **Off**.
+31. In the upper-left corner of the window, click the **Home** button.
+32. Click **System**.
+33. Click **Notifications & actions**.
+34. Click **Add or remove quick actions**.
+35. Set **Tablet Mode**, **Location**, **VPN**, **Project**, and **Connect** to **Off**.
+36. In the upper-left corner of the window, click the **Back** arrow button (the button may be difficult to see until the mouse is hovered over it).
+37. Turn **Get notifications from apps and other senders** **Off**.
+38. Turn **Get tips, tricks, and suggestions as you use Windows** **Off**.
+39. Turn **Show me the Windows welcome experience after updates and occasionally when I sign in to highlight what's new and suggested** **Off**.
+40. Click **Focus assist**.
+41. Turn **When I'm playing a game** **Off**.
+42. Turn **When I'm duplicating my display** **Off**.
+
+43. Click **Tablet mode**.
+44. Set **Hide app icons on the taskbar in tablet mode** to **Off**.
+45. Set **When this device automatically switches tablet mode on or off** to **Don't ask me and don't switch**.
+46. Set **When I sign in** to **Use desktop mode**.
+47. Click **Multitasking**.
+48. Set **Show suggestions occasionally in your timeline** to **Off**.
+49. Click **Shared experiences**.
+50. Set **Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa** to **Off**.
+51. In the upper-left corner of the window, click **Home**.
+52. Click **Devices**.
+53. Click on **Printers & scanners**.
+54. **Uncheck** **Let Windows manage my default printer**.
+55. Click **Pen & Windows Ink**.
+56. **Uncheck** **Show recommended app suggestions**.
+57. Click **Home**.
+58. Click **Apps**.
+59. Set **Installing apps** to **Turn off app recommendations**.
+
+60. Click on and **Uninstall** the following apps in the list: **App Installer**, **Feedback Hub**, **Microsoft OneDrive**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Mobile Plans**, **My Office**, **OneNote**, **Print 3D**, **Skype**, **Tips**, **Weather**, **Web Media Extensions**, **Xbox Live**.
+61. Click **Offline Maps**.
+62. Click **Delete all maps** and click **Delete all** in the popup that appears.
+63. Set **Automatically update maps** to **Off**.
+
+64. Click on **Apps for websites**.
+65. Set **Microsoft Edge** and **Maps** (there may be two Maps listed, set them both) to **Off**.
+66. Click **Startup**.
+67. Set **Windows Security notification icon** to **Off**.
+68. Click **Home**.
+69. Click **Gaming**.
+70. Turn **Record game clips, screenshots, and broadcast using Game bar** **Off.**
+71. Uncheck **Open Game bar using this button on a controller**.
+72. Click **Game Mode**.
+73. Turn **Game Mode** **Off**.
+74. Click **Home**.
+75. Click **Cortana**.
+76. Set **Use Cortana even when my device is locked** **Off**.
+77. Click **Permissions & History**.
+78. Click **Clear my device history**.
+79. Set **My device history**, **Activity recommendations**, and **Windows Cloud Search** to **Off**.
+80. Click **Home**.
+81. Click **Privacy**.
+82. Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
+83. Click **Inking & typing personalization**.
+84. Set **Getting to know you** **Off**.
+85. Click **Diagnostics & feedback**.
+86. Set **Improve inking and typing** **Off**.
+87. Click **Delete** to delete the diagnostic data from the system.
+88. Set **Windows should ask for my feedback** to **Never**.
+89. At the top of the screen, set **Diagnostic data** to **Basic**.
+90. Click **Activity History**.
+91. Uncheck **Store my activity history on this device**.
+92. Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
+
+93. Click **Location**.
+94. Click **Clear** to clear the location history from the system.
+95. Set **Allow apps to access your location** to **Off**.
+96. Click **Change** to change location access for the device and set **Location for this device** to **Off** in the popup, then click in the Location settings window to close the popup.
+
+97. Click **Camera**.
+98. Set camera access for all apps, including **Microsoft Edge**, **Deluxe App Web Viewer**, and **Camera**, to **Off**.
+99. Set **Allow apps to access your camera** to **Off**.
+100. Click **Change** to change camera access for the device and set **Camera access for this device** to **Off** in the popup, then click in the Camera settings window to close the popup.
+101. Click **Microphone**.
+102. Set microphone access for all apps, including **Microsoft Edge** and **Camera**, to **Off**.
+103. Set **Allow apps to access your microphone** to **Off**.
+104. Click **Change** to change microphone access for the device and set **Microphone access for this device** to **Off** in the popup, then click in the Microphone settings window to close the popup.
+
+105. Click **Notifications**.
+106. Set **Allow apps to access your notifications** to **Off**.
+107. Click **Change** to change notification access for the device and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
+108. Click **Account info**.
+109. Set account access for all apps, including **Microsoft Edge**, to **Off**.
+110. Set **Allow apps to access your account info** to **Off**.
+111. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
+112. Click **Contacts**.
+113. Set contacts access for all apps, including **Messaging** and **Mail and Calendar** to **Off**.
+114. Set **Allow apps to access your contacts** to **Off**.
+115. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
+
+116. Click **Calendar**.
+117. Set calendar access for all apps, including **Mail and Calendar**, to **Off**.
+118. Set **Allow apps to access your calendar** to **Off**.
+119. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
+120. Click **Call History**.
+121. Set **Allow apps to access your call history** to **Off**.
+122. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
+123. Click **Email**.
+124. Set email access for all apps, including **Mail and Calendar**, to **Off**.
+125. Set **Allow apps to access your email** to **Off**.
+126. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
+127. Click **Tasks**.
+128. Set **Allow apps to access your tasks** to **Off**.
+129. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
+
+130. Click **Messaging**.
+131. Set **Allow apps to read or send messages** to **Off**.
+132. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
+
+133. Click **Radios**.
+134. Set **Allow apps to control device radios** to **Off**.
+135. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
+
+136. Click **Other devices**.
+137. Set **Communicate with unpaired devices** to **Off**.
+138. Click **Background apps.**
+139. Set background processing for all apps, including **Your Phone**, **Xbox**, **Windows Security**, **Voice Recorder**, **Sticky Notes**, **Snip & Sketch**, **Settings**, **Photos**, **People**, **Paint 3D**, **Movies & TV**, **Mixed Reality Viewer**, **Microsoft Store**, **Microsoft Edge**, **Messaging**, **Maps**, **Mail and Calendar**, **Groove Music**, **Get Help**, **Game bar**, **Connect**, **Camera**, **Calculator**, and **Alarms & Clock**, to **Off**.
+140. Set **Let apps run in the background** to **Off**.
+141. Click **App diagnostics**.
+142. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
+143. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
+
+144. Click **Documents**.
+145. Set document library access for all apps, including **Windows Security** and **Voice Recorder**, to **Off**.
+146. Set **Allow apps to access your documents library** to **Off**.
+147. Click **Change** to change documents library access for the device and set **Documents library access for this device** to **Off** in the popup, then click in the Documents settings window to close the popup.
+
+148. Click **Pictures**.
+149. Set pictures access for all apps, including **Xbox**, **Snip & Sketch**, **Paint 3D**, **Mixed Reality Viewer**, **Microsoft Edge**, **Game bar**, and **Cortana**, to **Off**.
+150. Set **Allow apps to access your pictures library** to **Off**.
+151. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
+152. Click **Videos**.
+153. Set video library access for all apps, including **Xbox**, **Movies & TV**, **Mixed Reality Viewer**, **Game bar**, and **Camera**, to **Off**.
+154. Set **Allow apps to access your videos library** to **Off**.
+155. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
+156. Click **File system**.
+157. Set **Allow apps to access your file system** to **Off**.
+158. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
+
+159. Click **Home**.
+160. Click **Update & Security**.
+161. Click **Delivery Optimization**.
+162. Set **Allow downloads from other PCs** to **Off**.
+163. Close the Settings window by clicking the X close button in the upper-right corner of the window.
+
+PART 14 - CUSTOMIZE DESKTOP, TASKBAR, START MENU, AND EXPLORER
+
+1.  Right-click on the **Microsoft Edge** shortcut on the Desktop and click **Delete**.
+2.  Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
+3.  In the context menu that appears, click **Cortana** then click **Hidden**.
+4.  Click on the **Start** icon in the lower-left corner of the screen.
+5.  For each of the tiles on the right side of the Start Menu, right-click on the tile and click **Unpin from Start**.
+6.  In the Application List on the left side of the Start Menu, right-click on **Calculator**.
+7.  Click **Pin to Start**.
+8.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **More**, then click **Turn Live Tile off**.
+9.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **Resize**, then click **Small**.
+10. Scroll in the Application List on the left side of the Start Menu down to Windows Accessories and click on **Windows Accessories**.
+11. Click on **Internet Explorer**.
+12. In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
+13. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
+14. In the Internet Options window that appears, in the Home page field, erase the URL listed and enter about:blank.
+15. Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
+
+16. Back in the Internet Options window, click the **OK** button.
+17. Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
+18. Right-click on the **Bing** icon and click **Delete**.
+19. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Safety** then click **Delete browsing history...**.
+20. Uncheck **Preserve Favorites website data** and check **Download History**, **Form data**, **Passwords**, and **Tracking Protection, ActiveX Filtering and Do Not Track** and click the **Delete** button.
+21. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+22. When prompted, click **Close all tabs**.
+23. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
+24. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+25. When prompted, click **Close all tabs**.
+26. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
+27. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+28. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
+29. Click **Yes** to confirm deletion.
+
+PART 15 - EXPORT START MENU
+
+1.  Right-click on the Start button in the lower-left corner of the screen.
+2.  Click **Windows PowerShell (Admin)**.
+3.  Type export-startlayout -path c:\StartLayout.xml and press the **Enter** key.
+4.  Type exit and press the **Enter** key to exit PowerShell.
+5.  Click the **File Explorer** (yellow folder) icon on the Taskbar towards the lower-left corner of the screen.
+6.  Double-click on **Windows (C:)**.
+7.  Right-click on **StartLayout.xml** and click **Cut**.
+
+8.  Double-click on **Users**.
+9.  Double-click on **Public**.
+10. Right-click on an empty area of the Public folder and click **New**, then click **Folder**.
+11. Name the new folder Settings.
+12. Double-click on **Settings**.
+13. Right-click on an empty area of the Settings folder and click **Paste**.
+14. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
+15. Edit the **<DefaultLayoutOverride>** tag to read <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">.
+16. Click the **File** menu, click **Exit** and when prompted, click **Save**.
+17. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
+
+PART 16 - RESTART THE VIRTUAL MACHINE
+
+1.  Click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Restart**.
+2.  The system may restart one or more times and will eventually restart in Audit Mode.
+3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
+
+PART 17 - SHUTDOWN THE VIRTUAL MACHINE
+
+1.  Click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
+
+PART 18 - EXPORT THE VIRTUAL MACHINE AND CREATE A BACKUP DISK
+
+1.  Until noted, the following procedure applies to actions inside the host environment.
+2.  In the WindowsEFI Virtual Machine Connection window, click on the **File** menu, then click **Settings...**.
+3.  In the left column of the Settings for WindowsEFI64 window, under Hardware, SCSI Controller, click on **DVD Drive**.
+4.  In the right pane of the window, click **Remove** to remove the DVD drive from the virtual machine.
+5.  Click **OK** in the lower-right corner of the window.
+6.  Click on the **Action** menu, then click **Share...**.
+7.  In the Save As window that appears, open your Windows user account **Documents** folder, then enter WindowsEFI64.vmcz in the File name field and click **Save**.
+8.  A green progress bar will appear on the bottom of the Virtual Machine Connection window and it may take a few moments to export the virtual machine.
+9.  Once the virtual machine export is complete, click on the **File** menu, then click **Settings...**.
+10. In the left column of the Settings for WindowsEFI64 window, under Hardware, click **SCSI Controller**.
+11. In the pane on the right side of the window, click on **DVD Drive** to select it, then click **Add**.
+12. In the pane on the right side of the window, the DVD Drive options should appear.  Click to select **Image file**, then click the **Browse** button and open the Windows1809.iso file on your computer.
+13. In the left column of the Settings for WindowsEFI64 window, under Hardware, click **SCSI Controller**.
+14. In the pane on the right side of the window, click on **Hard Drive** to select it, then click **Add**.
+15. The Hard Drive options appear on the right side of the window.  In the Media section, with **Virtual hard disk** selected, click the **New** button.
+16. In the New Virtual Hard Disk Wizard that appears, click **Next**.
+17. On the Choose Disk Type screen, select **Fixed Size** and click **Next**.
+18. On the Specify Name and Location screen, in the Name field, enter Backup.vhdx as the file name.
+19. Click the **Browse** button.  Navigate to your Windows user account's Documents folder.  Create a new folder in Documents named Virtual Disks.
+20. Open the **Virtual Disks** folder and click **Select Folder**.
+21. On the Specify Name and Location screen, click **Next**.
+22. On the Configure Disk screen, enter 20 GB as the Size and click **Finish**.  It may take a moment for the system to create the virtual disk.
+
+23. In the Settings for WindowsEFI64 window, click **Apply**.
+24. In the left column of the window, under Hardware, click on **Firmware**.
+25. In the pane on the right side of the window, in the Boot order section, click on **DVD Drive** to select it in the list, then click the **Move Up** button repeatedly until the DVD Drive is at the top of the list.
+26. Click **OK**.
+27. In the Virtual Machine Connection window, click the Start button.
+28. The virtual machine will start and will display a message reading "Press any key to boot from CD or DVD..."  While this message is displayed, click the mouse inside the virtual machine window to activate it and then press the **A** key on the keyboard.  This sequence happens quickly and is time sensitive.  If the Windows Boot Manager screen does not appear, wait until Windows starts in Audit Mode, in the System Preparation Tool 3.14 click **Cancel**, then click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.  After the virtual machine has shut down, repeat step 27 and 28 until the black Windows Boot Manager screen appears.
+29. Until noted, the following procedure applies to actions inside the virtual machine environment.
+
+PART 19 - CAPTURE AN IMAGE OF THE VIRTUAL MACHINE
+
+1.  When the black Windows Boot Manager screen appears, ensure that **Windows 10 Setup (64-bit)** is selected, then press the **Enter** key.  Windows Setup will load.
+2.  In the Windows Setup window that appears, click **Next**.
+3.  Click **Repair your computer**.
+4.  Click **Troubleshoot**.
+5.  Click **Command Prompt**.
+6.  In the Command Prompt window that appears, type diskpart and press the **Enter** key.
+7.  At the DISKPART> prompt, type list disk.  Two disks should be listed.  Note which disk does not have a * character in the Gpt column (it is likely that Disk 1 does not have a * character in the Gpt column and the below instructions assume this; if the disk without the * character has a different disk number on your system, substitute that disk number in the instructions below).
+8.  Type  select disk 1 and press the **Enter** key.
+9.  Type clean and press the **Enter** key.
+10. Type create partition primary and press the **Enter** key.
+11. Type format fs=ntfs quick label=Backup and press the **Enter** key.
+12. Type assign and press the **Enter** key.
+13. Type list volume and press the **Enter** key.
+14. Note the drive letter of the Backup volume (likely drive E) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not E and C, respectively, please substitute the drive letters for your system in the command below.
+
+15. Type exit and press the **Enter** key.
+16. Type dism /capture-image /capturedir:c:\ /imagefile:e:\WindowsEFI64AuditMode.wim /name:Audit (be sure to substitute the correct drive letters in the command) and press the **Enter** key.
+17. When the image capture has completed, type exit and press the **Enter** key.
+18. On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
+19. Until noted, the following procedure applies to actions inside the host environment.
+20. In the Virtual Machine Connection window, click the **File** menu, then click **Exit**.
+21. In the Hyper-V Manager, in the Actions pane on the right side of the window, click on **Virtual Switch Manager**.
+22. On the right side of the Virtual Switch Manager window that appears, with **External** selected, click **Create Virtual Switch**.
+23. In the Virtual Switch Properties, enter External in the Name field.  Ensure that the pull down menu under Connection type, External network is set to the network adapter on your host computer that is used for network access, then click **OK**.
+24. Click **Yes** in the Apply Networking Changes dialog.
+25. In the Hyper-V Manager window, click on the **File** menu, then click **Exit**.
+
+PART 20 - IMPORT THE VIRTUAL MACHINE AND CONNECT THE BACKUP DISK
+
+1.  Open Windows File Explorer and open your Documents folder.
+2.  Locate the WindowsEFI64.vmcz file and double-click on it to import the virtual machine copy.
+3.  In the User Account Control dialog that appears, click **Yes**.
+4.  On the Import Virtual Machine screen that appears, click the **Import Virtual Machine** button.
+5.  It will likely take a few moments for the system to import the virtual machine.
+6.  When the import completes, you will see a message reading Virtual machine created successfully.  The new virtual machine will be named WindowsEFI64 (1).
+
+7.  Click the **Edit settings...** button.
+8.  In the Settings for WindowsEFI64 (1) window that appears, in the left column, under hardware, click on **SCSI Controller**.
+9.  In the right pane of the window, click on **Hard Drive** to select it, then click on the **Add** button.
+10. On the Hard Drive screen, under Media, with Virtual hard disk selected, click **Browse**.
+11. Navigate to the Documents folder for your Windows user account, open the Virtual Disks folder, then double-click on **Backup.vhdx** to open it.
+12. In the left column of the Settings for WindowsEFI64 (1) window, under Hardware, click **Add Hardware**.
+13. In the pane on the right side of the window, click **Network Adapter** and click **Add**.
+14. On the Network Adapter screen, from the Virtual switch pull down menu, select **External**.
+
+15. In the Settings for WindowsEFI64 (1) window, click **OK**.
+16. In the Import Virtual Machine window, click **Connect**.
+17. In the Virtual Machine Connection window, click **Start**.
+18. Click in the virtual machine window to activate it.
+19. Until noted, the following procedure applies to actions inside the virtual machine environment.
+
+PART 21 - ENABLE FILE SHARING ON THE VIRTUAL MACHINE
+
+1.  Once Windows starts, a blue message on the right side of the screen will prompt Do you want to allow your PC to be discoverable by other PCs and devices on this network?  Click **Yes**.
+
+2.  In the System Preparation Tool 3.14 window, click **Cancel**.
+3.  Right-click on the Start icon in the lower-left corner of the screen and click **Computer Management**.
+4.  In the left column of the Computer Management window, under Computer Management (Local), System Tools, double-click on Local Users and Groups, then double-click on Users.
+5.  Click the **Action** menu, then click **New User...**.
+6.  Enter transfer as the user name and enter a secure password for the user in both the Password and confirm password fields.
+7.  Uncheck **User must change password at next logon**, and check **Password never expires**.
+8.  Click **Create**.
+9.  Click **Close**.
+
+10. In the left column of the Computer Management window, under Computer Management (Local), Services and Applications, double-click on **Services**.
+11. In the middle pane of the window, scroll down in the Services list and locate Server, then double-click on **Server**.
+12. Set the Startup type for Server to **Automatic** and click the **Start** button, then click **OK**.
+13. Go to the **File** menu and click **Exit**.
+14. Right-click on an empty area of the Desktop and click **New** then click **Folder**.
+15. Name the folder share.
+16. Right-click on the **share** folder and click **Properties**.
+17. In the Share Properties window that appears, click on the **Sharing** tab.
+18. Click **Advanced Sharing**.
+19. Check **Share this folder**.
+20. Click **Permissions**.
+21. Click **Add**.
+22. In the Enter the object names to select field, enter transfer and click **Check Names**.  The name should resolve to COMPUTERNAME\transfer (where COMPUTERNAME is the current vm pseudo-random name).
+23. Click **OK**.
+
+24. In the Permissions for share window, with **transfer** selected, click the **Allow Full Control** checkbox.
+25. Click **OK**.
+26. Click **OK**.
+27. Click on the **Security** tab.
+28. Click **Edit**.
+29. Click **Add**.
+30. In the Enter the object names to select, enter transfer and click **Check Names**.
+31. Click **OK**.
+32. In the Permissions for share window, click on **transfer** in the Group or user names list, then click **Allow Full control**.  Click the **OK** button.
+
+33. Click **Close**.
+34. Right-click on the Start icon in the lower-left corner and click **Windows PowerShell (Admin)**.
+35. In the PowerShell Window, type ipconfig and press the **Enter** key.
+36. Note the IPv4 Address indicated for the virtual machine.
+37. Type exit and press the **Enter** key.
+38. Open the Windows File Explorer and open the Backup disk (likely drive letter D).
+39. Right-click on the **WindowsEFIAuditMode.wim** file and click **Copy**.
+40. Open the **Desktop** folder, then open the **share** folder, then right-click on an empty area of the folder window and click **Paste**.
+41. Until noted, the following procedure applies to actions inside the host environment.
+42. Click on the Minimize (-) button in the upper-right corner of the WindowsEFI64 (1) Virtual Machine Connection window to minimize the window.
+43. Open Windows File Explorer on the host and go to **This PC**.
+44. Click **Computer** and then **Map network drive**.
+45. In the Map Network Drive window that appears, in the Folder field, enter \\IPAddressOfVirtualMachine\share (where IPAddressOfVirtualMachine is the IP address noted in step 30).  Note the drive letter for the mapped drive (likely drive Z:).
+
+46. Uncheck **Reconnect at sign-in** and click **Finish**.
+47. In the Enter network credentials window that appears, enter transfer in the User name field and the password you created in the Password field, then click **OK**.
+48. In the share folder that opens, right-click on **WindowsEFI64AuditMode.wim** and click **Copy**.
+49. Navigate to the Documents folder for your Windows user account, right-click in an empty area of the folder, and click **Paste**.
+
+PART 22 - CREATE A COPYPROFILE ANSWER FILE
+
+1.  Click the Start button click **Windows Kits** and click **Windows System Image Manager**.
+
+2.  In the Windows System Image Manager, click the **File** menu, click **Select Windows Image**.
+3.  Navigate to the Documents folder and double-click on **WindowsEFI64AuditMode.wim**.
+4.  When asked Do you want to create a catalog file, click **Yes**.
+5.  In the User Account Control dialog that appears, click **Yes**.
+6.  The system may take a moment to create a catalog file.
+7.  Once the catalog file is created, in the Windows Image pane, expand **Components**, then right-click on **amd64_Microsoft-Windows-Shell-Setup_10.0.17763.1_neutral** and click **Add Setting to Pass 4 specialize**.
+8.  In the Answer File pane, select **Components**, **4 specialize**, **amd64-Microsoft-Windows-Shell-Setup_neutral**.
+9.  In the Microsoft-Windows-Shell-Setup Properties pane, in the Settings section, click on **CopyProfile**, then select **true** from the pull down menu to the right of CopyProfile.
+10. Go to the **File** menu and click **Save Answer File As...**.
+11. In the Save As window that appears, open the **Documents** folder for your Windows user account and then enter CopyProfile.xml in the File name field and click **Save**.
+12. Go to the **File** menu and click **Exit**.
+
+PART 23 - COPY THE ANSWER FILE TO THE VIRTUAL DISK
+
+1.  Open the Windows File Explorer and open your Windows user account's **Documents** folder.
+2.  Right-click on the **CopyProfile.xml** file and click **Copy**.
+3.  Navigate to the mapped **share** folder from the virtual machine (the location should have been noted in step 45 of Part 21 and is likely drive Z:).
+4.  Right-click in an empty area of the open share folder and click **Paste**.
+5.  In the Windows File Explorer, open the **File** menu and click **Close**.
+6.  Open the WindowsEFI64 (1) Virtual Machine Connection window and click in the window to activate it.
+
+7.  Until noted, the following procedure applies to actions inside the virtual machine environment.
+8.  Open Windows File Explorer and open the **share** folder on the Administrator account's Desktop.
+9.  Right-click on the **CopyProfile.xml** file and click **Copy**.
+10. Open **This PC**.
+11. Open the **Backup** disk (likely D:).
+12. Right-click in an empty area of the open file browser window and click **Paste**.
+13. Click the **X Close** button in the upper-right corner of the window to close the file browser.
+14. Click on the Start button then click **Power**, then click **Shut Down**.
+15. Until noted, the following procedure applies to actions inside the host environment.
+16. Click the **X Close** button in the upper-right corner of the WindowsEFI64 (1) Virtual Machine Connection window to close it.
+17. In the Hyper-V Manager window, in the Virtual Machines pane, click on the **WindowsEFI64** virtual machine to select it.
+18. In the Actions pane on the right side of the window, under WindowsEFI64, click **Connect...**.
+19. In the WindowsEFI64 Virtual Machine Connection window that appears, click the **Start** button.
+20. After the virtual machine starts and boots into Window Audit Mode, click the mouse cursor in the virtual machine window to activate it.
+21. Until noted, the following procedure applies to actions inside the virtual machine environment.
+
+PART 24 - RUN SYSPREP
+
+1.  In System Preparation Tool 3.14, click **Cancel**.
+
+2.  Right-click on the Start button and click **Windows PowerShell (Admin)**.
+3.  Type del (Get-PSReadlineOption).HistorySavePath and press the **Enter** key.
+4.  Close the PowerShell window by clicking the **X Close** button in the upper-right corner of the window.
+5.  Click the **File Explorer** (yellow folder) icon on the Taskbar and go to **This PC**.
+6.  Note the drive letter for the Backup drive (likely E:).
+7.  Close File Explorer by clicking on the **X Close** button in the upper-right corner of the window.
+8.  Right-click on the Start button and click **Run**.
+9.  In the Open field, type c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\copyprofile.xml (substituting the correct letter if e: is not the drive letter for the backup drive noted in step 6) and press the **Enter** key.
+10. A message reading Sysprep is working... will appear.  Wait while the Sysprep program finishes running and the virtual machine is shut down.
+11. Until noted, the following procedure applies to actions inside the host environment.
+
+PART 25 - CAPTURE POST-SYSPREP IMAGE
+
+1.  In the WindowsEFI64 Virtual Machine Connection window, click the **File** menu, then click **Exit**.
+2.  In the Hyper-V Manager window, in the Virtual Machines pane, click on **WindowsEFI64 (1)** to select it.
+3.  In the Actions pane on the right side of the window, under WindowsEFI64 (1), click **Connect...**.
+4.  In the WindowsEFI64(1) Virtual Machine Connection window that appears, click the **File** menu, then click **Settings**.
+5.
+
+6.  , then click
+
+7.  , click the Start button.
+8.  The virtual machine will start and will display a message reading "Press any key to boot from CD or DVD..."  While this message is displayed, click the mouse inside the virtual machine window to activate it and then press the **A** key on the keyboard.  This sequence happens quickly and is time sensitive.  If the Windows Boot Manager screen does not appear, wait until Windows starts in Audit Mode, in the System Preparation Tool 3.14 click **Cancel**, then click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.  After the virtual machine has shut down, repeat step 27 and 28 until the black Windows Boot Manager screen appears.
+9.  Until noted, the following procedure applies to actions inside the virtual machine environment.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## License
 
 All content copyright (c) 2018 Curtis Glavin, Jonathan Huppi, Robert Burkey
