@@ -1,11 +1,12 @@
 # Tools And Documentation To Automate And Manage Windows Deployment
 
-PART 1 - DOWNLOAD WINDOWS 10
+These instructions are for creating a customized Windows 10 environment that can be easily installed onto PCs through an automated, bootable USB installer.  While the Windows installation will be highly customized, all of the processes and tools used - other than the open source scripts in this repository - are available for free from Microsoft.  This means that any properly licensed PCs configured with this process should be fully supported by Microsoft and that the customizations should not break anything in the operating system (since no third-party software is used).  Additionally, the instructions are precise and detailed so anyone with general experience using Windows should be able to follow this process, while experienced system administrators can customize settings as desired.  Finally, while the process to create the USB installer is long, the end result will be a tool that can be used to configure any Windows PC in minutes instead of hours.
+
+## Part 1 - Download Windows 10
 
 1.  On a Windows 10 Professional computer running Windows version 1809 64-bit, go to Microsoft's Download Windows 10 page (currently available at <https://www.microsoft.com/en-us/software-download/windows10>).
 2.  Download the Create Windows 10 installation media tool (currently MediaCreationTool1809.exe available from <https://go.microsoft.com/fwlink/?LinkId=691209>).
 3.  Run the downloaded tool.  In the User Account Control window that appears, click **Yes** when asked Do you want to allow this app to make changes to your device?
-
 4.  In the Windows 10 Setup window that appears, click **Accept**.
 5.  On the What do you want to do? screen, select **Create installation media (USB flash drive, DVD, or ISO file) for another PC**.
 6.  Click the **Next** button.
@@ -18,12 +19,11 @@ PART 1 - DOWNLOAD WINDOWS 10
 13. The computer will download the ISO file (this may take several minutes).
 14. When the download is complete, click the **Finish** button.
 
-PART 2 - DOWNLOAD WINDOWS ADK
+## Part 2 - Download Windows ADK
 
 1.  Go to Microsoft's Download and install the Windows ADK page (currently available at <https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install>).
 2.  Download the Windows ADK for Windows 10, version 1809 (currently available from [https://go.microsoft.com/fwlink/?linkid=2026036](https://go.microsoft.com/fwlink/?LinkId=691209)).
 3.  Download the Windows PE add-on for the ADK (currently available from <https://go.microsoft.com/fwlink/?linkid=2022233>).
-
 4.  Run the adksetup.exe tool.  In the installation window that appears, click **Next**.
 5.  Click **No** then click **Next**.
 6.  Click **Accept**.
