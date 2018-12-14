@@ -49,7 +49,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## Part 3 - Install VirtualBox
 
-1.  Go to <https://www.virtualbox.org> .
+1.  Go to <https://www.virtualbox.org>.
 2.  Click the [**Downloads**](https://www.virtualbox.org/wiki/Downloads) link in the navigation menu.
 3.  Click the link to download VirtualBox for [**Windows hosts**](https://download.virtualbox.org/virtualbox/5.2.22/VirtualBox-5.2.22-126460-Win.exe) and save the download on your computer (at the time of publication, the latest version of VirtualBox is 5.2.22).
 4.  Click the link to download the Oracle VM VirtualBox Extension Pack for [All supported platforms](https://download.virtualbox.org/virtualbox/5.2.22/Oracle_VM_VirtualBox_Extension_Pack-5.2.22.vbox-extpack) and save the download on your computer.
@@ -126,6 +126,219 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 2.  The virtual machine will restart and will log the built-in Administrator account into Windows in Audit Mode.
 3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
 4.  Importantly, please note that Parts 8-15 must be completed without shutting down or restarting the virtual machine, as Windows will only allow customization of certain settings on the first boot.
+
+## Part 8 - Disable Sounds
+
+1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Run**.
+2.  In the Open field, type `control panel` and press the **Enter** key.
+3.  In the upper-right corner of the Control Panel window that appears, click on the **View by** pull down menu and click **Large icons** to switch from the Category option to Large icons.
+4.  Click **Sound**.
+5.  In the Sound window, go to the **Sounds** tab.
+6.  Change Sound Scheme to **No Sounds**, then click the **OK** button.
+7.  Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window to close the window.
+
+## Part 9 - Configure Settings
+
+1.  Click on the **Windows Start Menu** icon in the lower-left corner of the screen, then **Settings** (gear icon).
+2.  Go to **Personalization**.
+3.  Go to **Colors**.
+4.  Scroll down and set **Choose your default app mode** to **Dark**.
+5.  Turn **Transparency effects** **Off**.
+6.  Go to **Background**.
+7.  Set **Background** to **Solid color**.
+8.  Go to **Lock screen**.
+9.  Set **Background** to **Picture**.
+10. Set **Get fun facts, tips, and more from Windows and Cortana on your lock screen** to **Off**.
+11. Go to **Themes**.
+12. Click **Save theme**.
+13. In the Save your theme popup that appears, in the Name your theme field, enter `Default` and click the **Save** button.
+14. Go to **Start**.
+15. Turn **Show recently added apps** **Off**.
+16. Turn **Show suggestions occasionally in Start** **Off**.
+17. Turn **Show recently opened items in Jump Lists on Start or the taskbar** **Off**.
+18. Go to **Taskbar**.
+19. Turn **Show badges on taskbar buttons** **Off**.
+20. Click **Select which icons appear on the taskbar**.
+21. Turn **Always show all icons in the notification area** **On**.
+22. In the upper-left corner of the window, click the **Back** arrow button.
+23. Go to **Turn system icons on or off**.
+24. Set **Action Center**, **Location**, **Input indicator**, **Network** to **Off**.
+25. In the upper-left corner of the window, click the **Back** arrow button.
+26. Scroll down to the bottom of the window.
+27. Turn **Show My People app suggestions** **Off**.
+28. Turn **Play a sound when a My People notification arrives** **Off**.
+29. Turn **Show My People notifications** **Off**.
+30. Turn **Show contacts on the taskbar** **Off**.
+31. In the upper-left corner of the window, click the **Home** button.
+32. Click **System**.
+33. Click **Notifications & actions**.
+34. Click **Add or remove quick actions**.
+35. Set **Tablet Mode**, **Location**, **VPN**, **Project**, and **Connect** to **Off**.
+36. In the upper-left corner of the window, click the **Back** arrow button.
+37. Turn **Show notifications on the lock screen** **Off**.
+38. Turn **Show reminders and incoming VoIP calls on the lock screen** **Off**.
+39. Turn **Show me the Windows welcome experience after updates and occasionally when I sign in to highlight what's new and suggested** **Off**.
+40. Turn **Get tips, tricks, and suggestions as you use Windows** **Off**.
+41. Turn **Get notifications from apps and other senders** **Off**.
+42. Click **Focus assist**.
+43. Turn **When I'm playing a game** **Off**.
+44. Turn **When I'm duplicating my display** **Off**.
+45. Click **Tablet mode**.
+46. Turn **Hide app icons on the taskbar in tablet mode** **Off**.
+47. Set **When this device automatically switches tablet mode on or off** to **Don't ask me and don't switch**.
+48. Set **When I sign in** to **Use desktop mode**.
+49. Click **Multitasking**.
+50. Set **Show suggestions occasionally in your timeline** to **Off**.
+51. Click **Shared experiences**.
+52. Turn **Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa** **Off**.
+53. In the upper-left corner of the window, click **Home**.
+54. Click **Devices**.
+55. Click on **Printers & scanners**.
+56. Uncheck **Let Windows manage my default printer**.
+57. Click **Pen & Windows Ink**.
+58. Uncheck **Show recommended app suggestions**.
+59. Click **AutoPlay**.
+60. Turn **Use AutoPlay for all media and devices** **Off**.
+61. Click **Home**.
+62. Click **Apps**.
+63. Set **Installing apps** to **Turn off app recommendations**.
+64. Click on and **Uninstall** the following apps in the list: **App Installer**, **Feedback Hub**, **Microsoft OneDrive**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Mobile Plans**, **My Office**, **OneNote**, **Print 3D**, **Skype**, **Tips**, **Weather**, **Web Media Extensions**, **Xbox Live**.
+65. Click **Offline Maps**.
+66. Click **Delete all maps** and click **Delete all** in the popup that appears.
+67. Set **Automatically update maps** to **Off**.
+68. Click on **Apps for websites**.
+69. Set **Microsoft Edge** and **Maps** (there may be two Maps listed, set them both) to **Off**.
+70. Click **Startup**.
+71. Set **Windows Security notification icon** to **Off**.
+72. Click **Home**.
+73. Click **Gaming**.
+74. Turn **Record game clips, screenshots, and broadcast using Game bar** **Off.**
+75. Uncheck **Open Game bar using this button on a controller**.
+76. Click **Game Mode**.
+77. Turn **Game Mode** **Off**.
+78. Click **Home**.
+79. Click **Cortana**.
+80. Set **Use Cortana even when my device is locked** **Off**.
+81. Click **Permissions & History**.
+82. Click **Clear my device history**.
+83. Set **My device history**, **Activity recommendations**, and **Windows Cloud Search** to **Off**.
+84. Click **Home**.
+
+85. Click **Privacy**.
+82. Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
+83. Click **Inking & typing personalization**.
+84. Set **Getting to know you** **Off**.
+85. Click **Diagnostics & feedback**.
+86. Set **Improve inking and typing** **Off**.
+87. Click **Delete** to delete the diagnostic data from the system.
+88. Set **Windows should ask for my feedback** to **Never**.
+89. At the top of the screen, set **Diagnostic data** to **Basic**.
+90. Click **Activity History**.
+91. Uncheck **Store my activity history on this device**.
+92. Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
+93. Click **Location**.
+94. Click **Clear** to clear the location history from the system.
+95. Set **Allow apps to access your location** to **Off**.
+96. Click **Change** to change location access for the device and set **Location for this device** to **Off** in the popup, then click in the Location settings window to close the popup.
+97. Click **Camera**.
+98. Set camera access for all apps, including **Microsoft Edge**, **Deluxe App Web Viewer**, and **Camera**, to **Off**.
+99. Set **Allow apps to access your camera** to **Off**.
+100. Click **Change** to change camera access for the device and set **Camera access for this device** to **Off** in the popup, then click in the Camera settings window to close the popup.
+101. Click **Microphone**.
+102. Set microphone access for all apps, including **Microsoft Edge** and **Camera**, to **Off**.
+103. Set **Allow apps to access your microphone** to **Off**.
+104. Click **Change** to change microphone access for the device and set **Microphone access for this device** to **Off** in the popup, then click in the Microphone settings window to close the popup.
+105. Click **Notifications**.
+106. Set **Allow apps to access your notifications** to **Off**.
+107. Click **Change** to change notification access for the device and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
+108. Click **Account info**.
+109. Set account access for all apps, including **Microsoft Edge**, to **Off**.
+110. Set **Allow apps to access your account info** to **Off**.
+111. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
+112. Click **Contacts**.
+113. Set contacts access for all apps, including **Messaging** and **Mail and Calendar** to **Off**.
+114. Set **Allow apps to access your contacts** to **Off**.
+115. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
+116. Click **Calendar**.
+117. Set calendar access for all apps, including **Mail and Calendar**, to **Off**.
+118. Set **Allow apps to access your calendar** to **Off**.
+119. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
+120. Click **Call History**.
+121. Set **Allow apps to access your call history** to **Off**.
+122. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
+123. Click **Email**.
+124. Set email access for all apps, including **Mail and Calendar**, to **Off**.
+125. Set **Allow apps to access your email** to **Off**.
+126. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
+127. Click **Tasks**.
+128. Set **Allow apps to access your tasks** to **Off**.
+129. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
+130. Click **Messaging**.
+131. Set **Allow apps to read or send messages** to **Off**.
+132. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
+133. Click **Radios**.
+134. Set **Allow apps to control device radios** to **Off**.
+135. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
+136. Click **Other devices**.
+137. Set **Communicate with unpaired devices** to **Off**.
+138. Click **Background apps.**
+139. Set background processing for all apps, including **Your Phone**, **Xbox**, **Windows Security**, **Voice Recorder**, **Sticky Notes**, **Snip & Sketch**, **Settings**, **Photos**, **People**, **Paint 3D**, **Movies & TV**, **Mixed Reality Viewer**, **Microsoft Store**, **Microsoft Edge**, **Messaging**, **Maps**, **Mail and Calendar**, **Groove Music**, **Get Help**, **Game bar**, **Connect**, **Camera**, **Calculator**, and **Alarms & Clock**, to **Off**.
+140. Set **Let apps run in the background** to **Off**.
+141. Click **App diagnostics**.
+142. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
+143. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
+144. Click **Documents**.
+145. Set document library access for all apps, including **Windows Security** and **Voice Recorder**, to **Off**.
+146. Set **Allow apps to access your documents library** to **Off**.
+147. Click **Change** to change documents library access for the device and set **Documents library access for this device** to **Off** in the popup, then click in the Documents settings window to close the popup.
+148. Click **Pictures**.
+149. Set pictures access for all apps, including **Xbox**, **Snip & Sketch**, **Paint 3D**, **Mixed Reality Viewer**, **Microsoft Edge**, **Game bar**, and **Cortana**, to **Off**.
+150. Set **Allow apps to access your pictures library** to **Off**.
+151. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
+152. Click **Videos**.
+153. Set video library access for all apps, including **Xbox**, **Movies & TV**, **Mixed Reality Viewer**, **Game bar**, and **Camera**, to **Off**.
+154. Set **Allow apps to access your videos library** to **Off**.
+155. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
+156. Click **File system**.
+157. Set **Allow apps to access your file system** to **Off**.
+158. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
+159. Click **Home**.
+160. Click **Update & Security**.
+161. Click **Delivery Optimization**.
+162. Set **Allow downloads from other PCs** to **Off**.
+163. Close the Settings window by clicking the X close button in the upper-right corner of the window.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
