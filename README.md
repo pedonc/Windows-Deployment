@@ -394,7 +394,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 11. Click on **Internet Explorer**.
 12. In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
 13. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
-14. In the Internet Options window that appears, in the Home page field, erase the URL listed and enter about:blank.
+14. In the Internet Options window that appears, in the Home page field, erase the URL listed and enter `about:blank`.
 15. Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
 16. Back in the Internet Options window, click the **OK** button.
 17. Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
@@ -407,36 +407,37 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 24. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
 25. When prompted, click **Close all tabs**.
 26. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
-27. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+27. Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
 28. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
 29. Click **Yes** to confirm deletion.
 
 ## Part 15 - Export Start Menu
 
 1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
-2.  Type export-startlayout -path c:\StartLayout.xml and press the **Enter** key.
-3.  Type exit and press the **Enter** key to exit PowerShell.
-4.  Click the **File Explorer** (yellow folder) icon on the Taskbar towards the lower-left corner of the screen.
+2.  Type `export-startlayout -path c:\StartLayout.xml` and press the **Enter** key.
+3.  Type `del (get-psreadlineoption).historysavepath` and press the **Enter** key.
+4.  Close the PowerShell window by clicking the **Close (X)** button in the upper-right corner of the window.
+5.  Click the **File Explorer** (yellow folder) icon on the Taskbar at the bottom of the screen.
 5.  Double-click on **Windows (C:)**.
 6.  Right-click on **StartLayout.xml** and click **Cut**.
 7.  Double-click on **Users**.
 8.  Double-click on **Public**.
 9. Right-click on an empty area of the Public folder and click **New**, then click **Folder**.
-10. Name the new folder Settings.
+10. Name the new folder `Settings`.
 11. Double-click on **Settings**.
 12. Right-click on an empty area of the Settings folder and click **Paste**.
 13. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
-14. Edit the **<DefaultLayoutOverride>** tag to read <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">.
+14. Edit the **<DefaultLayoutOverride>** tag to read `<DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">`.
 15. Click the **File** menu, click **Exit** and when prompted, click **Save**.
 16. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
 
-PART 16 - RESTART THE VIRTUAL MACHINE
+## Part 16 - Restart The Virtual Machine
 
 1.  Click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Restart**.
 2.  The system may restart one or more times and will eventually restart in Audit Mode.
 3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
 
-PART 17 - SHUTDOWN THE VIRTUAL MACHINE
+## Part 17 - Shut Down The Virtual Machine
 
 1.  Click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
 
