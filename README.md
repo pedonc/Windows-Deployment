@@ -1,6 +1,6 @@
 # Tools And Documentation To Automate And Manage Windows Deployment
 
-These instructions are for creating a customized Windows 10 environment that can be easily installed onto PCs through an automated, bootable USB installer.  While the Windows installation will be highly customized, all of the processes and tools used, other than the open source scripts in this repository, are available for free from Microsoft.  This means that any properly licensed PCs configured with this process should be fully supported by Microsoft, since no third party software is used.  Additionally, the instructions are precise and detailed so anyone with general experience using Windows should be able to follow this process, while experienced system administrators can customize settings as desired.  Finally, while the process to create the USB installer is long, the end result will be a tool that can be used to configure a Windows PC in minutes instead of hours.
+These instructions are for creating a customized Windows 10 environment that can be easily installed onto PCs through an automated, bootable USB installer.  While the Windows installation will be highly customized, all of the processes and tools used, other than the open source scripts in this repository, are available for free from Microsoft.  Additionally, the instructions are precise and detailed so anyone with general experience using Windows should be able to follow this process, while experienced system administrators can customize settings as desired.  Finally, while the process to create the USB installer takes many steps, the end result will be a tool that can be used to configure a Windows PC in minutes instead of hours.
 
 ## Recommended Minimum PC Requirements
 
@@ -25,7 +25,7 @@ Please note that having a computer with a fast processor, solid state disk, and 
 9.  Click the **Next** button.
 10. On the Choose which media to use screen, select **ISO file**.
 11. Click the **Next** button.
-12. In the Select a path window that appears, select a folder to store the ISO file, and enter `Windows1809.iso` in the File name field, then click **Save**.
+12. In the Select a path window that appears, open the **Documents** folder for your Windows user account, and enter `Windows1809.iso` in the File name field, then click **Save**.
 13. The computer will download the ISO file (this may take several minutes).
 14. When the download is complete, click the **Finish** button.
 
@@ -40,7 +40,7 @@ Please note that having a computer with a fast processor, solid state disk, and 
 7.  Check all the installable features and click **Install**.
 8.  Click **Yes** when prompted to allow installation.
 9.  When the installation process is complete, click **Close**.
-10. Run the **adkwinpesetup.exe** tool.  In the installation window that appears, ensure that Install the Windows Assessment and Deployment Kit Windows Preinstallation Enviromnet Add-ons - Windows 10 to this computer is selected and clcik the **Next** button.
+10. Run the **adkwinpesetup.exe** tool.  In the installation window that appears, ensure that Install the Windows Assessment and Deployment Kit Windows Preinstallation Enviromnet Add-ons - Windows 10 to this computer is selected and click the **Next** button.
 11. Click **No** then click **Next**.
 12. Click **Accept**.
 13. Check all the installable features and click **Install**.
@@ -57,37 +57,35 @@ Please note that having a computer with a fast processor, solid state disk, and 
 6.  In the Windows Features window that appears, check the box to the left of **Hyper-V** and click **OK**.
 7.  Windows will take a moment to enable Hyper-V, then will prompt you to restart the computer.  Click **Restart now**.
 
-PART 4 - CONFIGURE EFI 64 BIT VM
+## Part 4 - Configure EFI 64-Bit Virtual Machine
 
 1.  After the computer has restarted, click on the **Windows Start Menu** icon in the lower-left corner of the screen, then go to **Windows Administrative Tools** and select **Hyper-V Manager**.
 2.  In the left column of the Hyper-V Manager, click on the name of your computer.
 3.  In the right-most pane that appears, click **New** and select **Virtual Machine...**.
 4.  In the New Virtual Machine Wizard, click **Next**.
-5.  In the Name: field, enter WindowsEFI64.
+5.  In the Name field, enter `WindowsEFI64`.
 6.  Check the box next to **Store the virtual machine in a different location** and click the **Browse...** button.
-7.  In the Select Folder window that appears, navigate to the Documents folder for your Windows user account, create a folder named Virtual Machines.
-8.  Open the Virtual Machines folder, then click **Select Folder** to save the virtual machine in that folder.
+7.  In the Select Folder window that appears, open the **Documents** folder for your Windows user account, and create a folder in Documents named `Virtual Machines`.
+8.  Open the **Virtual Machines** folder, then click **Select Folder** to save the virtual machine in that folder.
 9.  On the Specify Name and Location screen, click the **Next** button.
 10. On the Specify Generation screen, choose **Generation 2** and click **Next**.
-11. On the Assign Memory screen, specify 4096 MB as the Startup memory amount, ensure that **Use Dynamic Memory for this virtual machine** is checked, and click **Next**.
-12. On the Configure Networking screen, ensure that Connection: is set to **Not Connected**, then click **Next**.
-13. On the Connect Virtual Hard Disk screen, ensure that **Create a virtual hard disk** is selected, then specify 64 GB as the Size and click **Next**.
+11. On the Assign Memory screen, specify `4096` MB as the Startup memory amount, ensure that **Use Dynamic Memory for this virtual machine** is checked, and click **Next**.
+12. On the Configure Networking screen, ensure that Connection is set to **Not Connected**, then click **Next**.
+13. On the Connect Virtual Hard Disk screen, ensure that **Create a virtual hard disk** is selected, then specify `64` GB as the Size and click **Next**.
 14. On the Installation Options screen, click **Finish**.
-15. In the Hyper-V Manager window, in the Virtual Machines pane, select WindowsEFI64 and in the right-most Actions pane, under WindowsEFI64, click **Settings...**.
+15. In the Hyper-V Manager window, in the Virtual Machines pane, click **WindowsEFI64** to select it and in the right-most Actions pane, under WindowsEFI64, click **Settings...**.
 16. In the window that appears, in the left column under Hardware, click on **Network Adapter** then click the **Remove** button.
 17. In the left column, click **Memory**.
-18. In the Memory pane on the right side of the window, enter 1024 as the Minimum RAM.
-
-19. In the left column, click SCSI Controller.
+18. In the Memory pane on the right side of the window, enter `1024` as the Minimum RAM.
+19. In the left column, click **SCSI Controller**.
 20. In the SCSI Controller pane on the right side of the window, click **DVD Drive** then click **Add**.
-21. In the DVD Drive pane that appears on the right, select **Image file:** and click the **Browse...** button.
-22. Select the Windows1809.iso file you downloaded in PART 1 and click **Open**.
+21. In the DVD Drive pane that appears on the right, select **Image file** and click the **Browse...** button.
+22. Select the **Windows1809.iso** file you downloaded in Part 1 and click **Open**.
 23. In the left column, under the Management section, click on **Checkpoints**.
 24. Uncheck **Enable checkpoints**.
-
 25. Click the **OK** button.
-26. To enable nested Hyper-V (allowing the Hyper-V client to also be a Hyper-V host), right-click on the Start button on the host computer and select **Windows PowerShell (Admin)**.  In the PowerShell window that appears, enter set-vmprocessor -vmname WindowsEFI64 -exposevirtualizationextensions $true and press the **Enter** key.
-27. Type exit and press the **Enter** key to close the PowerShell window.
+26. To enable nested Hyper-V (allowing the Hyper-V client to also be a Hyper-V host), right-click on the **Windows Start Menu** icon on the host computer and select **Windows PowerShell (Admin)**.  In the PowerShell window that appears, enter `set-vmprocessor -vmname WindowsEFI64 -exposevirtualizationextensions $true` and press the **Enter** key.
+27. Type `exit` and press the **Enter** key to close the PowerShell window.
 
 PART 5 - BOOT WINDOWS INSTALLER IN VM
 
@@ -155,8 +153,8 @@ PART 10 - CONFIGURE GROUP POLICIES
 
 PART 11 - CONFIGURE CONTROL PANELS
 
-1.  Right-click on the Start button in the lower-left corner of the screen and click **Run**.
-2.  In the Open field, type control panel and press the **Enter** key.
+1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Run**.
+2.  In the Open field, type `control panel` and press the **Enter** key.
 3.  In the upper-right corner of the Control Panel window that appears, click on the **View by** pull down menu and click **Large icons** to switch from the Category option to Large icons.
 4.  Click **AutoPlay**, uncheck **Use AutoPlay for all media and devices** and click the **Save** button.
 5.  Click **Date and Time**, click **Change time zone...** select **(UTC-05:00) Eastern Time (US & Canada)** and click the **OK** button.
@@ -530,7 +528,7 @@ PART 21 - ENABLE FILE SHARING ON THE VIRTUAL MACHINE
 1.  Once Windows starts, a blue message on the right side of the screen will prompt Do you want to allow your PC to be discoverable by other PCs and devices on this network?  Click **Yes**.
 
 2.  In the System Preparation Tool 3.14 window, click **Cancel**.
-3.  Right-click on the Start icon in the lower-left corner of the screen and click **Computer Management**.
+3.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Computer Management**.
 4.  In the left column of the Computer Management window, under Computer Management (Local), System Tools, double-click on Local Users and Groups, then double-click on Users.
 5.  Click the **Action** menu, then click **New User...**.
 6.  Enter transfer as the user name and enter a secure password for the user in both the Password and confirm password fields.
@@ -564,7 +562,7 @@ PART 21 - ENABLE FILE SHARING ON THE VIRTUAL MACHINE
 32. In the Permissions for share window, click on **transfer** in the Group or user names list, then click **Allow Full control**.  Click the **OK** button.
 
 33. Click **Close**.
-34. Right-click on the Start icon in the lower-left corner and click **Windows PowerShell (Admin)**.
+34. Right-click on the **Windows Start Menu** icon in the lower-left corner and click **Windows PowerShell (Admin)**.
 35. In the PowerShell Window, type ipconfig and press the **Enter** key.
 36. Note the IPv4 Address indicated for the virtual machine.
 37. Type exit and press the **Enter** key.
@@ -584,7 +582,7 @@ PART 21 - ENABLE FILE SHARING ON THE VIRTUAL MACHINE
 
 PART 22 - CREATE A COPYPROFILE ANSWER FILE
 
-1.  Click the Start button click **Windows Kits** and click **Windows System Image Manager**.
+1.  Click on the **Windows Start Menu** icon, click **Windows Kits** and click **Windows System Image Manager**.
 
 2.  In the Windows System Image Manager, click the **File** menu, click **Select Windows Image**.
 3.  Navigate to the Documents folder and double-click on **WindowsEFI64AuditMode.wim**.
@@ -614,7 +612,7 @@ PART 23 - COPY THE ANSWER FILE TO THE VIRTUAL DISK
 11. Open the **Backup** disk (likely D:).
 12. Right-click in an empty area of the open file browser window and click **Paste**.
 13. Click the **X Close** button in the upper-right corner of the window to close the file browser.
-14. Click on the Start button then click **Power**, then click **Shut Down**.
+14. Click on the **Windows Start Menu** icon then click **Power**, then click **Shut Down**.
 15. Until noted, the following procedure applies to actions inside the host environment.
 16. Click the **X Close** button in the upper-right corner of the WindowsEFI64 (1) Virtual Machine Connection window to close it.
 17. In the Hyper-V Manager window, in the Virtual Machines pane, click on the **WindowsEFI64** virtual machine to select it.
@@ -627,13 +625,13 @@ PART 24 - RUN SYSPREP
 
 1.  In System Preparation Tool 3.14, click **Cancel**.
 
-2.  Right-click on the Start button and click **Windows PowerShell (Admin)**.
+2.  Right-click on the **Windows Start Menu** icon and click **Windows PowerShell (Admin)**.
 3.  Type del (Get-PSReadlineOption).HistorySavePath and press the **Enter** key.
 4.  Close the PowerShell window by clicking the **X Close** button in the upper-right corner of the window.
 5.  Click the **File Explorer** (yellow folder) icon on the Taskbar and go to **This PC**.
 6.  Note the drive letter for the Backup drive (likely E:).
 7.  Close File Explorer by clicking on the **X Close** button in the upper-right corner of the window.
-8.  Right-click on the Start button and click **Run**.
+8.  Right-click on the **Windows Start Menu** icon and click **Run**.
 9.  In the Open field, type c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\copyprofile.xml (substituting the correct letter if e: is not the drive letter for the backup drive noted in step 6) and press the **Enter** key.
 10. A message reading Sysprep is working... will appear.  Wait while the Sysprep program finishes running and the virtual machine is shut down.
 11. Until noted, the following procedure applies to actions inside the host environment.
