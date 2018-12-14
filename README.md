@@ -223,90 +223,87 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 82. Click **Clear my device history**.
 83. Set **My device history**, **Activity recommendations**, and **Windows Cloud Search** to **Off**.
 84. Click **Home**.
-
 85. Click **Privacy**.
-82. Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
-83. Click **Inking & typing personalization**.
-84. Set **Getting to know you** **Off**.
-85. Click **Diagnostics & feedback**.
-86. Set **Improve inking and typing** **Off**.
-87. Click **Delete** to delete the diagnostic data from the system.
-88. Set **Windows should ask for my feedback** to **Never**.
-89. At the top of the screen, set **Diagnostic data** to **Basic**.
-90. Click **Activity History**.
-91. Uncheck **Store my activity history on this device**.
-92. Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
-93. Click **Location**.
-94. Click **Clear** to clear the location history from the system.
-95. Set **Allow apps to access your location** to **Off**.
-96. Click **Change** to change location access for the device and set **Location for this device** to **Off** in the popup, then click in the Location settings window to close the popup.
-97. Click **Camera**.
-98. Set camera access for all apps, including **Microsoft Edge**, **Deluxe App Web Viewer**, and **Camera**, to **Off**.
-99. Set **Allow apps to access your camera** to **Off**.
-100. Click **Change** to change camera access for the device and set **Camera access for this device** to **Off** in the popup, then click in the Camera settings window to close the popup.
-101. Click **Microphone**.
-102. Set microphone access for all apps, including **Microsoft Edge** and **Camera**, to **Off**.
-103. Set **Allow apps to access your microphone** to **Off**.
-104. Click **Change** to change microphone access for the device and set **Microphone access for this device** to **Off** in the popup, then click in the Microphone settings window to close the popup.
-105. Click **Notifications**.
-106. Set **Allow apps to access your notifications** to **Off**.
-107. Click **Change** to change notification access for the device and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
-108. Click **Account info**.
-109. Set account access for all apps, including **Microsoft Edge**, to **Off**.
-110. Set **Allow apps to access your account info** to **Off**.
-111. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
-112. Click **Contacts**.
-113. Set contacts access for all apps, including **Messaging** and **Mail and Calendar** to **Off**.
-114. Set **Allow apps to access your contacts** to **Off**.
-115. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
-116. Click **Calendar**.
-117. Set calendar access for all apps, including **Mail and Calendar**, to **Off**.
-118. Set **Allow apps to access your calendar** to **Off**.
-119. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
-120. Click **Call History**.
-121. Set **Allow apps to access your call history** to **Off**.
-122. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
-123. Click **Email**.
-124. Set email access for all apps, including **Mail and Calendar**, to **Off**.
-125. Set **Allow apps to access your email** to **Off**.
-126. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
-127. Click **Tasks**.
-128. Set **Allow apps to access your tasks** to **Off**.
-129. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
-130. Click **Messaging**.
-131. Set **Allow apps to read or send messages** to **Off**.
-132. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
-133. Click **Radios**.
-134. Set **Allow apps to control device radios** to **Off**.
-135. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
-136. Click **Other devices**.
-137. Set **Communicate with unpaired devices** to **Off**.
-138. Click **Background apps.**
-139. Set background processing for all apps, including **Your Phone**, **Xbox**, **Windows Security**, **Voice Recorder**, **Sticky Notes**, **Snip & Sketch**, **Settings**, **Photos**, **People**, **Paint 3D**, **Movies & TV**, **Mixed Reality Viewer**, **Microsoft Store**, **Microsoft Edge**, **Messaging**, **Maps**, **Mail and Calendar**, **Groove Music**, **Get Help**, **Game bar**, **Connect**, **Camera**, **Calculator**, and **Alarms & Clock**, to **Off**.
-140. Set **Let apps run in the background** to **Off**.
-141. Click **App diagnostics**.
-142. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
-143. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
-144. Click **Documents**.
-145. Set document library access for all apps, including **Windows Security** and **Voice Recorder**, to **Off**.
-146. Set **Allow apps to access your documents library** to **Off**.
-147. Click **Change** to change documents library access for the device and set **Documents library access for this device** to **Off** in the popup, then click in the Documents settings window to close the popup.
-148. Click **Pictures**.
-149. Set pictures access for all apps, including **Xbox**, **Snip & Sketch**, **Paint 3D**, **Mixed Reality Viewer**, **Microsoft Edge**, **Game bar**, and **Cortana**, to **Off**.
-150. Set **Allow apps to access your pictures library** to **Off**.
-151. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
-152. Click **Videos**.
-153. Set video library access for all apps, including **Xbox**, **Movies & TV**, **Mixed Reality Viewer**, **Game bar**, and **Camera**, to **Off**.
-154. Set **Allow apps to access your videos library** to **Off**.
-155. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
-156. Click **File system**.
-157. Set **Allow apps to access your file system** to **Off**.
-158. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
-159. Click **Home**.
-160. Click **Update & Security**.
-161. Click **Delivery Optimization**.
-162. Set **Allow downloads from other PCs** to **Off**.
-163. Close the Settings window by clicking the X close button in the upper-right corner of the window.
+86. Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
+87. Click **Inking & typing personalization**.
+88. Set **Getting to know you** **Off**.
+89. Click **Diagnostics & feedback**.
+90. Set **Improve inking and typing** **Off**.
+91. Click **Delete** to delete the diagnostic data from the system.
+92. Set **Windows should ask for my feedback** to **Never**.
+93. At the top of the screen, set **Diagnostic data** to **Basic**.
+94. Click **Activity History**.
+95. Uncheck **Store my activity history on this device**.
+96. Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
+97. Click **Location**.
+98. Click **Clear** to clear the location history from the system.
+99. Set **Allow apps to access your location** to **Off**.
+100. Click **Change** to change location access for the device and set **Location for this device** to **Off** in the popup, then click in the Location settings window to close the popup.
+101. Click **Camera**.
+102. Set camera access for all apps, including **Microsoft Edge**, **Desktop App Web Viewer**, and **Camera**, to **Off**.
+103. Set **Allow apps to access your camera** to **Off**.
+104. Click **Change** to change camera access for the device and set **Camera access for this device** to **Off** in the popup, then click in the Camera settings window to close the popup.
+105. Click **Microphone**.
+106. Set microphone access for all apps, including **Microsoft Edge** and **Camera**, to **Off**.
+107. Set **Allow apps to access your microphone** to **Off**.
+108. Click **Change** to change microphone access for the device and set **Microphone access for this device** to **Off** in the popup, then click in the Microphone settings window to close the popup.
+109. Click **Notifications**.
+110. Set **Allow apps to access your notifications** to **Off**.
+111. Click **Change** to change notification access for the device and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
+112. Click **Account info**.
+113. Set account access for all apps, including **Microsoft Edge**, to **Off**.
+114. Set **Allow apps to access your account info** to **Off**.
+115. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
+116. Click **Contacts**.
+117. Set contacts access for all apps, including **Messaging** and **Mail and Calendar** to **Off**.
+118. Set **Allow apps to access your contacts** to **Off**.
+119. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
+120. Click **Calendar**.
+121. Set calendar access for all apps, including **Mail and Calendar**, to **Off**.
+122. Set **Allow apps to access your calendar** to **Off**.
+123. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
+124. Click **Call History**.
+125. Set **Allow apps to access your call history** to **Off**.
+126. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
+127. Click **Email**.
+128. Set email access for all apps, including **Mail and Calendar**, to **Off**.
+129. Set **Allow apps to access your email** to **Off**.
+130. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
+131. Click **Tasks**.
+132. Set **Allow apps to access your tasks** to **Off**.
+133. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
+134. Click **Messaging**.
+135. Set **Allow apps to read or send messages** to **Off**.
+136. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
+137. Click **Radios**.
+138. Set **Allow apps to control device radios** to **Off**.
+139. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
+140. Click **Other devices**.
+141. Set **Communicate with unpaired devices** to **Off**.
+142. Click **Background apps.**
+143. Set background processing for all apps, including **Your Phone**, **Xbox**, **Windows Security**, **Voice Recorder**, **Sticky Notes**, **Snip & Sketch**, **Settings**, **Photos**, **People**, **Paint 3D**, **Movies & TV**, **Mixed Reality Viewer**, **Microsoft Store**, **Microsoft Edge**, **Messaging**, **Maps**, **Mail and Calendar**, **Groove Music**, **Get Help**, **Game bar**, **Connect**, **Camera**, **Calculator**, and **Alarms & Clock**, to **Off**.
+144. Set **Let apps run in the background** to **Off**.
+145. Click **App diagnostics**.
+146. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
+147. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
+148. Click **Documents**.
+149. Set document library access for **Voice Recorder** to **Off**.
+150. Click **Pictures**.
+151. Set pictures access for all apps, including **Xbox**, **Snip & Sketch**, **Paint 3D**, **Mixed Reality Viewer**, **Microsoft Edge**, **Game bar**, and **Cortana**, to **Off**.
+152. Set **Allow apps to access your pictures library** to **Off**.
+153. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
+154. Click **Videos**.
+155. Set video library access for all apps, including **Xbox**, **Movies & TV**, **Mixed Reality Viewer**, **Game bar**, and **Camera**, to **Off**.
+156. Set **Allow apps to access your videos library** to **Off**.
+157. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
+158. Click **File system**.
+159. Set **Allow apps to access your file system** to **Off**.
+160. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
+161. Click **Home**.
+162. Click **Update & Security**.
+163. Click **Delivery Optimization**.
+164. Set **Allow downloads from other PCs** to **Off**.
+165. Close the Settings window by clicking the **Close (X)** button in the upper-right corner of the window.
 
 
 
