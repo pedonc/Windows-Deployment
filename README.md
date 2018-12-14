@@ -129,7 +129,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## Part 8 - Disable Sounds
 
-1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Run**.
+1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
 2.  In the Open field, type `control panel` and press the **Enter** key.
 3.  In the upper-right corner of the Control Panel window that appears, click on the **View by** pull down menu and click **Large icons** to switch from the Category option to Large icons.
 4.  Click **Sound**.
@@ -139,7 +139,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## Part 9 - Configure Settings
 
-1.  Click on the **Windows Start Menu** icon in the lower-left corner of the screen, then **Settings** (gear icon).
+1.  Click on the **Start** button in the lower-left corner of the screen, then **Settings** (gear icon).
 2.  Go to **Personalization**.
 3.  Go to **Colors**.
 4.  Scroll down and set **Choose your default app mode** to **Dark**.
@@ -304,6 +304,207 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 163. Click **Delivery Optimization**.
 164. Set **Allow downloads from other PCs** to **Off**.
 165. Close the Settings window by clicking the **Close (X)** button in the upper-right corner of the window.
+
+## Part 10 - Enable Additional Windows Features
+
+1.  Right-click on the **Start** button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
+2.  In the PowerShell window that appears, to enable Microsoft Hyper-V, enter `dism /online /enable-feature /featurename:microsoft-hyper-v /norestart /all` and press the **Enter** key.
+3.  Optionally, to enable the older .Net 3.5 framework, enter `dism /online /enable-feature /featurename:netfx3 /limitaccess /source:d:\x64\sources\sxs /norestart /all` and press the **Enter** key.
+4.  Optionally, to enable the older SMB1 protocol (please note that enabling the SMB1 protocol can be a security risk), enter `dism /online /enable-feature /featurename:smb1protocol /norestart` and press the **Enter** key.  After the feature is enabled, enter `dism /online /disable-feature /featurename:smb1protocol-deprecation /norestart` and press the **Enter** key.   After the feature is disabled, enter `dism /online /disable-feature /featurename:smb1protocol-server /norestart` and press the **Enter** key.
+5.  Type `exit` and press the **Enter** key to close the PowerShell window.
+
+## Part 11 - Disable Server Service
+
+1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Computer Management**.
+2.  In the Computer Management window, in the left column, under Computer Management (Local), double-click **Services and Applications** to expand it.
+3.  Double-click on **Services**, then, in the Services pane in the middle of the window, scroll down to the service named Server and double click on **Server** to open the Server service.
+4.  In the Server Properties (Local Computer) window that appears, switch the Startup type pull down menu to **Disabled** and click the **Stop** button.
+5.  Wait for the service to stop, then click the **OK** button to close the Server Properties (Local Computer) window.
+6.  In the Computer Management window, click the **File** menu, then click **Exit** to close the Computer Management window.
+
+## Part 12 - Configure Group Policies
+
+1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
+2.  In the Run window that appears, in the Open field, type `gpedit.msc` and press the **Enter** key.
+3.  In the Local Group Policy Editor window that appears, in the left column, under Local Computer Policy, Computer Configuration, double-click on **Administrative Templates** to expand it.
+4.  Under the expanded Administrative Templates section in the left column, double-click **Windows Components** to expand it.
+5.  Double-click **AutoPlay Policies**.
+6.  In the AutoPlay Policies pane on the right of the window, double-click **Turn Off AutoPlay**.
+7.  In the Turn Off AutoPlay window that appears, click the radio button to select **Enabled** then click the **OK** button (it may be necessary to resize and move the Turn off Autoplay window to reach the OK button).
+8.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, scroll down until Windows Update is visible (it may be necessary to maximize the window size and/or expand the left pane of the window to see read the names of the folders listed) and double-click **Windows Update**.
+9.  In the Windows Update pane on the right of the window, double-click **Configure Automatic Updates**.
+10. In the Configure Automatic Updates window that appears, click the radio button to select **Disabled** then click the **OK** button.
+11. In the Local Group Policy Editor window, click the **File** menu, then click **Exit** to close the Local Group Policy Editor.
+
+## Part 13 - Configure Control Panels
+
+1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
+2.  In the Open field, type `control panel` and press the **Enter** key.
+3.  Click **Date and Time**, click **Change time zone...** select **(UTC-05:00) Eastern Time (US & Canada)** (or select the appropriate time zone for your location) and click the **OK** button.
+4.  In the Date and Time window, uncheck **Notify me when the clock changes** and click the **OK** button.
+5.  Click **File Explorer Options**.
+6.  Change Open File Explorer to **This PC**.
+7.  Uncheck **Show recently used files in Quick access**.
+8. Uncheck **Show frequently used folders in Quick access**.
+9. Click the **Clear** button.
+10. Click the **View** tab at the top of the File Explorer Options window.
+11. In the Advanced settings list, uncheck **Hide extensions for known file types**.
+12. Scroll down in the Advanced settings list and uncheck **Use Sharing Wizard (Recommended)**.
+13. Click the **OK** button to close the File Explorer Options window.
+14. Click **Network and Sharing Center**.
+15. In the left column of the Network and Sharing window, click **Change advanced sharing settings**.
+16. In the Advanced sharing settings window, expand the **Private** section (click on the arrow to the right of the section heading) and uncheck **Turn on automatic setup of network connected devices**.
+17. Click the radio button to select **Turn off network discovery** and click the **Save changes** button.
+18. In the left column of the Network and Sharing Center window, click **Control Panel Home**.
+19. Click **Power Options**.
+20. To the right of Balanced (recommended) click **Change plan settings**.
+21. Click **Change advanced power settings**.  Please note that different options may be available in this section depending upon whether your host device has battery power (e.g., a tablet or notebook computer) or if it is a desktop.  In some cases, there may be both On battery and Plugged in options available for settings.  In these cases, set all settings to the values indicated.
+22. In the Power Options window that appears, double-click **Hard disk**, double-click **Turn off hard disk after**, and set all settings to `0/Never`.
+23. If available, double-click **Wireless Adapter Settings**, double-click **Power Saving Mode**, and set all settings to **Maximum Performance**.
+24. If available, double-click **Sleep**, double-click **Allow wake timers**, and set all settings to **Enable**.
+25. Double-click **USB settings**, double-click **USB selective suspend setting**, and set all settings to **Disabled**.
+26. If available, double-click **Power buttons and lid**, double-click **Power buton action**, and set all settings to **Shut down**.  If available, double-click **Sleep button action** and set all settings to **Do nothing**. 
+27. Double-click **PCI Express**, double-click **Link State Power Management**, and set all settings to **Off**.
+28. Double-click **Display**, double-click **Turn off display after**, and set all settings to `10` Minutes.
+29. Double-click **Multimedia settings**.  Double-click **When sharing media** and set all settings to **Prevent idling to sleep**.  Double-click **Video playback quality bias** and set all settings to **Video playback performance bias**.  Double-click **When playing video** and set all settings to **Optimize video quality**.
+30. Click the **OK** button.
+31. Click the **Close (X)** button in the upper-right corner of the Edit Plan Settings window to close the window.
+
+## Part 14 - Rename The Boot Volume
+
+1.  Right-click on the **Start** button in the lower-left corner of the screen and click **File Explorer**.
+2.  Right-click on **Local Disk (C:)** and click **Rename**.
+3.  Enter the drive name `Windows` and press the **Enter** key.
+4.  Click the **File** menu in the upper-right corner of the screen, then click **Close**.
+
+
+
+## Part 14 - Customize Destop, Taskbar, Start Menu, And Internet Explorer
+
+1.  Right-click on the **Microsoft Edge** shortcut on the Desktop and click **Delete**.
+2.  Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
+3.  In the context menu that appears, click **Cortana** then click **Hidden**.
+4.  Click on the **Start** icon in the lower-left corner of the screen.
+5.  For each of the tiles on the right side of the Start Menu, right-click on the tile and click **Unpin from Start**.
+6.  In the Application List on the left side of the Start Menu, right-click on **Calculator**.
+7.  Click **Pin to Start**.
+8.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **More**, then click **Turn Live Tile off**.
+9.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **Resize**, then click **Small**.
+10. Scroll in the Application List on the left side of the Start Menu down to Windows Accessories and click on **Windows Accessories**.
+11. Click on **Internet Explorer**.
+12. In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
+13. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
+14. In the Internet Options window that appears, in the Home page field, erase the URL listed and enter about:blank.
+15. Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
+16. Back in the Internet Options window, click the **OK** button.
+17. Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
+18. Right-click on the **Bing** icon and click **Delete**.
+19. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Safety** then click **Delete browsing history...**.
+20. Uncheck **Preserve Favorites website data** and check **Download History**, **Form data**, **Passwords**, and **Tracking Protection, ActiveX Filtering and Do Not Track** and click the **Delete** button.
+21. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+22. When prompted, click **Close all tabs**.
+23. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
+24. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+25. When prompted, click **Close all tabs**.
+26. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
+27. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+28. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
+29. Click **Yes** to confirm deletion.
+
+## Part 15 - Export Start Menu
+
+1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
+2.  Type export-startlayout -path c:\StartLayout.xml and press the **Enter** key.
+3.  Type exit and press the **Enter** key to exit PowerShell.
+4.  Click the **File Explorer** (yellow folder) icon on the Taskbar towards the lower-left corner of the screen.
+5.  Double-click on **Windows (C:)**.
+6.  Right-click on **StartLayout.xml** and click **Cut**.
+7.  Double-click on **Users**.
+8.  Double-click on **Public**.
+9. Right-click on an empty area of the Public folder and click **New**, then click **Folder**.
+10. Name the new folder Settings.
+11. Double-click on **Settings**.
+12. Right-click on an empty area of the Settings folder and click **Paste**.
+13. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
+14. Edit the **<DefaultLayoutOverride>** tag to read <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">.
+15. Click the **File** menu, click **Exit** and when prompted, click **Save**.
+16. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
+
+PART 16 - RESTART THE VIRTUAL MACHINE
+
+1.  Click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Restart**.
+2.  The system may restart one or more times and will eventually restart in Audit Mode.
+3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
+
+PART 17 - SHUTDOWN THE VIRTUAL MACHINE
+
+1.  Click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
