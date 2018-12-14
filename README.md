@@ -87,19 +87,18 @@ Please note that having a computer with a fast processor, solid state disk, and 
 26. To enable nested Hyper-V (allowing the Hyper-V client to also be a Hyper-V host), right-click on the **Windows Start Menu** icon on the host computer and select **Windows PowerShell (Admin)**.  In the PowerShell window that appears, enter `set-vmprocessor -vmname WindowsEFI64 -exposevirtualizationextensions $true` and press the **Enter** key.
 27. Type `exit` and press the **Enter** key to close the PowerShell window.
 
-PART 5 - BOOT WINDOWS INSTALLER IN VM
+## Part 5 - Boot The Windows Installer In The Virtual Machine
 
 1.  In the Hyper-V Manager window, in the Virtual Machines pane, click on **WindowsEFI64**.
 2.  In the right Actions pane, under WindowsEFI64, click **Start**.
 3.  Wait a few moments while the virtual machine is started.  In the middle Virtual Machines tab, the WindowsEFI64 state should eventually change to Running.
-
 4.  In the right Actions pane, under WindowsEFI64, click **Connect...**.
 5.  Once the connection to the Virtual Machine is established, you should see a message indicating that No operating system was loaded.  Click in the virtual machine window to activate it.  Press the **Tab** key on the keyboard to highlight the **Restart now** button and press the **Enter** key.
 6.  The virtual machine will restart and will display a message reading "Press any key to boot from CD or DVD..."  While this message is displayed, click the mouse inside the virtual machine window to activate it and then press the **A** key on the keyboard.  This sequence happens quickly and is time sensitive.  If the Windows Boot Manager screen does not appear, repeat step 5 and this step again until the black Windows Boot Manager screen appears.
 7.  Until noted, the following procedure applies to actions inside the virtual machine environment.
 8.  When the black Windows Boot Manager screen appears, ensure that **Windows 10 Setup (64-bit)** is selected, then press the **Enter** key.  Windows Setup will load.
 
-PART 6 - INSTALL WINDOWS IN VM
+## Part 6 - Install Windows In The Virtual Machine
 
 1.  On the first Windows Setup screen, click the **Next** button.
 2.  Click **Install now**.
@@ -109,25 +108,24 @@ PART 6 - INSTALL WINDOWS IN VM
 6.  On the Which type of installation do you want screen, click **Custom: Install Windows only (advanced)**.
 7.  Ensure that **Drive 0 Unallocated Space** is selected, then click **Next**.
 8.  The Windows installation will begin.  Please wait while files are copied to the virtual machine's disk.  The virtual machine will automatically restart.
-
 9.  Eventually, the Let's start with region screen will appear.
 
-PART 7 - ENABLE WINDOWS AUDIT MODE
+## Part 7 - Enable Windows Audit Mode
 
 1.  To bypass the Windows configuration wizard and enter Audit Mode, press and hold the **Control** and **Shift** keys at the same time, then press the **F3** key (for a moment, all three keys should be pressed at the same time).  Release all the keyboard keys.
 2.  The virtual machine will restart and will log the built-in Administrator account into Windows in Audit Mode.
 3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
+4.  Importantly, please note that Parts 8-15 must be completed without shutting down or restarting the virtual machine, as Windows will only allow customization of certain settings on the first boot.
 
-PART 8 - ENABLE ADDITIONAL WINDOWS FEATURES
+## Part 8 - Enable Additional Windows Features
 
-1.  Right-click on the Start button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
-2.  In the PowerShell window that appears, to enable Microsoft Hyper-V, enter dism /online /enable-feature /featurename:microsoft-hyper-v /norestart /all and press the **Enter** key.
-3.  Optionally, to enable the older .Net 3.5 framework, enter dism /online /enable-feature /featurename:netfx3 /limitaccess /source:d:\x64\sources\sxs /norestart /all and press the **Enter** key.
+1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
+2.  In the PowerShell window that appears, to enable Microsoft Hyper-V, enter `dism /online /enable-feature /featurename:microsoft-hyper-v /norestart /all` and press the **Enter** key.
+3.  Optionally, to enable the older .Net 3.5 framework, enter `dism /online /enable-feature /featurename:netfx3 /limitaccess /source:d:\x64\sources\sxs /norestart /all` and press the **Enter** key.
+4.  Optionally, to enable the older SMB1 protocol (please note that enabling the SMB1 protocol can be a security risk), enter `dism /online /enable-feature /featurename:smb1protocol /norestart` and press the **Enter** key.  After the feature is enabled, enter `dism /online /disable-feature /featurename:smb1protocol-deprecation /norestart` and press the **Enter** key.   After the feature is disabled, enter `dism /online /disable-feature /featurename:smb1protocol-server /norestart` and press the **Enter** key.
+5.  Type `exit` and press the **Enter** key to close the PowerShell window.
 
-4.  Optionally, to enable the older SMB1 protocol, enter dism /online /enable-feature /featurename:smb1protocol /norestart and press the **Enter** key.  After the feature is enabled, enter dism /online /disable-feature /featurename:smb1protocol-deprecation /norestart and press the **Enter** key.   After the feature is disabled, enter dism /online /disable-feature /featurename:smb1protocol-server /norestart and press the **Enter** key.
-5.  Type exit and press the **Enter** key to close the PowerShell window.
-
-PART 9 - DISABLE SERVER SERVICE
+## Part 9 - Disable Server Service
 
 1.  Right-click on the Start button in the lower-left corner of the screen and click **Computer Management**.
 2.  In the Computer Management window, in the left column, under Computer Management (Local), double-click on **Services and Applications** to expand it.
@@ -136,19 +134,18 @@ PART 9 - DISABLE SERVER SERVICE
 5.  Wait for the service to stop, then click the **OK** button to close the Server Properties (Local Computer) window.
 6.  In the Computer Management window, click the **File** menu, then click **Exit** to close the Computer Management window.
 
-PART 10 - CONFIGURE GROUP POLICIES
+## Part 10 - Configure Group Policies
 
 1.  Right-click on the Start button in the lower-left corner of the screen and click **Run**.
-2.  In the Run window that appears, in the Open field, type gpedit.msc and press the **Enter** key.
+2.  In the Run window that appears, in the Open field, type `gpedit.msc` and press the **Enter** key.
 3.  In the Local Group Policy Editor window that appears, in the left column, under Local Computer Policy, Computer Configuration, double-click on **Administrative Templates** to expand it.
 4.  Under the expanded Administrative Templates section in the left column, double-click **Windows Components** to expand it.
 5.  Double-click **AutoPlay Policies**.
 6.  In the AutoPlay Policies pane on the right of the window, double-click **Turn Off AutoPlay**.
 7.  In the Turn Off AutoPlay window that appears, click the radio button to select **Enabled** then click the **OK** button.
-8.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, scroll down until Windows Update is visible and double-click **Windows Update**.
+8.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, scroll down until Windows Update is visible (it may be necessary to maximize the window size and/or expand the left pane of the window to see read the names of the folders listed) and double-click **Windows Update**.
 9.  In the Windows Update pane on the right of the window, double-click **Configure Automatic Updates**.
 10. In the Configure Automatic Updates window that appears, click the radio button to select **Disabled** then click the **OK** button.
-
 11. In the Local Group Policy Editor window, click the **File** menu, then click **Exit** to close the Local Group Policy Editor.
 
 PART 11 - CONFIGURE CONTROL PANELS
