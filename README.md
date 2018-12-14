@@ -1,6 +1,6 @@
 # Tools And Documentation To Automate And Manage Windows Deployment
 
-These instructions are for creating a customized Windows 10 environment that can be easily installed onto PCs through an automated, bootable USB installer.  While the Windows installation will be highly customized, all of the processes and tools used, other than the open source scripts in this repository, are available for free from Microsoft.  Additionally, the instructions are precise and detailed so anyone with general experience using Windows should be able to follow this process, while experienced system administrators can customize settings as desired.  Finally, while the process to create the USB installer takes many steps, the end result will be a tool that can be used to configure a Windows PC in minutes instead of hours.
+These instructions are for creating a customized Windows 10 environment that can be easily installed onto PCs through an automated, bootable USB installer.  The instructions are precise and detailed so anyone with general experience using Windows should be able to follow this process, while experienced system administrators can customize settings as desired.  Finally, while the process to create the USB installer takes many steps, the end result will be a tool that can be used to configure a Windows PC in minutes instead of hours.
 
 ## Recommended Minimum PC Requirements
 
@@ -10,7 +10,7 @@ These instructions are for creating a customized Windows 10 environment that can
 * 60GB of free disk space
 * Empty USB flash drive with 16-32GB capacity
 
-Please note that having a computer with a fast processor, solid state disk, and lots of RAM will make this process faster.  Additionally, USB flash drives with more than 32GB of capacity cannot easily be formatted to be bootable with Windows.  A fast USB 3.0 32GB flash drive is highly recommended.
+Before beginning, it is critical to ensure that your computer's time zone and date and time settings are correct.  Please note that having a computer with a fast processor, solid state disk, and lots of RAM will make this process faster.  Additionally, USB flash drives with more than 32GB of capacity cannot easily be formatted to be bootable with Windows.  A fast USB 3.0 32GB flash drive is highly recommended.
 
 ## Part 1 - Download Windows 10
 
@@ -47,6 +47,108 @@ Please note that having a computer with a fast processor, solid state disk, and 
 14. In the User Account Control window, click **Yes**.
 15. When the installation is complete, click the **Close** button.
 
+## Part 3 - Install VirtualBox
+
+1.  Go to <https://www.virtualbox.org> .
+2.  Click the [**Downloads**](https://www.virtualbox.org/wiki/Downloads) link in the navigation menu.
+3.  Click the link to download VirtualBox for [**Windows hosts**](https://download.virtualbox.org/virtualbox/5.2.22/VirtualBox-5.2.22-126460-Win.exe) and save the download on your computer (at the time of publication, the latest version of VirtualBox is 5.2.22).
+4.  Click the link to download the Oracle VM VirtualBox Extension Pack for [All supported platforms](https://download.virtualbox.org/virtualbox/5.2.22/Oracle_VM_VirtualBox_Extension_Pack-5.2.22.vbox-extpack) and save the download on your computer.
+5.  Run the **VirtualBox-5.2.22-126460-Win.exe** installer on your computer.
+6.  In the Oracle VM VirtualBox 5.2.22 Setup window that appears, on the Welcome to the Oracle VM VirtualBox 5.2.22 Setup Wizard screen, click **Next**.
+7.  On the first Custom Setup screen, click **Next**.
+8.  On the second Custom Setup screen, configure the options as preferred (suggested settings: Create start menu entries and Register file associations are checked, Create a shortcut on the desktop and Create a shortcut in the Quick Launch Bar are unchecked) and click **Next**.
+9.  On the Warning: Network Interfaces screen, click **Yes**.
+10. On the Ready to Install screen, click **Install**.
+11. In the User Account Control window that appears, click **Yes** when asked Do you want to allow this app to make changes to your device?
+12. In the Windows Security window that appears, when asked Would you like to install this device software? ensure that Always trust software from "Oracle Corporation" is checked and click **Install**.
+13. On the Oracle VM VirtualBox 5.2.18 installation is complete screen, ensure that Start Oracle VM VirtualBox 5.2.22 after installation is checked, then click **Finish**.
+14. In the Oracle VM VirtualBox Manager application that appears, open the **File** menu and click **Preferences...**
+15. In the VirtualBox - Preferences window, click on **Update** in the left column, uncheck **Check for Updates** and click **OK**.
+
+## Part 4 - Configure EFI 64 Bit Virtual Machine
+
+1.  In the Oracle VM VirtualBox Manager application, click the **New** button.
+2.  If the window that appears features an Expert Mode button, click the **Expert Mode** button.
+3.  In the Create Virtual Machine window that appears, in the Name field, enter `WindowsEFI64`.
+4.  Select **Microsoft Windows** for Type, **Windows 10 (64-bit)** for Version, set Memory size to `4096` or larger if your computer host computer has more than 8GB RAM, and select **Create a virtual hard disk now**.
+5.  Click the **Create** button.
+6.  In the Create Virtual Hard Disk window, in the Hard disk file type section, select **VMDK (Virtual Machine Disk)**.
+7.  In the Storage on physical hard disk section, select **Dynamically allocated** and select **Split into files of less than 2GB**.
+8.  In the File size section, set the disk size to `50.00` GB.
+9.  Click the folder icon in the File location section, in the Please choose a location for new virtual hard disk file window, open the Documents folder for your Windows user account, create a folder named Virtual Machines.
+10. Open the Virtual Machines folder, create a folder inside named WindowsEFI64.
+11. Open the WindowsEFI64 folder, then click **Save** to save the virtual hard disk file as WindowsEFI64.vdmk in that folder.
+12. Click the **Create** button.
+13. In the Oracle VM VirtualBox Manager window, select the WindowsEFI64 virtual machine in the left column, then click the **Settings** button.
+14. In the WindowsEFI64 - Settings window, click on **System** in the left column.
+15. On the Motherboard tab of System, uncheck **Floppy** from Boot Order, set Pointing Device to **PS/2 Mouse**, and check **Enable EFI (special OSes only)**.
+16. In the WindowsEFI64 - Settings window, click on **Storage** in the left column.
+17. In the Storage Devices pane, click on the **Empty** optical drive.
+18. In the Attributes area on the right side of the window, click on the disc icon on the right of the Optical Drive pull down menu, then click **Choose Virtual Optical Disc File...**.
+19. In the file browser that appears, select the **Windows1809.iso** file you downloaded and click **Open**.
+20. In the WindowsEFI64 - Settings window, click on **Audio** in the left column.
+21. Uncheck **Enable Audio**.
+22. In the WindowsEFI64 - Settings window, click on **Network** in the left column.
+23. Uncheck **Enable Network Adapter**.
+24. In the WindowsEFI64 - Settings window, click on **USB** in the left column.
+25. Uncheck **Enable USB Controller**.
+26. Click the **OK** button in the lower-right corner to complete configuration of the virtual machine.
+
+## Part 5 - Boot The Windows Installer In The Virtual Machine
+
+1.  In the Oracle VM VirtualBox Manager window, select the **WindowsEFI64** virtual machine in the left column, then click the **Start** button to start the virtual machine.
+2.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.1.
+3.  Click in the WindowsEFI64 \[Running] virtual machine screen that appears and note the VirtualBox - Information dialog that appears.  Read the note and check the **Do not show this message again** box, then click the **Capture** button.
+4.  At the top of the WindowsEFI64 \[Running] virtual machine screen, there will be a notification that "You have the Auto capture keyboard option turned on."  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
+5.  At the Shell> prompt, type `exit` and press the **Enter** key.
+6.  On the system screen that appears, press the **Down Arrow** key twice to select **Boot Manager** and press the **Enter** key.
+7.  The Boot Option Menu should appear with **EFI DVD/CDROM** selected.  Press **Enter**.
+8.  A message reading Press any key to boot from CD or DVD should appear.  Immediately press **Enter**.
+9.  The Windows Boot Manager screen should appear.  **Windows 10 Setup (64-bit)** should be selected.  Press **Enter**.
+10. At the top of the WindowsEFI64 virtual machine screen, a message should appear indicating that "The Virtual Machine reports that the guest OS does not support mouse pointer integration in the current video mode."  Press the right **Control** key on the keyboard, then click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.  Click the mouse inside the virtual machine window to return the mouse to the virtual machine.
+11. Until noted, the following procedure applies to actions inside the virtual machine environment.
+
+## Part 6 - Install Windows In The Virtual Machine
+
+1.  On the first Windows Setup screen, click the **Next** button.
+2.  Click **Install now**.
+3.  On the Activate Windows screen, click the **I don't have a product key** link.
+4.  On the Select the operating system you want to install screen, select **Windows 10 Pro** and click the **Next** button.
+5.  On the Applicable notices and license terms screen, check **I accept the license terms** and click **Next**.
+6.  On the Which type of installation do you want screen, click **Custom: Install Windows only (advanced)**.
+7.  Ensure that **Drive 0 Unallocated Space** is selected, then click **Next**.
+8.  The Windows installation will begin.  Please wait while files are copied to the virtual machine's disk.  The virtual machine will automatically restart.
+9.  Eventually, the Let's start with region screen will appear.
+
+## Part 7 - Enable Windows Audit Mode
+
+1.  To bypass the Windows configuration wizard and enter Audit Mode, press and hold the **Control** and **Shift** keys at the same time, then press the **F3** key (for a moment, all three keys should be pressed at the same time).  Release all the keyboard keys.
+2.  The virtual machine will restart and will log the built-in Administrator account into Windows in Audit Mode.
+3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
+4.  Importantly, please note that Parts 8-15 must be completed without shutting down or restarting the virtual machine, as Windows will only allow customization of certain settings on the first boot.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Part 3 - Enable Hyper-V
 
 1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen, then select **Run**.
@@ -61,7 +163,7 @@ Please note that having a computer with a fast processor, solid state disk, and 
 
 1.  After the computer has restarted, click on the **Windows Start Menu** icon in the lower-left corner of the screen, then go to **Windows Administrative Tools** and select **Hyper-V Manager**.
 2.  In the left column of the Hyper-V Manager, click on the name of your computer.
-3.  In the right-most pane that appears, click **New** and select **Virtual Machine...**.
+3.  In the right-most pane that appears, click **New** and click **Virtual Machine...**.
 4.  In the New Virtual Machine Wizard, click **Next**.
 5.  In the Name field, enter `WindowsEFI64`.
 6.  Check the box next to **Store the virtual machine in a different location** and click the **Browse...** button.
@@ -116,6 +218,213 @@ Please note that having a computer with a fast processor, solid state disk, and 
 2.  The virtual machine will restart and will log the built-in Administrator account into Windows in Audit Mode.
 3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
 4.  Importantly, please note that Parts 8-15 must be completed without shutting down or restarting the virtual machine, as Windows will only allow customization of certain settings on the first boot.
+
+## Part 8 - Disable Sounds
+
+1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Run**.
+2.  In the Open field, type `control panel` and press the **Enter** key.
+3.  In the upper-right corner of the Control Panel window that appears, click on the **View by** pull down menu and click **Large icons** to switch from the Category option to Large icons.
+4.  Click **Sound**.
+5.  In the Sound window, go to the **Sounds** tab.
+6.  Change Sound Scheme to **No Sounds**, then click the **OK** button.
+7.  Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window to close the window.
+
+## Part 9 - Configure Settings
+
+1.  Click on the **Windows Start Menu** icon in the lower-left corner of the screen, then **Settings** (gear icon).
+2.  Go to **Personalization**.
+3.  Go to **Colors**.
+4.  Scroll down and set **Choose your default app mode** to **Dark**.
+5.  Turn **Transparency effects** **Off**.
+6.  Go to **Background**.
+7.  Set **Background** to **Solid color**.
+8.  Go to **Lock screen**.
+9.  Set **Background** to **Picture**.
+10. Set **Get fun facts, tips, and more from Windows and Cortana on your lock screen** to **Off**.
+11. Go to **Themes**.
+12. Click **Save theme**.
+13. In the Save your theme popup that appears, in the Name your theme field, enter Default and click the **Save** button.
+14. Go to **Start**.
+15. Turn **Show recently added apps** **Off**.
+16. Turn **Show suggestions occasionally in Start** **Off**.
+17. Turn **Show recently opened items in Jump Lists on Start or the taskbar** **Off**.
+18. Go to **Taskbar**.
+19. Turn **Show badges on taskbar buttons** **Off**.
+20. Click **Select which icons appear on the taskbar**.
+21. Turn **Always show all icons in the notification area** **On**.
+22. In the upper-left corner of the window, click the **Back** arrow button.
+23. Go to **Turn system icons on or off**.
+24. Set **Action Center**, **Location**, **Input indicator**, **Network** to **Off**.
+25. In the upper-left corner of the window, click the **Back** arrow button.
+26. Scroll down to the bottom of the window.
+27. Turn **Show My People app suggestions** **Off**.
+28. Turn **Play a sound when a My People notification arrives** **Off**.
+29. Turn **Show My People notifications** **Off**.
+30. Turn **Show contacts on the taskbar** **Off**.
+31. In the upper-left corner of the window, click the **Home** button.
+32. Click **System**.
+33. Click **Notifications & actions**.
+34. Click **Add or remove quick actions**.
+35. Set **Tablet Mode**, **Location**, **VPN**, **Project**, and **Connect** to **Off**.
+36. In the upper-left corner of the window, click the **Back** arrow button (the button may be difficult to see until the mouse is hovered over it).
+37. Turn **Get notifications from apps and other senders** **Off**.
+38. Turn **Get tips, tricks, and suggestions as you use Windows** **Off**.
+39. Turn **Show me the Windows welcome experience after updates and occasionally when I sign in to highlight what's new and suggested** **Off**.
+40. Click **Focus assist**.
+41. Turn **When I'm playing a game** **Off**.
+42. Turn **When I'm duplicating my display** **Off**.
+43. Click **Tablet mode**.
+44. Set **Hide app icons on the taskbar in tablet mode** to **Off**.
+45. Set **When this device automatically switches tablet mode on or off** to **Don't ask me and don't switch**.
+46. Set **When I sign in** to **Use desktop mode**.
+47. Click **Multitasking**.
+48. Set **Show suggestions occasionally in your timeline** to **Off**.
+49. Click **Shared experiences**.
+50. Set **Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa** to **Off**.
+51. In the upper-left corner of the window, click **Home**.
+52. Click **Devices**.
+53. Click on **Printers & scanners**.
+54. **Uncheck** **Let Windows manage my default printer**.
+55. Click **Pen & Windows Ink**.
+56. **Uncheck** **Show recommended app suggestions**.
+57. Click **Home**.
+58. Click **Apps**.
+59. Set **Installing apps** to **Turn off app recommendations**.
+60. Click on and **Uninstall** the following apps in the list: **App Installer**, **Feedback Hub**, **Microsoft OneDrive**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Mobile Plans**, **My Office**, **OneNote**, **Print 3D**, **Skype**, **Tips**, **Weather**, **Web Media Extensions**, **Xbox Live**.
+61. Click **Offline Maps**.
+62. Click **Delete all maps** and click **Delete all** in the popup that appears.
+63. Set **Automatically update maps** to **Off**.
+64. Click on **Apps for websites**.
+65. Set **Microsoft Edge** and **Maps** (there may be two Maps listed, set them both) to **Off**.
+66. Click **Startup**.
+67. Set **Windows Security notification icon** to **Off**.
+68. Click **Home**.
+69. Click **Gaming**.
+70. Turn **Record game clips, screenshots, and broadcast using Game bar** **Off.**
+71. Uncheck **Open Game bar using this button on a controller**.
+72. Click **Game Mode**.
+73. Turn **Game Mode** **Off**.
+74. Click **Home**.
+75. Click **Cortana**.
+76. Set **Use Cortana even when my device is locked** **Off**.
+77. Click **Permissions & History**.
+78. Click **Clear my device history**.
+79. Set **My device history**, **Activity recommendations**, and **Windows Cloud Search** to **Off**.
+80. Click **Home**.
+81. Click **Privacy**.
+82. Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
+83. Click **Inking & typing personalization**.
+84. Set **Getting to know you** **Off**.
+85. Click **Diagnostics & feedback**.
+86. Set **Improve inking and typing** **Off**.
+87. Click **Delete** to delete the diagnostic data from the system.
+88. Set **Windows should ask for my feedback** to **Never**.
+89. At the top of the screen, set **Diagnostic data** to **Basic**.
+90. Click **Activity History**.
+91. Uncheck **Store my activity history on this device**.
+92. Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
+93. Click **Location**.
+94. Click **Clear** to clear the location history from the system.
+95. Set **Allow apps to access your location** to **Off**.
+96. Click **Change** to change location access for the device and set **Location for this device** to **Off** in the popup, then click in the Location settings window to close the popup.
+97. Click **Camera**.
+98. Set camera access for all apps, including **Microsoft Edge**, **Deluxe App Web Viewer**, and **Camera**, to **Off**.
+99. Set **Allow apps to access your camera** to **Off**.
+100. Click **Change** to change camera access for the device and set **Camera access for this device** to **Off** in the popup, then click in the Camera settings window to close the popup.
+101. Click **Microphone**.
+102. Set microphone access for all apps, including **Microsoft Edge** and **Camera**, to **Off**.
+103. Set **Allow apps to access your microphone** to **Off**.
+104. Click **Change** to change microphone access for the device and set **Microphone access for this device** to **Off** in the popup, then click in the Microphone settings window to close the popup.
+105. Click **Notifications**.
+106. Set **Allow apps to access your notifications** to **Off**.
+107. Click **Change** to change notification access for the device and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
+108. Click **Account info**.
+109. Set account access for all apps, including **Microsoft Edge**, to **Off**.
+110. Set **Allow apps to access your account info** to **Off**.
+111. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
+112. Click **Contacts**.
+113. Set contacts access for all apps, including **Messaging** and **Mail and Calendar** to **Off**.
+114. Set **Allow apps to access your contacts** to **Off**.
+115. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
+116. Click **Calendar**.
+117. Set calendar access for all apps, including **Mail and Calendar**, to **Off**.
+118. Set **Allow apps to access your calendar** to **Off**.
+119. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
+120. Click **Call History**.
+121. Set **Allow apps to access your call history** to **Off**.
+122. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
+123. Click **Email**.
+124. Set email access for all apps, including **Mail and Calendar**, to **Off**.
+125. Set **Allow apps to access your email** to **Off**.
+126. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
+127. Click **Tasks**.
+128. Set **Allow apps to access your tasks** to **Off**.
+129. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
+130. Click **Messaging**.
+131. Set **Allow apps to read or send messages** to **Off**.
+132. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
+133. Click **Radios**.
+134. Set **Allow apps to control device radios** to **Off**.
+135. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
+136. Click **Other devices**.
+137. Set **Communicate with unpaired devices** to **Off**.
+138. Click **Background apps.**
+139. Set background processing for all apps, including **Your Phone**, **Xbox**, **Windows Security**, **Voice Recorder**, **Sticky Notes**, **Snip & Sketch**, **Settings**, **Photos**, **People**, **Paint 3D**, **Movies & TV**, **Mixed Reality Viewer**, **Microsoft Store**, **Microsoft Edge**, **Messaging**, **Maps**, **Mail and Calendar**, **Groove Music**, **Get Help**, **Game bar**, **Connect**, **Camera**, **Calculator**, and **Alarms & Clock**, to **Off**.
+140. Set **Let apps run in the background** to **Off**.
+141. Click **App diagnostics**.
+142. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
+143. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
+144. Click **Documents**.
+145. Set document library access for all apps, including **Windows Security** and **Voice Recorder**, to **Off**.
+146. Set **Allow apps to access your documents library** to **Off**.
+147. Click **Change** to change documents library access for the device and set **Documents library access for this device** to **Off** in the popup, then click in the Documents settings window to close the popup.
+148. Click **Pictures**.
+149. Set pictures access for all apps, including **Xbox**, **Snip & Sketch**, **Paint 3D**, **Mixed Reality Viewer**, **Microsoft Edge**, **Game bar**, and **Cortana**, to **Off**.
+150. Set **Allow apps to access your pictures library** to **Off**.
+151. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
+152. Click **Videos**.
+153. Set video library access for all apps, including **Xbox**, **Movies & TV**, **Mixed Reality Viewer**, **Game bar**, and **Camera**, to **Off**.
+154. Set **Allow apps to access your videos library** to **Off**.
+155. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
+156. Click **File system**.
+157. Set **Allow apps to access your file system** to **Off**.
+158. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
+159. Click **Home**.
+160. Click **Update & Security**.
+161. Click **Delivery Optimization**.
+162. Set **Allow downloads from other PCs** to **Off**.
+163. Close the Settings window by clicking the X close button in the upper-right corner of the window.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Part 8 - Enable Additional Windows Features
 
@@ -183,21 +492,21 @@ Please note that having a computer with a fast processor, solid state disk, and 
 31. Double-click **Multimedia settings**.  Double-click **When sharing media** and set all settings to **Prevent idling to sleep**.  Double-click **Video playback quality bias** and set all settings to **Video playback performance bias**.  Double-click **When playing video** and set all settings to **Optimize video quality**.
 32. Click the **OK** button.
 33. At the top left of the Edit Plan Settings window, click the **Back** arrow button twice to return to the All Control Panel Items window.
-29. Click **Sound**.
-30. In the Sound window, go to the **Sounds** tab.
-31. Change Sound Scheme to **No Sounds**, then click the **OK** button.
-32. Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window to close the window.
+34. Click **Sound**.
+35. In the Sound window, go to the **Sounds** tab.
+36. Change Sound Scheme to **No Sounds**, then click the **OK** button.
+37. Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window to close the window.
 
-PART 12 - RENAME THE BOOT VOLUME
+## Part 12 - Rename The Boot Volume
 
-1.  Right-click on the Start button in the lower-left corner of the screen and click **File Explorer**.
+1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **File Explorer**.
 2.  Right-click on **Local Disk (C:)** and click **Rename**.
-3.  Enter the drive name Windows and press the **Enter** key.
+3.  Enter the drive name `Windows` and press the **Enter** key.
 4.  Click the **File** menu in the upper-right corner of the screen, then click **Close**.
 
-PART 13 - CONFIGURE SETTINGS
+## Part 13 - Configure Settings
 
-1.  Click on **Start**, then **Settings** (gear icon).
+1.  Click on the **Windows Start Menu** icon in the lower-left corner of the screen, then **Settings** (gear icon).
 2.  Go to **Personalization**.
 3.  Go to **Colors**.
 4.  Scroll down and set **Choose your default app mode** to **Dark**.
@@ -210,7 +519,6 @@ PART 13 - CONFIGURE SETTINGS
 11. Go to **Themes**.
 12. Click **Save theme**.
 13. In the Save your theme popup that appears, in the Name your theme field, enter Default and click the **Save** button.
-
 14. Go to **Start**.
 15. Turn **Show recently added apps** **Off**.
 16. Turn **Show suggestions occasionally in Start** **Off**.
@@ -240,7 +548,6 @@ PART 13 - CONFIGURE SETTINGS
 40. Click **Focus assist**.
 41. Turn **When I'm playing a game** **Off**.
 42. Turn **When I'm duplicating my display** **Off**.
-
 43. Click **Tablet mode**.
 44. Set **Hide app icons on the taskbar in tablet mode** to **Off**.
 45. Set **When this device automatically switches tablet mode on or off** to **Don't ask me and don't switch**.
@@ -258,12 +565,10 @@ PART 13 - CONFIGURE SETTINGS
 57. Click **Home**.
 58. Click **Apps**.
 59. Set **Installing apps** to **Turn off app recommendations**.
-
 60. Click on and **Uninstall** the following apps in the list: **App Installer**, **Feedback Hub**, **Microsoft OneDrive**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Mobile Plans**, **My Office**, **OneNote**, **Print 3D**, **Skype**, **Tips**, **Weather**, **Web Media Extensions**, **Xbox Live**.
 61. Click **Offline Maps**.
 62. Click **Delete all maps** and click **Delete all** in the popup that appears.
 63. Set **Automatically update maps** to **Off**.
-
 64. Click on **Apps for websites**.
 65. Set **Microsoft Edge** and **Maps** (there may be two Maps listed, set them both) to **Off**.
 66. Click **Startup**.
@@ -293,12 +598,10 @@ PART 13 - CONFIGURE SETTINGS
 90. Click **Activity History**.
 91. Uncheck **Store my activity history on this device**.
 92. Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
-
 93. Click **Location**.
 94. Click **Clear** to clear the location history from the system.
 95. Set **Allow apps to access your location** to **Off**.
 96. Click **Change** to change location access for the device and set **Location for this device** to **Off** in the popup, then click in the Location settings window to close the popup.
-
 97. Click **Camera**.
 98. Set camera access for all apps, including **Microsoft Edge**, **Deluxe App Web Viewer**, and **Camera**, to **Off**.
 99. Set **Allow apps to access your camera** to **Off**.
@@ -307,7 +610,6 @@ PART 13 - CONFIGURE SETTINGS
 102. Set microphone access for all apps, including **Microsoft Edge** and **Camera**, to **Off**.
 103. Set **Allow apps to access your microphone** to **Off**.
 104. Click **Change** to change microphone access for the device and set **Microphone access for this device** to **Off** in the popup, then click in the Microphone settings window to close the popup.
-
 105. Click **Notifications**.
 106. Set **Allow apps to access your notifications** to **Off**.
 107. Click **Change** to change notification access for the device and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
@@ -319,7 +621,6 @@ PART 13 - CONFIGURE SETTINGS
 113. Set contacts access for all apps, including **Messaging** and **Mail and Calendar** to **Off**.
 114. Set **Allow apps to access your contacts** to **Off**.
 115. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
-
 116. Click **Calendar**.
 117. Set calendar access for all apps, including **Mail and Calendar**, to **Off**.
 118. Set **Allow apps to access your calendar** to **Off**.
@@ -334,15 +635,12 @@ PART 13 - CONFIGURE SETTINGS
 127. Click **Tasks**.
 128. Set **Allow apps to access your tasks** to **Off**.
 129. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
-
 130. Click **Messaging**.
 131. Set **Allow apps to read or send messages** to **Off**.
 132. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
-
 133. Click **Radios**.
 134. Set **Allow apps to control device radios** to **Off**.
 135. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
-
 136. Click **Other devices**.
 137. Set **Communicate with unpaired devices** to **Off**.
 138. Click **Background apps.**
@@ -351,12 +649,10 @@ PART 13 - CONFIGURE SETTINGS
 141. Click **App diagnostics**.
 142. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
 143. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
-
 144. Click **Documents**.
 145. Set document library access for all apps, including **Windows Security** and **Voice Recorder**, to **Off**.
 146. Set **Allow apps to access your documents library** to **Off**.
 147. Click **Change** to change documents library access for the device and set **Documents library access for this device** to **Off** in the popup, then click in the Documents settings window to close the popup.
-
 148. Click **Pictures**.
 149. Set pictures access for all apps, including **Xbox**, **Snip & Sketch**, **Paint 3D**, **Mixed Reality Viewer**, **Microsoft Edge**, **Game bar**, and **Cortana**, to **Off**.
 150. Set **Allow apps to access your pictures library** to **Off**.
@@ -368,14 +664,13 @@ PART 13 - CONFIGURE SETTINGS
 156. Click **File system**.
 157. Set **Allow apps to access your file system** to **Off**.
 158. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
-
 159. Click **Home**.
 160. Click **Update & Security**.
 161. Click **Delivery Optimization**.
 162. Set **Allow downloads from other PCs** to **Off**.
 163. Close the Settings window by clicking the X close button in the upper-right corner of the window.
 
-PART 14 - CUSTOMIZE DESKTOP, TASKBAR, START MENU, AND EXPLORER
+## Part 14 - Customize Destop, Taskbar, Start Menu, And Internet Explorer
 
 1.  Right-click on the **Microsoft Edge** shortcut on the Desktop and click **Delete**.
 2.  Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
@@ -392,7 +687,6 @@ PART 14 - CUSTOMIZE DESKTOP, TASKBAR, START MENU, AND EXPLORER
 13. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
 14. In the Internet Options window that appears, in the Home page field, erase the URL listed and enter about:blank.
 15. Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
-
 16. Back in the Internet Options window, click the **OK** button.
 17. Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
 18. Right-click on the **Bing** icon and click **Delete**.
@@ -408,26 +702,24 @@ PART 14 - CUSTOMIZE DESKTOP, TASKBAR, START MENU, AND EXPLORER
 28. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
 29. Click **Yes** to confirm deletion.
 
-PART 15 - EXPORT START MENU
+## Part 15 - Export Start Menu
 
-1.  Right-click on the Start button in the lower-left corner of the screen.
-2.  Click **Windows PowerShell (Admin)**.
-3.  Type export-startlayout -path c:\StartLayout.xml and press the **Enter** key.
-4.  Type exit and press the **Enter** key to exit PowerShell.
-5.  Click the **File Explorer** (yellow folder) icon on the Taskbar towards the lower-left corner of the screen.
-6.  Double-click on **Windows (C:)**.
-7.  Right-click on **StartLayout.xml** and click **Cut**.
-
-8.  Double-click on **Users**.
-9.  Double-click on **Public**.
-10. Right-click on an empty area of the Public folder and click **New**, then click **Folder**.
-11. Name the new folder Settings.
-12. Double-click on **Settings**.
-13. Right-click on an empty area of the Settings folder and click **Paste**.
-14. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
-15. Edit the **<DefaultLayoutOverride>** tag to read <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">.
-16. Click the **File** menu, click **Exit** and when prompted, click **Save**.
-17. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
+1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
+2.  Type export-startlayout -path c:\StartLayout.xml and press the **Enter** key.
+3.  Type exit and press the **Enter** key to exit PowerShell.
+4.  Click the **File Explorer** (yellow folder) icon on the Taskbar towards the lower-left corner of the screen.
+5.  Double-click on **Windows (C:)**.
+6.  Right-click on **StartLayout.xml** and click **Cut**.
+7.  Double-click on **Users**.
+8.  Double-click on **Public**.
+9. Right-click on an empty area of the Public folder and click **New**, then click **Folder**.
+10. Name the new folder Settings.
+11. Double-click on **Settings**.
+12. Right-click on an empty area of the Settings folder and click **Paste**.
+13. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
+14. Edit the **<DefaultLayoutOverride>** tag to read <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">.
+15. Click the **File** menu, click **Exit** and when prompted, click **Save**.
+16. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
 
 PART 16 - RESTART THE VIRTUAL MACHINE
 
