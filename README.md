@@ -1,6 +1,16 @@
 # Tools And Documentation To Automate And Manage Windows Deployment
 
-These instructions are for creating a customized Windows 10 environment that can be easily installed onto PCs through an automated, bootable USB installer.  While the Windows installation will be highly customized, all of the processes and tools used, other than the open source scripts in this repository, are available for free from Microsoft.  This means that any properly licensed PCs configured with this process should be fully supported by Microsoft, since no third-party software is used.  Additionally, the instructions are precise and detailed so anyone with general experience using Windows should be able to follow this process, while experienced system administrators can customize settings as desired.  Finally, while the process to create the USB installer is long, the end result will be a tool that can be used to configure any Windows PC in minutes instead of hours.
+These instructions are for creating a customized Windows 10 environment that can be easily installed onto PCs through an automated, bootable USB installer.  While the Windows installation will be highly customized, all of the processes and tools used, other than the open source scripts in this repository, are available for free from Microsoft.  This means that any properly licensed PCs configured with this process should be fully supported by Microsoft, since no third party software is used.  Additionally, the instructions are precise and detailed so anyone with general experience using Windows should be able to follow this process, while experienced system administrators can customize settings as desired.  Finally, while the process to create the USB installer is long, the end result will be a tool that can be used to configure a Windows PC in minutes instead of hours.
+
+## Recommended Minimum PC Requirements
+
+* 64-bit UEFI
+* Windows Professional 1809 64-bit
+* 8GB of RAM
+* 60GB of free disk space
+* Empty USB flash drive with 16-32GB capacity
+
+Please note that having a computer with a fast processor, solid state disk, and lots of RAM will make this process faster.  Additionally, USB flash drives with more than 32GB of capacity cannot easily be formatted to be bootable with Windows.  A fast USB 3.0 32GB flash drive is highly recommended.
 
 ## Part 1 - Download Windows 10
 
@@ -15,34 +25,32 @@ These instructions are for creating a customized Windows 10 environment that can
 9.  Click the **Next** button.
 10. On the Choose which media to use screen, select **ISO file**.
 11. Click the **Next** button.
-12. In the Select a path window that appears, select a folder to store the ISO file, and enter Windows1809.iso in the File name field, then click **Save**.
+12. In the Select a path window that appears, select a folder to store the ISO file, and enter `Windows1809.iso` in the File name field, then click **Save**.
 13. The computer will download the ISO file (this may take several minutes).
 14. When the download is complete, click the **Finish** button.
 
 ## Part 2 - Download Windows ADK
 
 1.  Go to Microsoft's Download and install the Windows ADK page (currently available at <https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install>).
-2.  Download the Windows ADK for Windows 10, version 1809 (currently available from [https://go.microsoft.com/fwlink/?linkid=2026036](https://go.microsoft.com/fwlink/?LinkId=691209)).
+2.  Download the Windows ADK for Windows 10, version 1809 (currently available from <https://go.microsoft.com/fwlink/?linkid=2026036>).
 3.  Download the Windows PE add-on for the ADK (currently available from <https://go.microsoft.com/fwlink/?linkid=2022233>).
 4.  Run the adksetup.exe tool.  In the installation window that appears, click **Next**.
 5.  Click **No** then click **Next**.
 6.  Click **Accept**.
-
 7.  Check all the installable features and click **Install**.
 8.  Click **Yes** when prompted to allow installation.
 9.  When the installation process is complete, click **Close**.
-10. Run the adkwinpesetup.exe tool.  In the installation window that appears, ensure that Install the Windows Assessment and Deployment Kit Windows Preinstallation Enviromnet Add-ons - Windows 10 to this computer is selected and clcik the **Next** button.
+10. Run the **adkwinpesetup.exe** tool.  In the installation window that appears, ensure that Install the Windows Assessment and Deployment Kit Windows Preinstallation Enviromnet Add-ons - Windows 10 to this computer is selected and clcik the **Next** button.
 11. Click **No** then click **Next**.
 12. Click **Accept**.
 13. Check all the installable features and click **Install**.
 14. In the User Account Control window, click **Yes**.
-
 15. When the installation is complete, click the **Close** button.
 
-PART 3 - ENABLE HYPER-V
+## Part 3 - Enable Hyper-V
 
 1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen, then select **Run**.
-2.  In the Run window that appears, enter control panel in the Open field and click **OK**.
+2.  In the Run window that appears, enter `control panel` in the Open field and click **OK**.
 3.  In the upper-right corner of the window that appears, from the View by pull down menu, select **Large icons**.
 4.  Click on **Programs and Features**.
 5.  In the Programs and Features window, click on **Turn Windows features on or off** in the left column.
