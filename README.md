@@ -148,13 +148,13 @@ Please note that having a computer with a fast processor, solid state disk, and 
 10. In the Configure Automatic Updates window that appears, click the radio button to select **Disabled** then click the **OK** button.
 11. In the Local Group Policy Editor window, click the **File** menu, then click **Exit** to close the Local Group Policy Editor.
 
-PART 11 - CONFIGURE CONTROL PANELS
+## Part 11 - Configure Control Panels
 
 1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Run**.
 2.  In the Open field, type `control panel` and press the **Enter** key.
 3.  In the upper-right corner of the Control Panel window that appears, click on the **View by** pull down menu and click **Large icons** to switch from the Category option to Large icons.
 4.  Click **AutoPlay**, uncheck **Use AutoPlay for all media and devices** and click the **Save** button.
-5.  Click **Date and Time**, click **Change time zone...** select **(UTC-05:00) Eastern Time (US & Canada)** and click the **OK** button.
+5.  Click **Date and Time**, click **Change time zone...** select **(UTC-05:00) Eastern Time (US & Canada)** (or select the appropriate time zone for your location) and click the **OK** button.
 6.  In the Date and Time window, uncheck **Notify me when the clock changes** and click the **OK** button.
 7.  Click **File Explorer Options**.
 8.  Change Open File Explorer to to **This PC**.
@@ -172,16 +172,21 @@ PART 11 - CONFIGURE CONTROL PANELS
 20. In the left column of the Network and Sharing Center window, click **Control Panel Home**.
 21. Click **Power Options**.
 22. To the right of Balanced (recommended) click **Change plan settings**.
-23. Click **Change advanced power settings**.
-24. In the Power Options window that appears, under Hard disk, Turn off hard disk after set Setting (Minutes) to 0/Never.
-25. Under USB settings, USB selective suspend setting set Setting to **Disabled**.
-26. Under PCI Express, Link State Power Management, set Setting to **Off**.
-27. Click the **OK** button.
-28. At the top left of the Edit Plan Settings window, press the Back arrow button twice to return to the All Control Panel Items window.
+23. Click **Change advanced power settings**.  Please note that different options may be available in this section depending upon whether your host device has battery power (e.g., a tablet or notebook computer) or if it is a desktop.  In some cases, there may be both On battery and Plugged in options available for settings.  In these cases, set all settings to the values indicated.
+24. In the Power Options window that appears, double-click **Hard disk**, double-click **Turn off hard disk after**, and set all settings to `0/Never`.
+25. If available, double-click **Wireless Adapter Settings**, double-click **Power Saving Mode**, and set all settings to **Maximum Power Saving**.
+26. If available, double-click **Sleep**, double-click **Allow wake timers**, and set all settings to **Enable**.
+27. Double-click **USB settings**, double-click **USB selective suspend setting**, and set all settings to **Disabled**.
+28. If available, double-click **Power buttons and lid**, double-click **Power buton action**, to expand it and set all settings to **Shut down**.
+29. Double-click **PCI Express**, double-click **Link State Power Management**, and set all settings to **Off**.
+30. Double-click **Display**, double-click **Turn off display after**, and set all settings to `10` Minutes.
+31. Double-click **Multimedia settings**.  Double-click **When sharing media** and set all settings to **Prevent idling to sleep**.  Double-click **Video playback quality bias** and set all settings to **Video playback performance bias**.  Double-click **When playing video** and set all settings to **Optimize video quality**.
+32. Click the **OK** button.
+33. At the top left of the Edit Plan Settings window, click the **Back** arrow button twice to return to the All Control Panel Items window.
 29. Click **Sound**.
 30. In the Sound window, go to the **Sounds** tab.
 31. Change Sound Scheme to **No Sounds**, then click the **OK** button.
-32. Click the X close button in the upper right corner of the All Control Panel Items window to close the window.
+32. Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window to close the window.
 
 PART 12 - RENAME THE BOOT VOLUME
 
