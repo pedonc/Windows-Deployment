@@ -377,9 +377,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 3.  Enter the drive name `Windows` and press the **Enter** key.
 4.  Click the **File** menu in the upper-right corner of the screen, then click **Close**.
 
-
-
-## Part 14 - Customize Destop, Taskbar, Start Menu, And Internet Explorer
+## Part 15 - Customize Destop, Taskbar, Start Menu, And Internet Explorer
 
 1.  Right-click on the **Microsoft Edge** shortcut on the Desktop and click **Delete**.
 2.  Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
@@ -411,7 +409,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 28. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
 29. Click **Yes** to confirm deletion.
 
-## Part 15 - Export Start Menu
+## Part 16 - Export Start Menu
 
 1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
 2.  Type `export-startlayout -path c:\StartLayout.xml` and press the **Enter** key.
@@ -429,16 +427,16 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 13. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
 14. Edit the
 
-```xml
+    ```xml
     <DefaultLayoutOverride>
-```
+    ```
 
 tag to read
 
-```xml
+    ```xml
     <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">
-```
-.
+    ```
+
 15. Click the **File** menu, click **Exit** and when prompted, click **Save**.
 16. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
 
