@@ -425,20 +425,20 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 11. Double-click on **Settings**.
 12. Right-click on an empty area of the Settings folder and click **Paste**.
 13. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
-14. Edit the
+14. Locate and edit the tag
 
     ```xml
     <DefaultLayoutOverride>
     ```
 
-tag to read
+15. Change the tag to read
 
     ```xml
     <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">
     ```
 
-15. Click the **File** menu, click **Exit** and when prompted, click **Save**.
-16. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
+16. Click the **File** menu, click **Exit** and when prompted, click **Save**.
+17. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
 
 ## Part 16 - Restart The Virtual Machine
 
