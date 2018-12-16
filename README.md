@@ -73,7 +73,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 4.  Select **Microsoft Windows** for Type, **Windows 10 (64-bit)** for Version, set Memory size to `4096` or larger if your computer host computer has more than 8GB RAM, and select **Create a virtual hard disk now**.
 5.  Click the **Create** button.
 6.  In the Create Virtual Hard Disk window, in the Hard disk file type section, select **VMDK (Virtual Machine Disk)**.
-7.  In the Storage on physical hard disk section, select **Dynamically allocated** and select **Split into files of less than 2GB**.
+7.  In the Storage on physical hard disk section, select **Dynamically allocated** and check **Split into files of less than 2GB**.
 8.  In the File size section, set the disk size to `50.00` GB.
 9.  Click the folder icon in the File location section, in the Please choose a location for new virtual hard disk file window, open the Documents folder for your Windows user account, create a folder named Virtual Machines.
 10. Open the Virtual Machines folder, create a folder inside named WindowsEFI64.
@@ -382,7 +382,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 1.  Right-click on the **Microsoft Edge** shortcut on the Desktop and click **Delete**.
 2.  Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
 3.  In the context menu that appears, click **Cortana** then click **Hidden**.
-4.  Click on the **Start** icon in the lower-left corner of the screen.
+4.  Click on the **Start** button in the lower-left corner of the screen.
 5.  For each of the tiles on the right side of the Start Menu, right-click on the tile and click **Unpin from Start**.
 6.  In the Application List on the left side of the Start Menu, right-click on **Calculator**.
 7.  Click **Pin to Start**.
@@ -411,7 +411,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## Part 16 - Export Start Menu
 
-1.  Right-click on the **Windows Start Menu** icon in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
+1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
 2.  Type `export-startlayout -path c:\StartLayout.xml` and press the **Enter** key.
 3.  Type `del (get-psreadlineoption).historysavepath` and press the **Enter** key.
 4.  Close the PowerShell window by clicking the **Close (X)** button in the upper-right corner of the window.
@@ -438,17 +438,52 @@ Before beginning, it is critical to ensure that your computer's time zone and da
     ```
 
 16. Click the **File** menu, click **Exit** and when prompted, click **Save**.
-17. Close the File Explorer window by clicking the X close button in the upper-right corner of the window.
+17. Close the File Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
 
 ## Part 16 - Restart The Virtual Machine
 
-1.  Click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Restart**.
+1.  Click the **Start** button in the lower-left corner of the screen, click the **Power** button, and click **Restart**.
 2.  The system may restart one or more times and will eventually restart in Audit Mode.
 3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
 
 ## Part 17 - Shut Down The Virtual Machine
 
-1.  Click the Start icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
+1.  Click the **Start** button in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
+2.  Until noted, the following procedure applies to actions inside the host environment.
+
+## Part 18 - Snapshot The Virtual Machine
+
+1.  In the Oracle VM VirtualBox Manager window, click **WindowsEFI64** in the left column to select it, then, towards the upper-right corner of the window, click the **down arrow** next to the **Machine Tools** icon and click **Snapshots**.
+2.  Click the **Take** button.
+3.  In the Take Snapshot of Virtual Machine window that appears, clear the Snapshot Name field and enter `Audit Mode` in the Snapshot Name field.
+4.  Click **OK**.
+
+## Part 19 - Create Virtual Backup Disk
+
+1.  Click **Settings**.
+2.  Click **Storage** in the left column of the WindowsEFI64 - Settings window that appears.
+3.  At the bottom of the Storage Devices list in the middle of the window, click the **Adds a new storage attachment.** button (it is the blue square button with a green plus sign second from the right at the bottom of the Storage Devices list).
+4.  Click **Add Hard Disk**.
+5.  In the VirtualBox - Question window, click **Create new disk**.
+6.  If the window that appears has an Expert Mode button, click **Expert Mode**.
+7.  In the Create Virtual Hard Disk window, in the Hard disk file type section, select **VMDK (Virtual Machine Disk)**.
+7.  In the Storage on physical hard disk section, select **Dynamically allocated** and check **Split into files of less than 2GB**.
+8.  In the File size section, set the disk size to `50.00` GB.
+9.  Clear the text in the File location field and enter `Backup` in the field.
+9.  Click the folder icon in the File location section, in the Please choose a location for new virtual hard disk file window, open the Documents folder for your Windows user account, create a folder named `Virtual Disks`.
+10. Open the **Virtual Disks** folder, create a folder inside named `Backup`.
+11. Open the **Backup** folder, then click **Save** to save the virtual hard disk file as `Backup.vdmk` in that folder.
+12. Click the **Create** button.
+13. In the WindowsEFI64 - Settings window, click **System** in the left column.
+14. In the Boot Order pane, uncheck all options except **Optical**, leaving **Optical** as the only checked boot device.
+13. Click **OK**.
+14. Note that this and the following step are time sensitive.  In the Oracle VM VirtualBox Manager window, click the **Start** button.
+15. When the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window appears, immediately click the mouse cursor inside the window to activate it.  Rapidly tap the **A** key on the keyboard.  If successful, the virtual machine's UEFI menu will display.  Press the **Down Arrow Key** twice to select **Boot Manager** and press the **Enter** key.  Press the **Down Arrow Key** to select **EFI DVD/CDROM** and press the **Enter** key.  A black screen with white text should display a message to Press any key to boot from CD or DVD, while this is on screen press the **A** key.  The black Windows Boot Manager screen should appear.  Ensure that **Windows 10 Setup (64-bit)** is selected and press the **Enter** key.  The Windows Installer should start.  Because this is time sensitive, the virtual machine may boot into Windows Audit Mode instead of the UEFI menu or the Windows Boot Manager screen.  In that case, click **Cancel** in the System Preparation Tool 3.14, then click the **Start** button, click the **Power** button, then click **Restart**.  As the virtual machine restarts, repeat this step until the system boots into the Windows Installer.
+16. Until noted, the following procedure applies to actions inside the virtual machine.
+
+## Part 20 - Capture An Image Of The Virtual Machine
+
+
 
 
 
