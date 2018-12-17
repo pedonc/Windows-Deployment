@@ -483,9 +483,81 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## Part 20 - Capture An Image Of The Virtual Machine
 
+1.  In the Windows Setup window that appears, click **Next**.
+2.  Click **Repair your computer**.
+3.  Click **Troubleshoot**.
+4.  Click **Command Prompt**.
+5.  In the Command Prompt window that appears, type `diskpart` and press the **Enter** key.
+6.  At the DISKPART> prompt, type `list disk` and press the **Enter** key.  Two disks should be listed.  Note which disk does not have a * character in the Gpt column (it is likely that Disk 1 does not have a * character in the Gpt column and the below instructions assume this; if the disk without the * character has a different disk number on your system, substitute that disk number in the instructions below).
+7.  Type `select disk 1` and press the **Enter** key.
+8.  Type `clean` and press the **Enter** key.
+9.  Type `create partition primary` and press the **Enter** key.
+10. Type `format fs=ntfs quick label=Backup` and press the **Enter** key.
+11. Type `assign` and press the **Enter** key.
+12. Type `list volume` and press the **Enter** key.
+13. Note the drive letter of the Backup volume (likely drive E) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not E and C, respectively, please substitute the drive letters for your system in the command below.
+14. Type `exit` and press the **Enter** key.
+15. Type `dism /capture-image /capturedir:c:\ /imagefile:e:\WindowsEFI64AuditMode.wim /name:Audit` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
+16. When the image capture has completed, type `exit` and press the **Enter** key.
+17. On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
+18. Until noted, the following procedure applies to actions inside the host environment.
 
+## Part 21 - Enable The Virtual Machine To Boot Into Audit Mode And Connect To The Network
 
+1.  In the Oracle VM VirtualBox Manager window, click **Settings**.
+2.  In the left column of the WindowsEFI64 - Settings window, click **System**.
+3.  In the Boot Order list in the middle of the window, uncheck **Optical** and check **Hard Disk**.
+4.  In the left column of the WindowsEFI64 - Settings window, click **Network**.
+5.  Check **Enable Network Adapter**.
+6.  From the Attached to pull down menu, select **Bridged Adapter**.
+7.  
 
+## Part 22 - Enable File Sharing In The Virtual Machine
+
+1.  Once Windows starts, a blue message on the right side of the screen will prompt Do you want to allow your PC to be discoverable by other PCs and devices on this network?  Click **Yes**.
+2.  In the System Preparation Tool 3.14 window, click **Cancel**.
+3.  Right-click on the **Start** button in the lower-left corner of the screen and click **Computer Management**.
+4.  In the left column of the Computer Management window, under Computer Management (Local), System Tools, double-click on **Local Users and Groups**, then double-click on **Users**.
+5.  Click the **Action** menu, then click **New User...**.
+6.  Enter transfer as the user name and enter a secure password for the user in both the Password and confirm password fields.
+7.  Uncheck **User must change password at next logon**, and check **Password never expires**.
+8.  Click **Create**.
+9.  Click **Close**.
+
+10. In the left column of the Computer Management window, under Computer Management (Local), Services and Applications, double-click on **Services**.
+11. In the middle pane of the window, scroll down in the Services list and locate Server, then double-click on **Server**.
+12. Set the Startup type for Server to **Automatic** and click the **Start** button, then click **OK**.
+13. Go to the **File** menu and click **Exit**.
+14. Right-click on an empty area of the Desktop and click **New** then click **Folder**.
+15. Name the folder share.
+16. Right-click on the **share** folder and click **Properties**.
+17. In the Share Properties window that appears, click on the **Sharing** tab.
+18. Click **Advanced Sharing**.
+19. Check **Share this folder**.
+20. Click **Permissions**.
+21. Click **Add**.
+22. In the Enter the object names to select field, enter transfer and click **Check Names**.  The name should resolve to COMPUTERNAME\transfer (where COMPUTERNAME is the current vm pseudo-random name).
+23. Click **OK**.
+
+24. In the Permissions for share window, with **transfer** selected, click the **Allow Full Control** checkbox.
+25. Click **OK**.
+26. Click **OK**.
+27. Click on the **Security** tab.
+28. Click **Edit**.
+29. Click **Add**.
+30. In the Enter the object names to select, enter transfer and click **Check Names**.
+31. Click **OK**.
+32. In the Permissions for share window, click on **transfer** in the Group or user names list, then click **Allow Full control**.  Click the **OK** button.
+
+33. Click **Close**.
+34. Right-click on the Start icon in the lower-left corner and click **Windows PowerShell (Admin)**.
+35. In the PowerShell Window, type ipconfig and press the **Enter** key.
+36. Note the IPv4 Address indicated for the virtual machine.
+37. Type exit and press the **Enter** key.
+38. Open the Windows File Explorer and open the Backup disk (likely drive letter D).
+39. Right-click on the **WindowsEFIAuditMode.wim** file and click **Copy**.
+40. Open the **Desktop** folder, then open the **share** folder, then right-click on an empty area of the folder window and click **Paste**.
+41. Until noted, the following procedure applies to actions inside the host environment.
 
 
 
