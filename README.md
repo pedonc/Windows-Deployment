@@ -663,9 +663,24 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 22. In the left column of the window, click **System**.
 23. Uncheck **Hard Disk** from the Boot Order list (only **Optical** should be checked).
 24. Click **OK**.
-25. The following steps are time sensitive.  In the Oracle VM VirtualBox Manager window, click **Start**.
-20.  Until noted, the following procedure applies to actions inside the virtual machine.
+25. Note that this and the following step are time sensitive.  In the Oracle VM VirtualBox Manager window, click the **Start** button.
+15. When the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window appears, immediately click the mouse cursor inside the window to activate it.  Rapidly tap the **A** key on the keyboard.  If successful, the virtual machine's UEFI menu will display.  Press the **Down Arrow Key** twice to select **Boot Manager** and press the **Enter** key.  Press the **Down Arrow Key** to select **EFI DVD/CDROM** and press the **Enter** key.  A black screen with white text should display a message to Press any key to boot from CD or DVD, while this is on screen press the **A** key.  The black Windows Boot Manager screen should appear.  Ensure that **Windows 10 Setup (64-bit)** is selected and press the **Enter** key.  The Windows Installer should start.  If you get to this point, please move on to Part 29.  Because this is time sensitive, the virtual machine may boot into Windows Out Of Box Experience instead of the UEFI menu or the Windows Boot Manager screen.  In that case, press the right **Control** key to detach the keyboard and mouse from the virtual machine, then click **Machine** menu at the top of the virtual machine window, then click **ACPI Shutdown** and confirm shutdown of the machine.  In the Oracle VM VirtualBox Manager window, click the **SysPrep** snapshot in the list, then click **Restore** and restore the snapshot.  Then repeat steps 16-26 until the you get the Windows Installer to start.
 
+## Part 29 - Capture An Image Of The Sysprep Configuration
+
+1.  Until noted, the following procedure applies to actions inside the virtual machine.
+2.  In the Windows Setup window that appears, click **Next**.
+3.  Click **Repair your computer**.
+4.  Click **Troubleshoot**.
+5.  Click **Command Prompt**.
+6.  In the Command Prompt window that appears, type `diskpart` and press the **Enter** key.
+7.  At the DISKPART> prompt, type `list volume` and press the **Enter** key.
+8.  Note the drive letter of the Backup volume (possibly drive D) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not D and C, respectively, please substitute the drive letters for your system in the command below.
+14. Type `exit` and press the **Enter** key.
+15. Type `dism /capture-image /capturedir:c:\ /imagefile:d:\Sysprep.wim /name:Sysprep` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
+16. When the image capture has completed, type `exit` and press the **Enter** key.
+17. On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
+18. Until noted, the following procedure applies to actions inside the host environment.
 
 
 
