@@ -8,6 +8,7 @@ These instructions are for creating a customized Windows 10 environment that can
 * Windows Professional 1809 64-bit
 * 8GB of RAM
 * 60GB of free disk space
+* An active network connection with Internet access
 * Empty USB flash drive with 16-32GB capacity
 
 Before beginning, it is critical to ensure that your computer's time zone and date and time settings are correct.  Please note that having a computer with a fast processor, solid state disk, and lots of RAM will make this process faster.  Additionally, USB flash drives with more than 32GB of capacity cannot easily be formatted to be bootable with Windows.  A fast USB 3.0 32GB flash drive is highly recommended.
@@ -440,25 +441,25 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 16. Click the **File** menu, click **Exit** and when prompted, click **Save**.
 17. Close the File Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
 
-## Part 16 - Restart The Virtual Machine
+## Part 17 - Restart The Virtual Machine
 
 1.  Click the **Start** button in the lower-left corner of the screen, click the **Power** button, and click **Restart**.
 2.  The system may restart one or more times and will eventually restart in Audit Mode.
 3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
 
-## Part 17 - Shut Down The Virtual Machine
+## Part 18 - Shut Down The Virtual Machine
 
 1.  Click the **Start** button in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
 2.  Until noted, the following procedure applies to actions inside the host environment.
 
-## Part 18 - Snapshot The Virtual Machine
+## Part 19 - Snapshot The Virtual Machine
 
 1.  In the Oracle VM VirtualBox Manager window, click **WindowsEFI64** in the left column to select it, then, towards the upper-right corner of the window, click the **down arrow** next to the **Machine Tools** icon and click **Snapshots**.
 2.  Click the **Take** button.
 3.  In the Take Snapshot of Virtual Machine window that appears, clear the Snapshot Name field and enter `Audit Mode` in the Snapshot Name field.
 4.  Click **OK**.
 
-## Part 19 - Create Virtual Backup Disk
+## Part 20 - Create Virtual Backup Disk
 
 1.  Click **Settings**.
 2.  Click **Storage** in the left column of the WindowsEFI64 - Settings window that appears.
@@ -481,7 +482,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 15. When the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window appears, immediately click the mouse cursor inside the window to activate it.  Rapidly tap the **A** key on the keyboard.  If successful, the virtual machine's UEFI menu will display.  Press the **Down Arrow Key** twice to select **Boot Manager** and press the **Enter** key.  Press the **Down Arrow Key** to select **EFI DVD/CDROM** and press the **Enter** key.  A black screen with white text should display a message to Press any key to boot from CD or DVD, while this is on screen press the **A** key.  The black Windows Boot Manager screen should appear.  Ensure that **Windows 10 Setup (64-bit)** is selected and press the **Enter** key.  The Windows Installer should start.  Because this is time sensitive, the virtual machine may boot into Windows Audit Mode instead of the UEFI menu or the Windows Boot Manager screen.  In that case, click **Cancel** in the System Preparation Tool 3.14, then click the **Start** button, click the **Power** button, then click **Restart**.  As the virtual machine restarts, repeat this step until the system boots into the Windows Installer.
 16. Until noted, the following procedure applies to actions inside the virtual machine.
 
-## Part 20 - Capture An Image Of The Virtual Machine
+## Part 21 - Capture An Image Of The Virtual Machine
 
 1.  In the Windows Setup window that appears, click **Next**.
 2.  Click **Repair your computer**.
@@ -502,7 +503,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 17. On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
 18. Until noted, the following procedure applies to actions inside the host environment.
 
-## Part 21 - Enable The Virtual Machine To Boot Into Audit Mode And Connect To The Network
+## Part 22 - Enable The Virtual Machine To Boot Into Audit Mode And Connect To The Network
 
 1.  In the Oracle VM VirtualBox Manager window, click **Settings**.
 2.  In the left column of the WindowsEFI64 - Settings window, click **System**.
@@ -510,78 +511,92 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 4.  In the left column of the WindowsEFI64 - Settings window, click **Network**.
 5.  Check **Enable Network Adapter**.
 6.  From the Attached to pull down menu, select **Bridged Adapter**.
-7.  Click **OK**.
-8.  In the Oracle VM VirtualBox Manager window, click **Start**.
-9.  Click inside the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window to activate it.
+7.  Select the primary network adapter for your host computer from the Name pull down menu.
+8.  Click **Advanced** to expand the adapter's options.
+9.  Select **Allow All** from the Promiscuous Mode pull down menu.
+10.  Click **OK**.
+11. In the Oracle VM VirtualBox Manager window, click **Start**.
+12. Click inside the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window to activate it.
 
-## Part 22 - Enable File Sharing In The Virtual Machine
+## Part 23 - Enable File Sharing In The Virtual Machine
 
-1.  Once Windows starts, in the System Preparation Tool 3.14 window, click **Cancel**.
-2.  Right-click on the **Start** button in the lower-left corner of the screen and click **Computer Management**.
-3.  In the left column of the Computer Management window, under Computer Management (Local), System Tools, double-click on **Local Users and Groups**, then double-click on **Users**.
-4.  Click the **Action** menu, then click **New User...**.
-5.  Enter `transfer` as the user name and enter a secure password for the user in both the Password and Confirm password fields.
-6.  Uncheck **User must change password at next logon**, and check **Password never expires**.
-7.  Click **Create**.
-8.  Click **Close**.
-9. In the left column of the Computer Management window, under Computer Management (Local), double-click **Services and Applications**, then double-click on **Services**.
-10. In the middle pane of the window, scroll down in the Services list and locate Server, then double-click on **Server**.
-11. Set the Startup type for Server to **Automatic** and click **Apply**, then click the **Start** button, then click **OK**.
-12. Go to the **File** menu and click **Exit**.
-13. Right-click on the **Start** button in the lower-left corner of the screen, then click **Run**.
-14. Type `control panel` in the Open field and press the **Enter** key.
-15. Click **File Explorer Options**.
-16. In the File Explorer Options window, click the **View** menu.
-17. In the Advanced settings window, check **Use Sharing Wizard (Recommended)**, then click **OK**.
-18. Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window.
-19. Right-click on an empty area of the Desktop and click **New** then click **Folder**.
-20. Name the folder `share`.
-21. Right-click on the **share** folder and click **Properties**.
-22. In the Share Properties window that appears, click on the **Sharing** tab.
-23. Click **Advanced Sharing**.
-24. Check **Share this folder**.
-25. Click **Permissions**.
-26. Click **Add**.
-27. In the Enter the object names to select field, enter `transfer` and click **Check Names**.  The name should resolve to COMPUTERNAME\transfer (where COMPUTERNAME is the current vm pseudo-random name).
-28. Click **OK**.
-29. In the Permissions for share window, with **transfer** selected, click the **Allow Full Control** checkbox.
-30. Click **OK**.
+1.  Once Windows starts, a blue message on the right side of the screen will prompt Do you want to allow your PC to be discoverable by other PCs and devices on this network?  Click **Yes**.
+2.  In the System Preparation Tool 3.14 window, click **Cancel**.
+3.  Right-click on the **Start** button in the lower-left corner of the screen and click **Computer Management**.
+4.  In the left column of the Computer Management window, under Computer Management (Local), System Tools, double-click on **Local Users and Groups**, then double-click on **Users**.
+5.  Click the **Action** menu, then click **New User...**.
+6.  Enter `transfer` as the user name and enter a secure password for the user in both the Password and Confirm password fields.
+7.  Uncheck **User must change password at next logon**, and check **Password never expires**.
+8.  Click **Create**.
+9.  Click **Close**.
+10. In the left column of the Computer Management window, under Computer Management (Local), double-click **Services and Applications**, then double-click on **Services**.
+11. In the middle pane of the window, scroll down in the Services list and locate Server, then double-click on **Server**.
+12. Set the Startup type for Server to **Automatic** and click **Apply**, then click the **Start** button, then click **OK**.
+13. Go to the **File** menu and click **Exit**.
+14. Right-click on the **Start** button in the lower-left corner of the screen, then click **Run**.
+15. Type `control panel` in the Open field and press the **Enter** key.
+16. Click **File Explorer Options**.
+17. In the File Explorer Options window, click the **View** menu.
+18. In the Advanced settings window, check **Use Sharing Wizard (Recommended)**, then click **OK**.
+19. Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window.
+20. Right-click on an empty area of the Desktop and click **New** then click **Folder**.
+21. Name the folder `share`.
+22. Right-click on the **share** folder and click **Properties**.
+23. In the Share Properties window that appears, click on the **Sharing** tab.
+24. Click **Advanced Sharing**.
+25. Check **Share this folder**.
+26. Click **Permissions**.
+27. Click **Add**.
+28. In the Enter the object names to select field, enter `transfer` and click **Check Names**.  The name should resolve to COMPUTERNAME\transfer (where COMPUTERNAME is the current vm pseudo-random name).
+29. Click **OK**.
+30. In the Permissions for share window, with **transfer** selected, click the **Allow Full Control** checkbox.
 31. Click **OK**.
-32. Click on the **Security** tab.
-33. Click **Edit**.
-34. Click **Add**.
-35. In the Enter the object names to select, enter `transfer` and click **Check Names**.
-36. Click **OK**.
-37. In the Permissions for share window, click on **transfer** in the Group or user names list, then click **Allow Full control**.  Click the **OK** button.
-38. Click **Close**.
-39. Right-click on the Start icon in the lower-left corner and click **Windows PowerShell (Admin)**.
-40. In the PowerShell Window, type `ipconfig` and press the **Enter** key.
-41. Note the IPv4 Address indicated for the virtual machine under Ethernet adapter Ethernet. 169.254.209.2
-42. Type `exit` and press the **Enter** key.
-43. Open the Windows File Explorer and open the Backup disk (likely drive letter E).
-44. Right-click on the **WindowsEFIAuditMode.wim** file and click **Copy**.
-45. Open the **Desktop** folder, then open the **share** folder, then right-click on an empty area of the folder window and click **Paste**.
-46. Press the right **Control** key on the keyboard to detach the keyboard and mouse from the virtual machine.
-47. Until noted, the following procedure applies to actions inside the host environment.
-48. Click the **Minimize (-)** button in the upper-right corner of the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window to minimize it.
+32. Click **OK**.
+33. Click on the **Security** tab.
+34. Click **Edit**.
+35. Click **Add**.
+36. In the Enter the object names to select, enter `transfer` and click **Check Names**.
+37. Click **OK**.
+38. In the Permissions for share window, click on **transfer** in the Group or user names list, then click **Allow Full control**.  Click the **OK** button.
+39. Click **Close**.
+40. Right-click on the Start icon in the lower-left corner and click **Windows PowerShell (Admin)**.
+41. In the PowerShell Window, type `ipconfig` and press the **Enter** key.
+42. Note the IPv4 Address indicated for the virtual machine under Ethernet adapter Ethernet.
+43. Type `exit` and press the **Enter** key.
+44. Open the Windows File Explorer and open the Backup disk (likely drive letter E).
+45. Right-click on the **WindowsEFIAuditMode.wim** file and click **Copy**.
+46. Open the **Desktop** folder, then open the **share** folder, then right-click on an empty area of the folder window and click **Paste**.
+47. Press the right **Control** key on the keyboard to detach the keyboard and mouse from the virtual machine.
+48. Until noted, the following procedure applies to actions inside the host environment.
+49. Click the **Minimize (-)** button in the upper-right corner of the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window to minimize it.
 
-## Part 23 - Obtain Windows Image From The Virtual Machine
+## Part 24 - Obtain Windows Image From The Virtual Machine
+
+1.  Open Windows File Explorer on the host and go to **This PC**.
+2.  Click **Computer** and then **Map network drive**.
+3.  In the Map Network Drive window that appears, in the Folder field, enter `\\IPAddressOfVirtualMachine\share` (where IPAddressOfVirtualMachine is the IP address noted in Part 23, Step 41).  Note the drive letter for the mapped drive (likely drive Z:).
+4.  Uncheck **Reconnect at sign-in** and click **Finish**.
+5.  In the Enter network credentials window that appears, enter `transfer` in the User name field and the password you created in the Password field, then click **OK**.
+6.  In the share folder that opens, right-click on **WindowsEFI64AuditMode.wim** and click **Copy**.
+7.  Navigate to the Documents folder for your Windows user account, right-click in an empty area of the folder, and click **Paste**.
+
+## Part 25 - Create A CopyProfile Answer File
+
+1.  Click the **Start** button, click **Windows Kits**, and click **Windows System Image Manager**.
+2.  In the Windows System Image Manager, click the **File** menu, click **Select Windows Image**.
+3.  Navigate to the Documents folder and double-click on **WindowsEFI64AuditMode.wim**.
+4.  When asked Do you want to create a catalog file, click **Yes**.
+5.  In the User Account Control dialog that appears, click **Yes**.
+6.  The system may take a moment to create a catalog file.
+7.  Once the catalog file is created, click the **File** menu, then click **New Answer File...**.
+8.  In the Windows Image pane, expand **Components**, then right-click on **amd64_Microsoft-Windows-Shell-Setup_10.0.17763.1_neutral** and click **Add Setting to Pass 4 specialize**.
+8.  In the Answer File pane, under **Components**, **4 specialize**, click **amd64-Microsoft-Windows-Shell-Setup_neutral**.
+9.  In the Microsoft-Windows-Shell-Setup Properties pane, in the Settings section, click on **CopyProfile**, then select **true** from the pull down menu to the right of CopyProfile.
+10. Go to the **File** menu and click **Save Answer File As...**.
+11. In the Save As window that appears, open the **Documents** folder for your Windows user account and then enter `CopyProfile.xml` in the File name field and click **Save**.
+12. Go to the **File** menu and click **Exit**.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Once Windows starts, a blue message on the right side of the screen will prompt Do you want to allow your PC to be discoverable by other PCs and devices on this network?  Click **Yes**.
-2.  
 
 
 
