@@ -517,6 +517,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 10.  Click **OK**.
 11. In the Oracle VM VirtualBox Manager window, click **Start**.
 12. Click inside the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window to activate it.
+13. Until noted, the following procedure applies to actions inside the virtual machine.
 
 ## Part 23 - Enable File Sharing In The Virtual Machine
 
@@ -596,14 +597,74 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 11. In the Save As window that appears, open the **Documents** folder for your Windows user account and then enter `CopyProfile.xml` in the File name field and click **Save**.
 12. Go to the **File** menu and click **Exit**.
 
+## Part 26 - Copy The Answer File To The Virtual Machine
 
+1.  Open the Windows File Explorer and open your Windows user account's **Documents** folder.
+2.  Right-click on the **CopyProfile.xml** file and click **Copy**.
+3.  Navigate to the mapped **share** folder from the virtual machine (the location should have been noted in step 3 of Part 24 and is likely drive Z:).
+4.  Right-click in an empty area of the open share folder and click **Paste**.
+5.  In the Windows File Explorer, open the **File** menu and click **Close**.
+6.  From the Taskbar, open the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window and click in the window to catpure the mouse input in the virtual machine.
+7.  Until noted, the following procedure applies to actions inside the virtual machine.
+8.  On the Desktop, open the **share** folder.
+9.  Right-click on the **CopyProfile.xml** file and click **Copy**.
+10. In File Explorer, navigate to **This PC** then open **Backup** and right-click in an empty area of the drive in File Explorer and click **Paste**.
+11. Click the **File** menu and click **Close**.
+12. Click the **Start** button icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
+13. Until noted, the following procedure applies to actions inside the host environment.
 
+## Part 27 - Snapshot The File Sharing Virtual Machine
 
+1.  In the Oracle VM VirtualBox Manager, click **Settings**.
+2.  In the WindowsEFI64 - Settings window, click **Storage** in the left column.
+3.  In the Storage Devices list, click **Backup.vmdk**.
+4.  Click the **Removes selected storage attachment.** button (the blue square with red minus icon on the right at the bottom of the Storage Devices list).
+5.  Click **OK**.
+6.  In the Oracle VM VirtualBox Manager window, click **WindowsEFI64** in the left column to select it, then, towards the upper-right corner of the window, click the **down arrow** next to the **Machine Tools** icon and click **Snapshots**.
+7.  Click the **Take** button.
+8.  In the Take Snapshot of Virtual Machine window that appears, clear the Snapshot Name field and enter `File Sharing` in the Snapshot Name field.
+9.  Click **OK**.
+10. In the list of snapshots, click **Audit Mode**.
+11. Click **Restore**.
+12. Click **Settings**.
+13. In the WindowsEFI64 - Settings window, click **Storage** in the left column.
+14. At the bottom of the Storage Devices list in the middle of the window, click the **Adds a new storage attachment.** button (it is the blue square button with a green plus sign second from the right at the bottom of the Storage Devices list).
+15.  Click **Add Hard Disk**.
+16.  In the VirtualBox - Question window, click **Choose existing disk**.
+17.  In the Please choose a virtual hard disk file window, double-click **Backup** in the Backup folder inside Virtual Disks in the Documents folder of your Windows user account to attach it to the virtual machine.
+18.  Click **OK**.
+19.  In the Oracle VM VirtualBox Manager window, click **Start**.
+20.  Until noted, the following procedure applies to actions inside the virtual machine.
+21.  After the virtual machine starts and boots into Windows, click the **Cancel** button in the System Preparation Tool 3.14 window.
 
+## Part 28 - Run SysPrep
 
-
-
-
+1.  Click the **File Explorer** (yellow folder) icon on the Taskbar and go to **This PC**.
+2.  Note the drive letter for the Backup drive (likely E:).
+3.  Close File Explorer by clicking on the **Close (X)** button in the upper-right corner of the window.
+4.  Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
+5.  In the Open field, type `c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\copyprofile.xml` (substituting the correct letter if e: is not the drive letter for the Backup drive noted in step 2) and press the **Enter** key.
+6.  A message reading Sysprep is working... will appear.  Wait while the Sysprep program finishes running and the virtual machine is shut down.
+7.  Until noted, the following procedure applies to actions inside the host environment.
+8.  In the Oracle VM VirtualBox Manager window, click **Settings**.
+9.  In the WindowsEFI64 - Settings window that appears, click **Storage** in the left column.
+10. Click **Backup.vmdk** in the Storage Devices list, then click the **Removes selected storage attachment.** button (the blue square with red minus icon on the right at the bottom of the Storage Devices list).
+11.  Click **OK**.
+12.  In the Oracle VM VirtualBox Manager window, click **WindowsEFI64** in the left column to select it, then, towards the upper-right corner of the window, click the **down arrow** next to the **Machine Tools** icon and click **Snapshots**.
+13.  Click the **Take** button.
+14.  In the Take Snapshot of Virtual Machine window that appears, clear the Snapshot Name field and enter `SysPrep` in the Snapshot Name field.
+15.  Click **OK**.
+16. Click **Settings**.
+17. In the WindowsEFI64 - Settings window, click **Storage** in the left column.
+18. At the bottom of the Storage Devices list in the middle of the window, click the **Adds a new storage attachment.** button (it is the blue square button with a green plus sign second from the right at the bottom of the Storage Devices list).
+19. Click **Add Hard Disk**.
+20. In the VirtualBox - Question window, click **Choose existing disk**.
+21. In the Please choose a virtual hard disk file window, double-click **Backup** in the Backup folder inside Virtual Disks in the Documents folder of your Windows user account to attach it to the virtual machine.
+22. In the left column of the window, click **System**.
+23. Uncheck **Hard Disk** from the Boot Order list (only **Optical** should be checked).
+24. Click **OK**.
+25. The following steps are time sensitive.  In the Oracle VM VirtualBox Manager window, click **Start**.
+20.  Until noted, the following procedure applies to actions inside the virtual machine.
 
 
 
