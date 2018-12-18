@@ -786,18 +786,32 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 9.  Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
 10. In the Administrator: Deployment and Imaging Tools Environment window, type `notepad c:\amd64pe\mount\windows\ImageComputer.ps1` and press the **Enter** key.
 11. When prompted to create a new file, click **Yes**.
-12. Copy the full content of the ImageComputer.ps1 script from this repository (avaialble [here](https://raw.githubusercontent.com/pedonc/windows-deployment/master/Code/PowerShell/ImageComputer.ps1) and paste it into Notepad.
-13. Click the **Close (X)** button in the upper-righ corner of the window to close Notepad.  When prompted, click **Save**.
+12. Copy the full content of the ImageComputer.ps1 script from this repository (avaialble [here](https://raw.githubusercontent.com/pedonc/windows-deployment/master/Code/PowerShell/ImageComputer.ps1) and paste it into Notepad.  Ensure that there is a final empty line in the script after the last command to ensure that the last command executes.
+13. Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
+14. To save the changes to the Windows PE image, type `dism /unmount-image /mountdir:c:\amd64pe\mount /commit` and press the **Enter** key.  It will take a moment for the system to save and unmount the image.
 
-Save the file.
-Go to the Notepad File menu and select New.
-Copy and paste the text for the ImageComputer.ps1 script below into Notepad.
-In the Administrator Deployment and Imaging Tools Environment, enter Dism /Unmount-Image /MountDir:C:\WinPE_amd64_PS\mount /Commit .
-Once the image is saved, run MakeWinPEMedia /UFD C:\WinPE_amd64_PS F: where F: is the drive letter of the USB drive.
-Eject and remove the USB drive when the process is completed.  This is the standard Windows PE drive with PowerShell.
+## Part 33 - Create The USB PE Media
 
-
-
+1.  In the Administator: Deployment and Imaging Tools Environment, type `diskpart` and press the **Enter** key.
+2.  Type `list disk` and press the **Enter** key.
+3.  Note the disk numbers and capacities of the disks listed.
+4.  Connect a USB flash drive that can be completely erased to the computer and wait a moment.  The ideal size for the flash drive is either 16GB or 32GB.
+5.  Type `list disk` and press the **Enter** key.
+6.  Compare the list of disks with the disk(s) listed in step 3 and determine the disk number of the USB flash drive.  It is critical to know the correct drive number before proceeding; do not proceed if you are unsure as you could erase important data.
+7.  Type `select disk #` where # is the number of the USB flash drive determined in Step 6 and press the **Enter** key.
+8.  Type `clean` and press the **Enter** key.
+9.  Type `create partition primary` (if the USB flash drive is larger than 32GB, type `create partition primary size=32000`) and press the **Enter** key.
+10. Type `format fs=fat32 quick label=winpe` and press the **Enter** key.
+11. Type `active` and press the **Enter** key.
+12. Type `assign` and press the **Enter** key.
+13. Type `exit` and press the **Enter** key.
+14. Open **File Explorer** and go to **This PC**.
+15. Note the drive letter of the WINPE USB drive.
+16. Return to the Administrator: Deployment and Imaging Tools Environment window.
+17. Type `xcopy c:\amd64pe\media\*.* /s /e /f u:` where u is the drive letter of the WINPE USB drive noted in Step 15.
+18. Return to **File Explorer**.  Open the **Documents** folder for your Windows user account and right-click on **Images**.  Click **Copy**.
+19. Open the **WINPE** USB drive in File Explorer, right-click in an empty area of the drive, and click **Paste**.
+20. The USB drive should now be bootable and will automate much of the Windows installation and configuration process.  Importantly, do not connect the USB drive to any computer that cannot be fully erased and please ensure that no additional USB disks or peripherals are connected to any computer when the USB drive is used (to avoid accidentally erasing other media).  It should be possible to repeat the steps in Part 33 with other USB drives to make multiple copies of the automated USB installer.  Good luck!
 
 ## License
 
