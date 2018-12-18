@@ -737,8 +737,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 27. Uncheck **Reconnect at sign-in** and click **Finish**.
 28. In the Enter network credentials window that appears, enter `transfer` in the User name field and the password you created in the Password field, then click **OK**.
 29. In the share folder that opens, hold the **Control** key on the keyboard and click on all the files in the folder beginning with WindowsEFI64 except the WindowsEFI64AuditMode.wim file.  Once all the SWM files are selected, right-click on one of the selected files and click **Copy**.
-30. Go to your Windows user account's **Documents** folder, right-click in an empty area of the folder, click **New** then **Folder**.  Name the folder `Image`.
-31. Open the **Image** folder.  Right-click in an empty area of the folder and click **Paste**.
+30. Go to your Windows user account's **Documents** folder, right-click in an empty area of the folder, click **New** then **Folder**.  Name the folder `Images`.
+31. Open the **Images** folder.  Right-click in an empty area of the folder and click **Paste**.
 32. After the SWM image files have been copied to the host computer, go to **This PC**.  Right-click on the mapped drive from the virtual machine (the location should have been noted in Step 3 of Part 24 and is likely drive Z:) and click **Disconnect**.
 33. In the Windows File Explorer, open the **File** menu and click **Close**.
 34. From the Taskbar, open the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window and click in the window to catpure the mouse input in the virtual machine.
@@ -747,7 +747,35 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 37. Click the **Close (X)** button in the upper-right corner of the Oracle VM VirtualBox Manager window to close it.
 38. The following procedure applies to actions inside the host environment.
 
+## Part 32 - Prepare The Windows PE Environment
 
+1.  Click the **Start** button in the lower-left corner of the screen.
+2.  In the Start menu's application list, click on **Windows Kits**.
+3.  Right-click on the **Deployment and Imaging Tools Environment**, click **More**, and click **Run as administrator**.
+4.  In the User Account Control window, click **Yes**.
+5.  In the Administrator: Deployment and Imaging Tools Environment window, enter `copype amd64 C:\amd64pe` and press the **Enter** key.
+6.  Copy the text of the script below and paste it into the Administrator: Deployment and Imaging Tools Environment window to add PowerShell to the Windows PE environment.
+
+    ```
+    Dism /Mount-Image /ImageFile:"C:\amd64pe\media\sources\boot.wim" /Index:1 /MountDir:"C:\amd64pe\mount"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-WMI.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-NetFX.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-NetFX_en-us.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-Scripting.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-PowerShell.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-PowerShell_en-us.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-StorageWMI.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-StorageWMI_en-us.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-DismCmdlets.cab"
+    Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-DismCmdlets_en-us.cab"
+    
+    ```
+
+In the Administrator Deployment and Imaging Tools Environment, enter Dism /Unmount-Image /MountDir:C:\WinPE_amd64_PS\mount /Commit .
+Once the image is saved, run MakeWinPEMedia /UFD C:\WinPE_amd64_PS F: where F: is the drive letter of the USB drive.
+Eject and remove the USB drive when the process is completed.  This is the standard Windows PE drive with PowerShell.
 
 
 
