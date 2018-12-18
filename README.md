@@ -783,7 +783,12 @@ Before beginning, it is critical to ensure that your computer's time zone and da
     
     ```
     
-9.  
+9.  Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
+10. In the Administrator: Deployment and Imaging Tools Environment window, type `notepad c:\amd64pe\mount\windows\ImageComputer.ps1` and press the **Enter** key.
+11. When prompted to create a new file, click **Yes**.
+12. Copy the full content of the ImageComputer.ps1 script from this repository (avaialble [here](https://raw.githubusercontent.com/pedonc/windows-deployment/master/Code/PowerShell/ImageComputer.ps1) and paste it into Notepad.
+13. Click the **Close (X)** button in the upper-righ corner of the window to close Notepad.  When prompted, click **Save**.
+
 Save the file.
 Go to the Notepad File menu and select New.
 Copy and paste the text for the ImageComputer.ps1 script below into Notepad.
