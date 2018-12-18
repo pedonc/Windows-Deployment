@@ -754,7 +754,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 3.  Right-click on the **Deployment and Imaging Tools Environment**, click **More**, and click **Run as administrator**.
 4.  In the User Account Control window, click **Yes**.
 5.  In the Administrator: Deployment and Imaging Tools Environment window, enter `copype amd64 C:\amd64pe` and press the **Enter** key.
-6.  Copy the text of the script below and paste it into the Administrator: Deployment and Imaging Tools Environment window to add PowerShell to the Windows PE environment.
+6.  Copy the text of the script below and paste it into the Administrator: Deployment and Imaging Tools Environment window to add PowerShell to the Windows PE environment.  Ensure that each command completes successfully.
 
     ```
     Dism /Mount-Image /ImageFile:"C:\amd64pe\media\sources\boot.wim" /Index:1 /MountDir:"C:\amd64pe\mount"
@@ -773,6 +773,20 @@ Before beginning, it is critical to ensure that your computer's time zone and da
     
     ```
 
+7.  Type `notepad c:\amd64pe\mount\Windows\System32\startnet.cmd` and press the **Enter** key.
+8.  Leave `wpeinit` on the first line, then add the second line `%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Set-ExecutionPolicy Unrestricted` then add a third line with `%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe %SYSTEMDRIVE%\Windows\ImageComputer.ps1` and be sure that there is a Return after that line (so the cursor should be on the 4th line at the bottom of the file).  The entire file should now read as follows.
+
+    ```
+    wpeinit
+    %SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Set-ExecutionPolicy Unrestricted
+    %SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe %SYSTEMDRIVE%\Windows\ImageComputer.ps1
+    
+    ```
+    
+9.  
+Save the file.
+Go to the Notepad File menu and select New.
+Copy and paste the text for the ImageComputer.ps1 script below into Notepad.
 In the Administrator Deployment and Imaging Tools Environment, enter Dism /Unmount-Image /MountDir:C:\WinPE_amd64_PS\mount /Commit .
 Once the image is saved, run MakeWinPEMedia /UFD C:\WinPE_amd64_PS F: where F: is the drive letter of the USB drive.
 Eject and remove the USB drive when the process is completed.  This is the standard Windows PE drive with PowerShell.
