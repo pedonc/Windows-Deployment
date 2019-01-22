@@ -639,7 +639,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 21. Until noted, the following procedure applies to actions inside the virtual machine.
 22. After the virtual machine starts and boots into Windows, click the **Cancel** button in the System Preparation Tool 3.14 window.
 
-## Part 28 - Run SysPrep
+## Part 28 - Run Sysprep
 
 1.  Click the **File Explorer** (yellow folder) icon on the Taskbar and go to **This PC**.
 2.  Note the drive letter for the Backup drive (likely E:).
@@ -815,7 +815,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## License
 
-All content copyright (c) 2018 Curtis Glavin, Jonathan Huppi, Robert Burkey
+All content copyright (c) 2018, 2019 Curtis Glavin, Jonathan Huppi, Robert Burkey
 
 All code in this repository is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3 as published by the Free Software Foundation.
 
