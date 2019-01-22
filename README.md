@@ -815,7 +815,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## License
 
-All content copyright (c) 2018, 2019 Curtis Glavin, Jonathan Huppi, Robert Burkey
+All content copyright (c) 2019 Curtis Glavin, Jonathan Huppi, Robert Burkey
 
 All code in this repository is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3 as published by the Free Software Foundation.
 
