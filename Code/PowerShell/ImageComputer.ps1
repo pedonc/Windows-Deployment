@@ -1,7 +1,7 @@
 #
 # Windows Deployment Imaging Script
 #
-# Copyright (C) 2018 Curtis Glavin, Jonathan Huppi, Robert Burkey
+# Copyright (C) 2019 Curtis Glavin, Jonathan Huppi, Robert Burkey
 #
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License Version 3 as published by the Free Software Foundation.
 #
