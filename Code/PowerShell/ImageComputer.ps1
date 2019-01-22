@@ -238,6 +238,10 @@ iex "${windowsDrive}:\Windows\System32\bcdboot ${windowsDrive}:\Windows"
 Write-Host "Applied image to destination disk"
 
 #
+# TODO Automate Encryption, log system information
+#
+
+#
 # Set system name
 #
 $unattendPath = "${windowsDrive}:\Windows\Panther\unattend.xml"
