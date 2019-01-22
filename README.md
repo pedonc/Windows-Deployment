@@ -410,7 +410,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 28. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
 29. Click **Yes** to confirm deletion.
 
-## Part 16 - Export Start Menu
+## TODO Fix Start Menu Deployment, Does Not Currently Work Part 16 - Export Start Menu
 
 1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
 2.  Type `export-startlayout -path c:\StartLayout.xml` and press the **Enter** key.
@@ -581,7 +581,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 6.  In the share folder that opens, right-click on **WindowsEFI64AuditMode.wim** and click **Copy**.
 7.  Navigate to the Documents folder for your Windows user account, right-click in an empty area of the folder, and click **Paste**.
 
-## Part 25 - Create A CopyProfile Answer File
+## TODO Additional Customization Of Answer File, Skip OOBE Security Qs, etc. Part 25 - Create A CopyProfile Answer File
 
 1.  Click the **Start** button, click **Windows Kits**, and click **Windows System Image Manager**.
 2.  In the Windows System Image Manager, click the **File** menu, click **Select Windows Image**.
