@@ -239,6 +239,7 @@ Write-Host "Applied image to destination disk"
 
 #
 # TODO Automate Encryption, log system information
+# Ensure nothing published is confidential DFCI information.
 #
 
 #
