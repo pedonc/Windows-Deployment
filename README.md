@@ -647,7 +647,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 1.  TODO general process: use installers from the **Backup** disk to install under Audit Mode.
 2.  TODO general process: customize the third party sofware (run applications and configure default settings, etc.).
-3.  TODO general process: clean up the **C:** drive.  Add any additional deployment customizations (login script, etc.).
+3.  TODO general process: clean up the **C:** drive.  Add any additional deployment customizations (login script, etc.).  Ensure nothing published is proprietary/confidential DFCI information.
 
 ## Part 31 - Run Sysprep
 
