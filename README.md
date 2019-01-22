@@ -611,10 +611,14 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 10.  Right-click on the **CopyProfile.xml** file and click **Copy**.
 11. In File Explorer, navigate to **This PC** then open **Backup** and right-click in an empty area of the drive in File Explorer and click **Paste**.
 12. Click the **File** menu and click **Close**.
-13. Click the **Start** button icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
-14. Until noted, the following procedure applies to actions inside the host environment.
 
-## Part 27 - Snapshot The File Sharing Virtual Machine
+## TODO Part 27 - Obtain Third Party Software Installers
+
+1.  TODO general process: download/copy installers and settings files that will be needed to the **Backup** disk.  Ensure that none of the documented steps are confidential/proprietary to DFCI.  Ensure that the C: drive is clear of extraneous files before proceeding.
+2.  Click the **Start** button icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
+3. Until noted, the following procedure applies to actions inside the host environment.
+
+## Part 29 - Snapshot The File Sharing Virtual Machine
 
 1.  In the Oracle VM VirtualBox Manager, click **Settings**.
 2.  In the WindowsEFI64 - Settings window, click **Storage** in the left column.
@@ -639,7 +643,13 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 21. Until noted, the following procedure applies to actions inside the virtual machine.
 22. After the virtual machine starts and boots into Windows, click the **Cancel** button in the System Preparation Tool 3.14 window.
 
-## Part 28 - Run Sysprep
+## TODO Part 30 - Install And Customize Third Party Software
+
+1.  TODO general process: use installers from the **Backup** disk to install under Audit Mode.
+2.  TODO general process: customize the third party sofware (run applications and configure default settings, etc.).
+3.  TODO general process: clean up the **C:** drive.  Add any additional deployment customizations (login script, etc.).
+
+## Part 31 - Run Sysprep
 
 1.  Click the **File Explorer** (yellow folder) icon on the Taskbar and go to **This PC**.
 2.  Note the drive letter for the Backup drive (likely E:).
@@ -668,7 +678,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 25. Note that this and the following step are time sensitive.  In the Oracle VM VirtualBox Manager window, click the **Start** button.
 15. When the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window appears, immediately click the mouse cursor inside the window to activate it.  Rapidly tap the **A** key on the keyboard.  If successful, the virtual machine's UEFI menu will display.  Press the **Down Arrow Key** twice to select **Boot Manager** and press the **Enter** key.  Press the **Down Arrow Key** to select **EFI DVD/CDROM** and press the **Enter** key.  A black screen with white text should display a message to Press any key to boot from CD or DVD, while this is on screen press the **A** key.  The black Windows Boot Manager screen should appear.  Ensure that **Windows 10 Setup (64-bit)** is selected and press the **Enter** key.  The Windows Installer should start.  If you get to this point, please move on to Part 29.  Because this is time sensitive, the virtual machine may boot into Windows Out Of Box Experience instead of the UEFI menu or the Windows Boot Manager screen.  In that case, press the right **Control** key to detach the keyboard and mouse from the virtual machine, then click **Machine** menu at the top of the virtual machine window, then click **ACPI Shutdown** and confirm shutdown of the machine.  In the Oracle VM VirtualBox Manager window, click the **SysPrep** snapshot in the list, then click **Restore** and restore the snapshot.  Then repeat steps 16-26 until the you get the Windows Installer to start.
 
-## Part 29 - Capture An Image Of The Sysprep Configuration
+## Part 32 - Capture An Image Of The Sysprep Configuration
 
 1.  Until noted, the following procedure applies to actions inside the virtual machine.
 2.  In the Windows Setup window that appears, click **Next**.
@@ -684,7 +694,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 17. On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
 18. Until noted, the following procedure applies to actions inside the host environment.
 
-## Part 30 - Restore The File Sharing Virtual Machine
+## Part 33 - Restore The File Sharing Virtual Machine
 
 1.  In the Oracle VM VirtualBox Manager window, click **Settings**.
 2.  In the left column of the WindowsEFI64 - Settings window, click **Storage**.
@@ -706,7 +716,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 20. Click inside the virtual machine window to allow the virtual machine to capture the keyboard and mouse.
 21. Until noted, the following procedure applies to actions inside the virtual machine.
 
-## Part 31 - Edit The Image File
+## Part 34 - Edit The Image File
 
 1.  After the virtual machine starts and boots into Windows, click the **Cancel** button in the System Preparation Tool 3.14 window.
 2.  Click the **File Explorer** shortcut on the Taskbar, then open the **Backup** drive.
@@ -747,7 +757,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 37. Click the **Close (X)** button in the upper-right corner of the Oracle VM VirtualBox Manager window to close it.
 38. The following procedure applies to actions inside the host environment.
 
-## Part 32 - Prepare The Windows PE Environment
+## Part 35 - Prepare The Windows PE Environment
 
 1.  Click the **Start** button in the lower-left corner of the screen.
 2.  In the Start menu's application list, click on **Windows Kits**.
@@ -790,7 +800,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 13. Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
 14. To save the changes to the Windows PE image, type `dism /unmount-image /mountdir:c:\amd64pe\mount /commit` and press the **Enter** key.  It will take a moment for the system to save and unmount the image.
 
-## Part 33 - Create The USB PE Media
+## Part 36 - Create The USB PE Media
 
 1.  In the Administator: Deployment and Imaging Tools Environment, type `diskpart` and press the **Enter** key.
 2.  Type `list disk` and press the **Enter** key.
