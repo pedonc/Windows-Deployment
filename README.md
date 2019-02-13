@@ -385,30 +385,27 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 3.  In the context menu that appears, click **Cortana** then click **Hidden**.
 4.  Click on the **Start** button in the lower-left corner of the screen.
 5.  For each of the tiles on the right side of the Start Menu, right-click on the tile and click **Unpin from Start**.
-6.  In the Application List on the left side of the Start Menu, right-click on **Calculator**.
-7.  Click **Pin to Start**.
-8.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **More**, then click **Turn Live Tile off**.
-9.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **Resize**, then click **Small**.
-10. Scroll in the Application List on the left side of the Start Menu down to Windows Accessories and click on **Windows Accessories**.
-11. Click on **Internet Explorer**.
-12. In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
-13. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
-14. In the Internet Options window that appears, in the Home page field, erase the URL listed and enter `about:blank`.
-15. Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
-16. Back in the Internet Options window, click the **OK** button.
-17. Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
-18. Right-click on the **Bing** icon and click **Delete**.
-19. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Safety** then click **Delete browsing history...**.
-20. Uncheck **Preserve Favorites website data** and check **Download History**, **Form data**, **Passwords**, and **Tracking Protection, ActiveX Filtering and Do Not Track** and click the **Delete** button.
+6.  Move the mouse cursor to the far right side of the Start Menu so that the cursor changes to the **resizing pointer**, click and drag the edge of the Start Menu to the left until it will go no further.
+7. Scroll in the Application List on the left side of the Start Menu down to Windows Accessories and click on **Windows Accessories**.
+8. Click on **Internet Explorer**.
+9. In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
+10. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
+11. In the Internet Options window that appears, in the Home page field, erase the URL listed and enter `about:blank`.
+12. Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
+13. Back in the Internet Options window, click the **OK** button.
+14. Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
+15. Right-click on the **Bing** icon and click **Delete**.
+16. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Safety** then click **Delete browsing history...**.
+17. Uncheck **Preserve Favorites website data** and check **Download History**, **Form data**, **Passwords**, and **Tracking Protection, ActiveX Filtering and Do Not Track** and click the **Delete** button.
+18. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+19. When prompted, click **Close all tabs**.
+20. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
 21. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
 22. When prompted, click **Close all tabs**.
 23. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
-24. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
-25. When prompted, click **Close all tabs**.
-26. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
-27. Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
-28. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
-29. Click **Yes** to confirm deletion.
+24. Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
+25. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
+26. Click **Yes** to confirm deletion.
 
 ## TODO Fix Start Menu Deployment, Does Not Currently Work Part 16 - Export Start Menu
 
