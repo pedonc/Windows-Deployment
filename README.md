@@ -306,7 +306,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 164. Set **Allow downloads from other PCs** to **Off**.
 165. Close the Settings window by clicking the **Close (X)** button in the upper-right corner of the window.
 
-## Part X - Remove Default Microsoft applications
+## Part X - Remove Microsoft Default Installed Applications
 1. Right-click on the **Start** button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
 2. Run the following commands to remove the applications.\
    `Remove-AppPackage Microsoft.BingWeather_4.25.12127.0_x64__8wekyb3d8bbwe`\
@@ -336,7 +336,39 @@ Before beginning, it is critical to ensure that your computer's time zone and da
    `Remove-AppPackage Microsoft.XboxSpeechToTextOverlay_1.17.29001.0_x64__8wekyb3d8bbwe`\
    `Remove-AppPackage Microsoft.YourPhone_0.0.12084.0_x64__8wekyb3d8bbwe`\
    `Remove-AppPackage Microsoft.ZuneMusic_10.18052.20211.0_x64__8wekyb3d8bbwe`\
-   `Remove-AppPackage Microsoft.ZuneVideo_10.18052.20211.0_x64__8wekyb3d8bbwe`
+   `Remove-AppPackage Microsoft.ZuneVideo_10.18052.20211.0_x64__8wekyb3d8bbwe`\
+3. Type `exit` and press the **Enter** key to close the PowerShell window.
+
+## Part X - Remove Microsoft Provisioned Applications
+1. Right-click on the **Start** button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
+2. Run the following commands to remove the applications.\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.BingWeather_4.25.12127.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.DesktopAppInstaller_2018.720.2137.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.Getstarted_6.13.11581.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.Messaging_2018.727.1430.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.MicrosoftOfficeHub_2017.1219.520.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.MicrosoftSolitaireCollection_4.1.5252.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.MixedReality.Portal_2000.18081.1242.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.Office.OneNote_16001.10228.20003.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.OneConnect_5.1807.1991.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.People_2018.516.2011.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.Print3D_3.0.1521.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.SkypeApp_14.26.95.0_neutral_~_kzf8qxf38zg5c`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.Wallet_2.2.18179.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename microsoft.windowscommunicationsapps_2015.9330.21365.0_neutral_~_8wekyb3d8bbe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.WindowsFeedbackHub_2018.822.2.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.WindowsMaps_2018.523.2143.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.Xbox.TCUI_1.11.28003.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.XboxApp_41.41.18001.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.XboxGameOverlay_1.32.17005.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.XboxGamingOverlay_2.20.22001.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.XboxIdentityProvider_12.44.20001.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.XboxSpeechToTextOverlay_1.17.29001.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.YourPhone_2018.727.2137.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.ZuneMusic_2019.18052.20211.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.ZuneVideo_2019.18052.20211.0_neutral_~_8wekyb3d8bbwe`\
+   `Remove-AppProvisionedPackage -online -packagename Microsoft.WebMediaExtensions_1.0.12341.0_neutral_~_8wekyb3d8bbwe`\
+3. Type `exit` and press the **Enter** key to close the PowerShell window.
 
 ## Part 10 - Enable Additional Windows Features
 
