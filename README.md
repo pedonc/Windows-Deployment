@@ -309,8 +309,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part X - Remove Default Microsoft applications
 1. Right-click on the **Start** button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
 2. Run the following commands to remove the applications.
-3. `Remove-AppPackage Microsoft.BingWeather_4.25.12127.0_x64__8wekyb3d8bbwe`
-   `Remove-AppPackage Microsoft.DesktopAppInstaller_1.0.22011.0_x64__8wekyb3d8bbwe`
+3. `Remove-AppPackage Microsoft.BingWeather_4.25.12127.0_x64__8wekyb3d8bbwe`\
+   `Remove-AppPackage Microsoft.DesktopAppInstaller_1.0.22011.0_x64__8wekyb3d8bbwe`\
      Remove-AppPackage Microsoft.Getstarted_6.13.11581.0_x64__8wekyb3d8bbwe
      Remove-AppPackage Microsoft.Messaging_3.43.27001.0_x64__8wekyb3d8bbwe
      Remove-AppPackage Microsoft.MicrosoftOfficeHub_17.8918.5926.0_x64__8wekyb3d8bbwe
