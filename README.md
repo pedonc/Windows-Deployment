@@ -364,7 +364,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 23. If available, double-click **Wireless Adapter Settings**, double-click **Power Saving Mode**, and set all settings to **Maximum Performance**.
 24. If available, double-click **Sleep**, double-click **Allow wake timers**, and set all settings to **Enable**.
 25. Double-click **USB settings**, double-click **USB selective suspend setting**, and set all settings to **Disabled**.
-26. If available, double-click **Power buttons and lid**, double-click **Power buton action**, and set all settings to **Shut down**.  If available, double-click **Sleep button action** and set all settings to **Do nothing**. 
+26. If available, double-click **Power buttons and lid**, double-click **Power buton action**, and set all settings to **Shut down**.  If available, double-click **Sleep button action** and set all settings to **Do nothing**.
 27. Double-click **PCI Express**, double-click **Link State Power Management**, and set all settings to **Off**.
 28. Double-click **Display**, double-click **Turn off display after**, and set all settings to `10` Minutes.
 29. Double-click **Multimedia settings**.  Double-click **When sharing media** and set all settings to **Prevent idling to sleep**.  Double-click **Video playback quality bias** and set all settings to **Video playback performance bias**.  Double-click **When playing video** and set all settings to **Optimize video quality**.
@@ -407,7 +407,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 25. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
 26. Click **Yes** to confirm deletion.
 
-## TODO Fix Start Menu Deployment, Does Not Currently Work Part 16 - Export Start Menu
+## Part 16 - Export Start Menu
 
 1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
 2.  Type `export-startlayout -path c:\StartLayout.xml` and press the **Enter** key.
@@ -422,21 +422,15 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 10. Name the new folder `Settings`.
 11. Double-click on **Settings**.
 12. Right-click on an empty area of the Settings folder and click **Paste**.
-13. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
-14. Locate and edit the tag
-
-    ```xml
-    <DefaultLayoutOverride>
-    ```
-
-15. Change the tag to read
-
-    ```xml
-    <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">
-    ```
-
-16. Click the **File** menu, click **Exit** and when prompted, click **Save**.
-17. Close the File Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
+13. Close the File Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
+16. Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
+17.  In the Run window that appears, in the Open field, type `gpedit.msc` and press the **Enter** key.
+18. In the Local Group Policy Editor window that appears, in the left column, under Local Computer Policy, Computer Configuration, double-click on **Administrative Templates** to expand it.
+19. Left-click on **Start Menu and Taskbar** in the left hand column to select it.
+20. Double-click on **Start Layout** in the right-hand column.
+21. In the top left of the window that opens, click Enabled and in the bottom left-hand column type in the location of the xml file saved previously, c:\Users\Public\Settings\StartLayout.xml.
+22. Click **Ok**
+23. Close the Local Group Plicy Editor window by clicking the **Close (X)** button in the upper-right corner of the window.
 
 ## Part 17 - Restart The Virtual Machine
 
@@ -777,7 +771,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
     Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-StorageWMI_en-us.cab"
     Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-DismCmdlets.cab"
     Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-DismCmdlets_en-us.cab"
-    
+
     ```
 
 7.  Type `notepad c:\amd64pe\mount\Windows\System32\startnet.cmd` and press the **Enter** key.
@@ -787,9 +781,9 @@ Before beginning, it is critical to ensure that your computer's time zone and da
     wpeinit
     %SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Set-ExecutionPolicy Unrestricted
     %SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe %SYSTEMDRIVE%\Windows\ImageComputer.ps1
-    
+
     ```
-    
+
 9.  Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
 10. In the Administrator: Deployment and Imaging Tools Environment window, type `notepad c:\amd64pe\mount\windows\ImageComputer.ps1` and press the **Enter** key.
 11. When prompted to create a new file, click **Yes**.
