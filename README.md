@@ -203,7 +203,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 61. Click **Home**.
 62. Click **Apps**.
 63. Set **Installing apps** to **Turn off app recommendations**.
-64. Click on and **Uninstall** the following apps in the list: **App Installer**, **Feedback Hub**, **Microsoft OneDrive**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Mobile Plans**, **My Office**, **OneNote**, **Print 3D**, **Skype**, **Tips**, **Weather**, **Web Media Extensions**, **Xbox Live**.
+64. Click on **Microsoft OneDrive** and click **Uninstall**.
 65. Click **Offline Maps**.
 66. Click **Delete all maps** and click **Delete all** in the popup that appears.
 67. Set **Automatically update maps** to **Off**.
@@ -305,6 +305,38 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 163. Click **Delivery Optimization**.
 164. Set **Allow downloads from other PCs** to **Off**.
 165. Close the Settings window by clicking the **Close (X)** button in the upper-right corner of the window.
+
+## Part X - Remove Default Microsoft applications
+1. Right-click on the **Start** button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
+2. Run the following commands to remove the applications.
+3. Remove-AppPackage Microsoft.BingWeather_4.25.12127.0_x64__8wekyb3d8bbwe
+    `Remove-AppPackage Microsoft.DesktopAppInstaller_1.0.22011.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.Getstarted_6.13.11581.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.Messaging_3.43.27001.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.MicrosoftOfficeHub_17.8918.5926.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.MicrosoftSolitaireCollection_4.1.5252.0_x86__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.MixedReality.Portal_2000.18081.1242.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.Office.OneNote_16001.10228.20003.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.OneConnect_5.1807.1991.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.People_10.1805.1361.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.Print3D_3.0.1521.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.Services.Store.Engagement_10.0.1610.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.Services.Store.Engagement_10.0.1610.0_x86__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.SkypeApp_14.26.95.0_x64__kzf8qxf38zg5c
+     Remove-AppPackage Microsoft.Wallet_2.2.18179.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.WebMediaExtensions_1.0.12341.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage microsoft.windowscommunicationsapps_17.9330.21365.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.WindowsFeedbackHub_1.1805.2331.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.WindowsMaps_5.1805.1431.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.Xbox.TCUI_1.11.28003.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.XboxApp_41.41.18001.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.XboxGameOverlay_1.32.17005.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.XboxGamingOverlay_2.20.22001.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.XboxIdentityProvider_12.44.20001.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.XboxSpeechToTextOverlay_1.17.29001.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.YourPhone_0.0.12084.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.ZuneMusic_10.18052.20211.0_x64__8wekyb3d8bbwe
+     Remove-AppPackage Microsoft.ZuneVideo_10.18052.20211.0_x64__8wekyb3d8bbwe`
 
 ## Part 10 - Enable Additional Windows Features
 
