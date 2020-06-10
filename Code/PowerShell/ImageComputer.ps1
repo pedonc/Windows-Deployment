@@ -1,7 +1,7 @@
 #
 # Windows Deployment Imaging Script
 #
-# Copyright (C) 2019 Curtis Glavin, Jonathan Huppi, Robert Burkey
+# Copyright (C) 2020 Curtis Glavin, Jonathan Huppi, Robert Burkey
 #
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License Version 3 as published by the Free Software Foundation.
 #
@@ -70,14 +70,14 @@ if (!$disks -or (($disks | Where-Object -FilterScript {$_.Size -gt 0} | measure)
 
 #
 # Obtain letter of PE drive
-# (educated guess based on location of Image\Windows.swm)
+# (educated guess based on location of Images\Windows.swm)
 # and select an available drive letter for the new
 # Windows partition that will be created
 #
 $originalDrives = (Get-PSDrive -PSProvider FileSystem).Name
 if ($originalDrives) {
     ForEach ($drive in $originalDrives) {
-        if (Test-Path "${drive}:\Images\WindowsEFI64.swm") {
+        if (Test-Path "${drive}:\Images\Windows2004ProEFI64SysprepWindows.swm") {
             $peDrive = $drive
             break
         }
@@ -196,14 +196,20 @@ switch ($systemType.SubString(0,4)) {
     "EFI " {
         Initialize-Disk $disk -PartitionStyle GPT | Out-Null
         if ($simpleDiskGeometry) {
-            New-Partition -DiskNumber $disk -Size 500MB -GptType "{de94bba4-06d1-4d40-a16a-bfd50179d6ac}" | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Recovery" | Out-Null
             New-Partition -DiskNumber $disk -Size 100MB -GptType "{c12a7328-f81f-11d2-ba4b-00a0c93ec93b}" | Format-Volume -FileSystem FAT32 | Out-Null
+            New-Partition -DiskNumber $disk -Size 16MB -GptType "{e3c9e316-0b5c-4db8-817d-f92df00215ae}" | Out-Null
+            New-Partition -DiskNumber $disk -DriveLetter $windowsDrive -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Windows" | Out-Null
+            $originalSize = (Get-PartitionSupportedSize -DiskNumber $disk -PartitionNumber 3).SizeMax
+            Resize-Partition -DiskNumber $disk -PartitionNumber 3 -Size ($originalSize - 506MB)
+            New-Partition -DiskNumber $disk -Size 505MB -GptType "{de94bba4-06d1-4d40-a16a-bfd50179d6ac}" | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Recovery" | Out-Null
         } else {
-            New-Partition -DiskNumber $disk -Size 523239424 -GptType "{de94bba4-06d1-4d40-a16a-bfd50179d6ac}" | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Recovery" | Out-Null
-            New-Partition -DiskNumber $disk -Size 103809024 -GptType "{c12a7328-f81f-11d2-ba4b-00a0c93ec93b}" | Format-Volume -FileSystem FAT32 | Out-Null
+            New-Partition -DiskNumber $disk -Size 104857600 -GptType "{c12a7328-f81f-11d2-ba4b-00a0c93ec93b}" | Format-Volume -FileSystem FAT32 | Out-Null
+            New-Partition -DiskNumber $disk -Size 16777216 -GptType "{e3c9e316-0b5c-4db8-817d-f92df00215ae}" | Out-Null
+            New-Partition -DiskNumber $disk -DriveLetter $windowsDrive -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Windows" | Out-Null
+            $originalSize = (Get-PartitionSupportedSize -DiskNumber $disk -PartitionNumber 3).SizeMax
+            Resize-Partition -DiskNumber $disk -PartitionNumber 3 -Size ($originalSize - 506MB)
+            New-Partition -DiskNumber $disk -Size 529530880 -GptType "{de94bba4-06d1-4d40-a16a-bfd50179d6ac}" | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Recovery" | Out-Null
         }
-        New-Partition -DiskNumber $disk -Size 16MB -GptType "{e3c9e316-0b5c-4db8-817d-f92df00215ae}" | Out-Null
-        New-Partition -DiskNumber $disk -DriveLetter $windowsDrive -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "Windows" | Out-Null
     }
     "BIOS" {
         Initialize-Disk $disk -PartitionStyle MBR | Out-Null
@@ -222,7 +228,7 @@ Write-Host "Completed configuration of destination disk"
 #
 switch ($systemType) {
     "EFI 64 Bit" {
-        dism /apply-image /imagefile:"${peDrive}:\Images\WindowsEFI64.swm" /swmfile:"${peDrive}:\Images\WindowsEFI64*.swm" /index:1 /applydir:"${windowsDrive}:\"
+        dism /apply-image /imagefile:"${peDrive}:\Images\Windows2004ProEFI64SysprepWindows.swm" /swmfile:"${peDrive}:\Images\Windows2004ProEFI64SysprepWindows*.swm" /index:1 /applydir:"${windowsDrive}:\"
     }
     "EFI 32 Bit" {
         dism /apply-image /imagefile:"${peDrive}:\Images\WindowsEFI32.swm" /swmfile:"${peDrive}:\Images\WindowsEFI32*.swm" /index:1 /applydir:"${windowsDrive}:\"
