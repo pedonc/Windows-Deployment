@@ -291,7 +291,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 109. Set **Allow apps to access your calendar** to **Off**.
 110. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
 111. Click **Phone calls**.
-112. Set **Allow apps to make phone calls"" to **Off**.
+112. Set **Allow apps to make phone calls** to **Off**.
 113. Click **Change** to change phone call access for the device and set **Phone call access for this device** to **Off** in the popup, then click in the Phone calls settings window to close the popup.
 114. Click **Call History**.
 115. Set **Allow apps to access your call history** to **Off**.
