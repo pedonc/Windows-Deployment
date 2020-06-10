@@ -5,7 +5,7 @@ These instructions are for creating a customized Windows 10 environment that can
 ## Recommended Minimum PC Requirements
 
 * 64-bit UEFI
-* Windows Professional 1809 64-bit
+* Windows 10 Professional 2004 64-bit
 * 8GB of RAM
 * 60GB of free disk space
 * An active network connection with Internet access
@@ -15,746 +15,622 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## Part 1 - Download Windows 10
 
-1.  On a Windows 10 Professional computer running Windows version 1809 64-bit, go to Microsoft's Download Windows 10 page (currently available at <https://www.microsoft.com/en-us/software-download/windows10>).
-2.  Download the Create Windows 10 installation media tool (currently MediaCreationTool1809.exe available from <https://go.microsoft.com/fwlink/?LinkId=691209>).
-3.  Run the downloaded tool.  In the User Account Control window that appears, click **Yes** when asked Do you want to allow this app to make changes to your device?
-4.  In the Windows 10 Setup window that appears, click **Accept**.
-5.  On the What do you want to do? screen, select **Create installation media (USB flash drive, DVD, or ISO file) for another PC**.
-6.  Click the **Next** button.
-7.  On the Select language, architecture, and edition screen, uncheck **Use the recommended options for this PC**.
-8.  Set the Language field to **English (United States)**, set the Edition field to **Windows 10**, set the Architecture to **Both**.
-9.  Click the **Next** button.
-10. On the Choose which media to use screen, select **ISO file**.
-11. Click the **Next** button.
-12. In the Select a path window that appears, open the **Documents** folder for your Windows user account, and enter `Windows1809.iso` in the File name field, then click **Save**.
-13. The computer will download the ISO file (this may take several minutes).
-14. When the download is complete, click the **Finish** button.
+1.   On a Windows 10 Professional computer running Windows version 2004 64-bit, go to Microsoft's Download Windows 10 page (currently available at <https://www.microsoft.com/en-us/software-download/windows10>).
+2.   Download the Create Windows 10 installation media tool (currently MediaCreationTool2004.exe available from <https://go.microsoft.com/fwlink/?LinkId=691209>).
+3.   Run the downloaded tool.  In the User Account Control window that appears, click **Yes**.
+4.   In the Windows 10 Setup window that appears, click **Accept**.
+5.   On the What do you want to do? screen, select **Create installation media (USB flash drive, DVD, or ISO file) for another PC**.
+6.   Click **Next**.
+7.   On the Select language, architecture, and edition screen, uncheck **Use the recommended options for this PC**.
+8.   Set the Language field to **English (United States)**, set the Edition field to **Windows 10**, set the Architecture to **Both**.
+9.   Click **Next**.
+10.  On the Choose which media to use screen, select **ISO file**.
+11.  Click **Next**.
+12.  In the Select a path window that appears, open the **Documents** folder for your Windows user account, and enter `Windows2004.iso` in the File name field, then click **Save**.
+13.  The computer will download the ISO file (this may take several minutes).
+14.  When the download is complete, click **Finish**.
 
 ## Part 2 - Download Windows ADK
 
-1.  Go to Microsoft's Download and install the Windows ADK page (currently available at <https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install>).
-2.  Download the Windows ADK for Windows 10, version 1809 (currently available from <https://go.microsoft.com/fwlink/?linkid=2026036>).
-3.  Download the Windows PE add-on for the ADK (currently available from <https://go.microsoft.com/fwlink/?linkid=2022233>).
-4.  Run the adksetup.exe tool.  In the installation window that appears, click **Next**.
-5.  Click **No** then click **Next**.
-6.  Click **Accept**.
-7.  Check all the installable features and click **Install**.
-8.  Click **Yes** when prompted to allow installation.
-9.  When the installation process is complete, click **Close**.
-10. Run the **adkwinpesetup.exe** tool.  In the installation window that appears, ensure that Install the Windows Assessment and Deployment Kit Windows Preinstallation Enviromnet Add-ons - Windows 10 to this computer is selected and click the **Next** button.
-11. Click **No** then click **Next**.
-12. Click **Accept**.
-13. Check all the installable features and click **Install**.
-14. In the User Account Control window, click **Yes**.
-15. When the installation is complete, click the **Close** button.
+1.   Go to Microsoft's Download and install the Windows ADK page (currently available at <https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install>).
+2.   Download the Windows ADK for Windows 10, version 2004 (currently available from <https://go.microsoft.com/fwlink/?linkid=2120254>).
+3.   Download the Windows PE add-on for the ADK, version 2004 (currently available from <https://go.microsoft.com/fwlink/?linkid=2120253>).
+4.   Run the adksetup.exe tool.  In the installation window that appears, click **Next**.
+5.   Click **No** then click **Next**.
+6.   Click **Accept**.
+7.   Check all the installable features and click **Install**.
+8.   In the User Account Control window that appears, click **Yes**.
+9.   When the installation process is complete, click **Close**.
+10.  Run the **adkwinpesetup.exe** tool.  In the installation window that appears, click **Next**.
+11.  Click **Next**.
+12.  Click **Accept**.
+13.  Click **Install**.
+14.  In the User Account Control window, click **Yes**.
+15.  When the installation is complete, click **Close**.
 
 ## Part 3 - Install VirtualBox
 
-1.  Go to <https://www.virtualbox.org>.
-2.  Click the [**Downloads**](https://www.virtualbox.org/wiki/Downloads) link in the navigation menu.
-3.  Click the link to download VirtualBox for [**Windows hosts**](https://download.virtualbox.org/virtualbox/5.2.22/VirtualBox-5.2.22-126460-Win.exe) and save the download on your computer (at the time of publication, the latest version of VirtualBox is 5.2.22).
-4.  Click the link to download the Oracle VM VirtualBox Extension Pack for [All supported platforms](https://download.virtualbox.org/virtualbox/5.2.22/Oracle_VM_VirtualBox_Extension_Pack-5.2.22.vbox-extpack) and save the download on your computer.
-5.  Run the **VirtualBox-5.2.22-126460-Win.exe** installer on your computer.
-6.  In the Oracle VM VirtualBox 5.2.22 Setup window that appears, on the Welcome to the Oracle VM VirtualBox 5.2.22 Setup Wizard screen, click **Next**.
-7.  On the first Custom Setup screen, click **Next**.
-8.  On the second Custom Setup screen, configure the options as preferred (suggested settings: Create start menu entries and Register file associations are checked, Create a shortcut on the desktop and Create a shortcut in the Quick Launch Bar are unchecked) and click **Next**.
-9.  On the Warning: Network Interfaces screen, click **Yes**.
-10. On the Ready to Install screen, click **Install**.
-11. In the User Account Control window that appears, click **Yes** when asked Do you want to allow this app to make changes to your device?
-12. In the Windows Security window that appears, when asked Would you like to install this device software? ensure that Always trust software from "Oracle Corporation" is checked and click **Install**.
-13. On the Oracle VM VirtualBox 5.2.18 installation is complete screen, ensure that Start Oracle VM VirtualBox 5.2.22 after installation is checked, then click **Finish**.
-14. In the Oracle VM VirtualBox Manager application that appears, open the **File** menu and click **Preferences...**
-15. In the VirtualBox - Preferences window, click on **Update** in the left column, uncheck **Check for Updates** and click **OK**.
+1.   Go to <https://www.virtualbox.org>.
+2.   Click the [**Downloads**](https://www.virtualbox.org/wiki/Downloads) link in the navigation menu.
+3.   Click the link to download VirtualBox for [**Windows hosts**](https://download.virtualbox.org/virtualbox/6.1.8/VirtualBox-6.1.8-137981-Win.exe) and save the download on your computer (at the time of publication, the latest version of VirtualBox is 6.1.8).
+4.   Run the **VirtualBox-6.1.8-137981-Win.exe** installer.
+5.   In the Oracle VM VirtualBox 6.1.8 Setup window that appears, click **Next**.
+6.   Click **Next**.
+7.   On the second Custom Setup screen, configure the options as preferred (suggested settings: Create start menu entries and Register file associations are checked, Create a shortcut on the desktop and Create a shortcut in the Quick Launch Bar are unchecked) and click **Next**.
+8.   On the Warning: Network Interfaces screen, click **Yes**.
+9.   On the Ready to Install screen, click **Install**.
+10.  In the User Account Control window that appears, click **Yes**.
+11.  In the Windows Security window that appears, ensure that **Always trust software from "Oracle Corporation"** is checked and click **Install**.
+12.  Once the installation is complete, ensure that Start Oracle VM VirtualBox 6.1.8 after installation is checked, then click **Finish**.
+13.  In the Oracle VM VirtualBox Manager application that appears, open the **File** menu and click **Preferences...**.
+14.  In the VirtualBox - Preferences window, click on **Update** in the left column, uncheck **Check for Updates** and click **OK**.
 
 ## Part 4 - Configure EFI 64 Bit Virtual Machine
 
-1.  In the Oracle VM VirtualBox Manager application, click the **New** button.
-2.  If the window that appears features an Expert Mode button, click the **Expert Mode** button.
-3.  In the Create Virtual Machine window that appears, in the Name field, enter `WindowsEFI64`.
-4.  Select **Microsoft Windows** for Type, **Windows 10 (64-bit)** for Version, set Memory size to `4096` or larger if your computer host computer has more than 8GB RAM, and select **Create a virtual hard disk now**.
-5.  Click the **Create** button.
-6.  In the Create Virtual Hard Disk window, in the Hard disk file type section, select **VMDK (Virtual Machine Disk)**.
-7.  In the Storage on physical hard disk section, select **Dynamically allocated** and check **Split into files of less than 2GB**.
-8.  In the File size section, set the disk size to `50.00` GB.
-9.  Click the folder icon in the File location section, in the Please choose a location for new virtual hard disk file window, open the Documents folder for your Windows user account, create a folder named Virtual Machines.
-10. Open the Virtual Machines folder, create a folder inside named WindowsEFI64.
-11. Open the WindowsEFI64 folder, then click **Save** to save the virtual hard disk file as WindowsEFI64.vdmk in that folder.
-12. Click the **Create** button.
-13. In the Oracle VM VirtualBox Manager window, select the WindowsEFI64 virtual machine in the left column, then click the **Settings** button.
-14. In the WindowsEFI64 - Settings window, click on **System** in the left column.
-15. On the Motherboard tab of System, uncheck **Floppy** from Boot Order, set Pointing Device to **PS/2 Mouse**, and check **Enable EFI (special OSes only)**.
-16. In the WindowsEFI64 - Settings window, click on **Storage** in the left column.
-17. In the Storage Devices pane, click on the **Empty** optical drive.
-18. In the Attributes area on the right side of the window, click on the disc icon on the right of the Optical Drive pull down menu, then click **Choose Virtual Optical Disc File...**.
-19. In the file browser that appears, select the **Windows1809.iso** file you downloaded and click **Open**.
-20. In the WindowsEFI64 - Settings window, click on **Audio** in the left column.
-21. Uncheck **Enable Audio**.
-22. In the WindowsEFI64 - Settings window, click on **Network** in the left column.
-23. Uncheck **Enable Network Adapter**.
-24. In the WindowsEFI64 - Settings window, click on **USB** in the left column.
-25. Uncheck **Enable USB Controller**.
-26. Click the **OK** button in the lower-right corner to complete configuration of the virtual machine.
+1.   In the Oracle VM VirtualBox Manager application, click the **New** button.
+2.   Click the **Expert Mode** button.
+3.   In the Create Virtual Machine window that appears, in the Name field, enter `Windows2004ProEFI64`.
+4.   Select **Windows 10 (64-bit)** for Version, set Memory size to `4096` (or larger if your computer host computer has more than 8GB RAM).
+5.   Click the **Create** button.
+6.   In the Create Virtual Hard Disk window, click **Create**.
+7.   In the Oracle VM VirtualBox Manager window, click **Settings**.
+8.   In the Windows2004ProEFI64 - Settings window, click on **System** in the left column.
+9.   On the Motherboard tab of System, set Pointing Device to **PS/2 Mouse**, and check **Enable EFI (special OSes only)**.
+10.  Click on **Storage** in the left column.
+11.  In the Storage Devices pane, click on the **Empty** optical drive.
+12.  In the Attributes area on the right side of the window, click on the disc icon to the right of the Optical Drive pull down menu, then click **Choose a disk file...**.
+13.  In the file browser that appears, select the **Windows2004.iso** file you downloaded and click **Open**.
+14.  In the Windows2004ProEFI64 - Settings window, under Storage Devices, click **Controller: SATA**.
+15.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** button (the blue square button with a green plus sign).
+16.  Click **Hard Disk**.
+17.  In the Windows2004ProEFI64 - Hard Disk Selector window, click **Create**.
+18.  In the Create Virtual Hard Disk window that appears, click the radio button to select **VHD (Virtual Hard Disk)**.
+19.  Click **Next**.
+20.  Click **Next**.
+21.  Click **Create**.
+22.  In the Windows2004ProEFI64 - Hard Disk Selector window, click **Choose**.
+23.  Click **Audio** in the left column.
+24.  Uncheck **Enable Audio**.
+25.  Click **Network** in the left column.
+26.  Uncheck **Enable Network Adapter**.
+27.  Click **USB** in the left column.
+28.  Uncheck **Enable USB Controller**.
+29.  Click the **OK** button in the lower-right corner to complete configuration of the virtual machine.
 
 ## Part 5 - Boot The Windows Installer In The Virtual Machine
 
-1.  In the Oracle VM VirtualBox Manager window, select the **WindowsEFI64** virtual machine in the left column, then click the **Start** button to start the virtual machine.
-2.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.1.
-3.  Click in the WindowsEFI64 \[Running] virtual machine screen that appears and note the VirtualBox - Information dialog that appears.  Read the note and check the **Do not show this message again** box, then click the **Capture** button.
-4.  At the top of the WindowsEFI64 \[Running] virtual machine screen, there will be a notification that "You have the Auto capture keyboard option turned on."  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
-5.  At the Shell> prompt, type `exit` and press the **Enter** key.
-6.  On the system screen that appears, press the **Down Arrow** key twice to select **Boot Manager** and press the **Enter** key.
-7.  The Boot Option Menu should appear with **EFI DVD/CDROM** selected.  Press **Enter**.
-8.  A message reading Press any key to boot from CD or DVD should appear.  Immediately press **Enter**.
-9.  The Windows Boot Manager screen should appear.  **Windows 10 Setup (64-bit)** should be selected.  Press **Enter**.
-10. At the top of the WindowsEFI64 virtual machine screen, a message should appear indicating that "The Virtual Machine reports that the guest OS does not support mouse pointer integration in the current video mode."  Press the right **Control** key on the keyboard, then click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.  Click the mouse inside the virtual machine window to return the mouse to the virtual machine.
-11. Until noted, the following procedure applies to actions inside the virtual machine environment.
+1.   In the Oracle VM VirtualBox Manager window, click **Start** to start the virtual machine.
+2.   Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
+3.   At the top of the Windows2004ProEFI64 \[Running\] virtual machine window, there will be a notification that "You have the Auto capture keyboard option turned on."  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
+4.   At the Shell> prompt, type `exit` and press the **Enter** key.
+5.   On the system screen that appears, press the **Down Arrow** key 3 times to select **Boot Maintenance Manager** and press the **Enter** key.
+6.   Press the **Up Arrow** key to select **\[0\]** in the Auto Boot Time-out field.
+7.   Press the **Enter** key.
+8.   Type `5` and press the **Enter** key.
+9.   Press the **Esc** key, then press the **Y** key.
+10.  Press the **Down Arrow** key to select **Continue**.
+11.  This and the next two steps are time sensitive.  Press the **Enter** key.
+12.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
+13.  The Windows Boot Manager screen should appear.  **Windows 10 Setup (64-bit)** should be selected.  Press **Enter**.
+14.  The Windows Setup tool will load.  At the top of the window, there will be a notification about mouse pointer integration.  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
+15.  Click the mouse in the center of the Windows2004ProEFI64 \[Running\] window.
+16.  A message about the host key and mouse and keyboard capture will appear.  Read it, then check the **Do not show this message again** box and click **Capture**.
+17.  Until noted, the following procedure applies to actions inside the virtual machine environment.
 
 ## Part 6 - Install Windows In The Virtual Machine
 
-1.  On the first Windows Setup screen, click the **Next** button.
-2.  Click **Install now**.
-3.  On the Activate Windows screen, click the **I don't have a product key** link.
-4.  On the Select the operating system you want to install screen, select **Windows 10 Pro** and click the **Next** button.
-5.  On the Applicable notices and license terms screen, check **I accept the license terms** and click **Next**.
-6.  On the Which type of installation do you want screen, click **Custom: Install Windows only (advanced)**.
-7.  Ensure that **Drive 0 Unallocated Space** is selected, then click **Next**.
-8.  The Windows installation will begin.  Please wait while files are copied to the virtual machine's disk.  The virtual machine will automatically restart.
-9.  Eventually, the Let's start with region screen will appear.
+1.   On the first Windows Setup screen, click the **Next** button.
+2.   Click **Install now**.
+3.   On the Activate Windows screen, click the **I don't have a product key** link.
+4.   On the Select the operating system you want to install screen, select **Windows 10 Pro** and click the **Next** button.
+5.   On the Applicable notices and license terms screen, check **I accept the license terms** and click **Next**.
+6.   On the Which type of installation do you want screen, click **Custom: Install Windows only (advanced)**.
+7.   Ensure that **Drive 0 Unallocated Space** is selected, then click **Next**.
+8.   The Windows installation will begin.  Please wait while files are copied to the virtual machine's disk.  The virtual machine will automatically restart.
+9.   Eventually, the Let's start with region screen will appear.
 
 ## Part 7 - Enable Windows Audit Mode
 
-1.  To bypass the Windows configuration wizard and enter Audit Mode, press and hold the **Control** and **Shift** keys at the same time, then press the **F3** key (for a moment, all three keys should be pressed at the same time).  Release all the keyboard keys.
-2.  The virtual machine will restart and will log the built-in Administrator account into Windows in Audit Mode.
-3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
-4.  Importantly, please note that Parts 8-15 must be completed without shutting down or restarting the virtual machine, as Windows will only allow customization of certain settings on the first boot.
+1.   To bypass the Windows configuration wizard and enter Audit Mode, press and hold the **Control** and **Shift** keys at the same time, then press the **F3** key (for a moment, all three keys should be pressed at the same time).  Release all the keyboard keys.
+2.   The virtual machine will restart and will log the built-in Administrator account into Windows in Audit Mode.
+3.   When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
+4.   Importantly, please note that Parts 8-15 must be completed without shutting down or restarting the virtual machine, as Windows will only allow customization of certain settings on the first boot.
 
-## Part 8 - Disable Sounds
+## Part 8 - Configure Control Panels
 
-1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
-2.  In the Open field, type `control panel` and press the **Enter** key.
-3.  In the upper-right corner of the Control Panel window that appears, click on the **View by** pull down menu and click **Large icons** to switch from the Category option to Large icons.
-4.  Click **Sound**.
-5.  In the Sound window, go to the **Sounds** tab.
-6.  Change Sound Scheme to **No Sounds**, then click the **OK** button.
-7.  Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window to close the window.
+1.   Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
+2.   In the Open field, type `control panel` and press the **Enter** key.
+3.   In the upper-right corner of the Control Panel window that appears, click on the **View by** pull down menu and click **Large icons** to switch from the Category option to Large icons.
+4.   Click **Date and Time**, click **Change time zone...** select **(UTC-05:00) Eastern Time (US & Canada)** (or select the appropriate time zone for your location) and click the **OK** button.
+5.   In the Date and Time window, uncheck **Notify me when the clock changes** and click the **OK** button.
+6.   Click **File Explorer Options**.
+7.   Change Open File Explorer to **This PC**.
+8.   Uncheck **Show recently used files in Quick access**.
+9.   Uncheck **Show frequently used folders in Quick access**.
+10.  Click the **Clear** button.
+11.  Click the **View** tab at the top of the File Explorer Options window.
+12.  In the Advanced settings list, uncheck **Hide extensions for known file types**.
+13.  Scroll down in the Advanced settings list and uncheck **Use Sharing Wizard (Recommended)**.
+14.  Click the **OK** button to close the File Explorer Options window.
+15.  Click **Network and Sharing Center**.
+16.  In the left column of the Network and Sharing window, click **Change advanced sharing settings**.
+17.  In the Advanced sharing settings window, expand the **Private** section (click on the arrow to the right of the section heading) and uncheck **Turn on automatic setup of network connected devices**.
+18.  Click the radio button to select **Turn off network discovery** and click the **Save changes** button.
+19.  In the left column of the Network and Sharing Center window, click **Control Panel Home**.
+20.  Click **Power Options**.
+21.  To the right of Balanced (recommended) click **Change plan settings**.
+22.  Click **Change advanced power settings**.  Please note that different options may be available in this section depending upon whether your host device has battery power (e.g., a tablet or notebook computer) or if it is a desktop.  In some cases, there may be both On battery and Plugged in options available for settings.  In these cases, set all settings to the values indicated.
+23.  In the Power Options window that appears, ensure that **Hard disk** is expanded and under that, **Turn off hard disk after** is expanded, and set all settings to `0/Never`.
+24.  Double-click **Internet Explorer**, double-click **JavaScript Timer Frequency**, and set all settings to **Maximum Performance**.
+25.  If available, double-click **Desktop background settings**, double-click **Slide show**, and set all settings to **Paused**.
+26.  If available, double-click **Wireless Adapter Settings**, double-click **Power Saving Mode**, and set all settings to **Maximum Performance**.
+27.  If available, double-click **Sleep**, double-click **Allow wake timers**, and set all settings to **Enable**.
+28.  Double-click **USB settings**, double-click **USB selective suspend setting**, and set all settings to **Disabled**.
+29.  If available, double-click **Power buttons and lid**, double-click **Power buton action**, and set all settings to **Shut down**.  If available, double-click **Sleep button action** and set all settings to **Do nothing**. 
+30.  Double-click **PCI Express**, double-click **Link State Power Management**, and set all settings to **Off**.
+31.  Double-click **Display**, double-click **Turn off display after**, and set all settings to `10` Minutes.
+32.  Double-click **Multimedia settings**.  Double-click **When sharing media** and set all settings to **Prevent idling to sleep**.  Double-click **Video playback quality bias** and set all settings to **Video playback performance bias**.  Double-click **When playing video** and set all settings to **Optimize video quality**.
+33.  Click the **OK** button.
+34.  Click the **Back to Power Options** back arrow button in the upper-left corner of the Edit Plan Settings window.
+35.  Click **Control Panel Home**.
+36.  Click **Sound**.
+37.  In the Sound window, go to the **Sounds** tab.
+38.  Change Sound Scheme to **No Sounds**, then click the **OK** button.
+39.  Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window to close the window.
 
 ## Part 9 - Configure Settings
 
-1.  Click on the **Start** button in the lower-left corner of the screen, then **Settings** (gear icon).
-2.  Go to **Personalization**.
-3.  Go to **Colors**.
-4.  Scroll down and set **Choose your default app mode** to **Dark**.
-5.  Turn **Transparency effects** **Off**.
-6.  Go to **Background**.
-7.  Set **Background** to **Solid color**.
-8.  Go to **Lock screen**.
-9.  Set **Background** to **Picture**.
-10. Set **Get fun facts, tips, and more from Windows and Cortana on your lock screen** to **Off**.
-11. Go to **Themes**.
-12. Click **Save theme**.
-13. In the Save your theme popup that appears, in the Name your theme field, enter `Default` and click the **Save** button.
-14. Go to **Start**.
-15. Turn **Show recently added apps** **Off**.
-16. Turn **Show suggestions occasionally in Start** **Off**.
-17. Turn **Show recently opened items in Jump Lists on Start or the taskbar** **Off**.
-18. Go to **Taskbar**.
-19. Turn **Show badges on taskbar buttons** **Off**.
-20. Click **Select which icons appear on the taskbar**.
-21. Turn **Always show all icons in the notification area** **On**.
-22. In the upper-left corner of the window, click the **Back** arrow button.
-23. Go to **Turn system icons on or off**.
-24. Set **Action Center**, **Location**, **Input indicator**, **Network** to **Off**.
-25. In the upper-left corner of the window, click the **Back** arrow button.
-26. Scroll down to the bottom of the window.
-27. Turn **Show My People app suggestions** **Off**.
-28. Turn **Play a sound when a My People notification arrives** **Off**.
-29. Turn **Show My People notifications** **Off**.
-30. Turn **Show contacts on the taskbar** **Off**.
-31. In the upper-left corner of the window, click the **Home** button.
-32. Click **System**.
-33. Click **Notifications & actions**.
-34. Click **Add or remove quick actions**.
-35. Set **Tablet Mode**, **Location**, **VPN**, **Project**, and **Connect** to **Off**.
-36. In the upper-left corner of the window, click the **Back** arrow button.
-37. Turn **Show notifications on the lock screen** **Off**.
-38. Turn **Show reminders and incoming VoIP calls on the lock screen** **Off**.
-39. Turn **Show me the Windows welcome experience after updates and occasionally when I sign in to highlight what's new and suggested** **Off**.
-40. Turn **Get tips, tricks, and suggestions as you use Windows** **Off**.
-41. Turn **Get notifications from apps and other senders** **Off**.
-42. Click **Focus assist**.
-43. Turn **When I'm playing a game** **Off**.
-44. Turn **When I'm duplicating my display** **Off**.
-45. Click **Tablet mode**.
-46. Turn **Hide app icons on the taskbar in tablet mode** **Off**.
-47. Set **When this device automatically switches tablet mode on or off** to **Don't ask me and don't switch**.
-48. Set **When I sign in** to **Use desktop mode**.
-49. Click **Multitasking**.
-50. Set **Show suggestions occasionally in your timeline** to **Off**.
-51. Click **Shared experiences**.
-52. Turn **Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa** **Off**.
-53. In the upper-left corner of the window, click **Home**.
-54. Click **Devices**.
-55. Click on **Printers & scanners**.
-56. Uncheck **Let Windows manage my default printer**.
-57. Click **Pen & Windows Ink**.
-58. Uncheck **Show recommended app suggestions**.
-59. Click **AutoPlay**.
-60. Turn **Use AutoPlay for all media and devices** **Off**.
-61. Click **Home**.
-62. Click **Apps**.
-63. Set **Installing apps** to **Turn off app recommendations**.
-64. Click on and **Uninstall** the following apps in the list: **App Installer**, **Feedback Hub**, **Microsoft OneDrive**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Mobile Plans**, **My Office**, **OneNote**, **Print 3D**, **Skype**, **Tips**, **Weather**, **Web Media Extensions**, **Xbox Live**.
-65. Click **Offline Maps**.
-66. Click **Delete all maps** and click **Delete all** in the popup that appears.
-67. Set **Automatically update maps** to **Off**.
-68. Click on **Apps for websites**.
-69. Set **Microsoft Edge** and **Maps** (there may be two Maps listed, set them both) to **Off**.
-70. Click **Startup**.
-71. Set **Windows Security notification icon** to **Off**.
-72. Click **Home**.
-73. Click **Gaming**.
-74. Turn **Record game clips, screenshots, and broadcast using Game bar** **Off.**
-75. Uncheck **Open Game bar using this button on a controller**.
-76. Click **Game Mode**.
-77. Turn **Game Mode** **Off**.
-78. Click **Home**.
-79. Click **Cortana**.
-80. Set **Use Cortana even when my device is locked** **Off**.
-81. Click **Permissions & History**.
-82. Click **Clear my device history**.
-83. Set **My device history**, **Activity recommendations**, and **Windows Cloud Search** to **Off**.
-84. Click **Home**.
-85. Click **Privacy**.
-86. Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
-87. Click **Inking & typing personalization**.
-88. Set **Getting to know you** **Off**.
-89. Click **Diagnostics & feedback**.
-90. Set **Improve inking and typing** **Off**.
-91. Click **Delete** to delete the diagnostic data from the system.
-92. Set **Windows should ask for my feedback** to **Never**.
-93. At the top of the screen, set **Diagnostic data** to **Basic**.
-94. Click **Activity History**.
-95. Uncheck **Store my activity history on this device**.
-96. Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
-97. Click **Location**.
-98. Click **Clear** to clear the location history from the system.
-99. Set **Allow apps to access your location** to **Off**.
-100. Click **Change** to change location access for the device and set **Location for this device** to **Off** in the popup, then click in the Location settings window to close the popup.
-101. Click **Camera**.
-102. Set camera access for all apps, including **Microsoft Edge**, **Desktop App Web Viewer**, and **Camera**, to **Off**.
-103. Set **Allow apps to access your camera** to **Off**.
-104. Click **Change** to change camera access for the device and set **Camera access for this device** to **Off** in the popup, then click in the Camera settings window to close the popup.
-105. Click **Microphone**.
-106. Set microphone access for all apps, including **Microsoft Edge** and **Camera**, to **Off**.
-107. Set **Allow apps to access your microphone** to **Off**.
-108. Click **Change** to change microphone access for the device and set **Microphone access for this device** to **Off** in the popup, then click in the Microphone settings window to close the popup.
-109. Click **Notifications**.
-110. Set **Allow apps to access your notifications** to **Off**.
-111. Click **Change** to change notification access for the device and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
-112. Click **Account info**.
-113. Set account access for all apps, including **Microsoft Edge**, to **Off**.
-114. Set **Allow apps to access your account info** to **Off**.
-115. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
-116. Click **Contacts**.
-117. Set contacts access for all apps, including **Messaging** and **Mail and Calendar** to **Off**.
-118. Set **Allow apps to access your contacts** to **Off**.
-119. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
-120. Click **Calendar**.
-121. Set calendar access for all apps, including **Mail and Calendar**, to **Off**.
-122. Set **Allow apps to access your calendar** to **Off**.
-123. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
-124. Click **Call History**.
-125. Set **Allow apps to access your call history** to **Off**.
-126. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
-127. Click **Email**.
-128. Set email access for all apps, including **Mail and Calendar**, to **Off**.
-129. Set **Allow apps to access your email** to **Off**.
-130. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
-131. Click **Tasks**.
-132. Set **Allow apps to access your tasks** to **Off**.
-133. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
-134. Click **Messaging**.
-135. Set **Allow apps to read or send messages** to **Off**.
-136. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
-137. Click **Radios**.
-138. Set **Allow apps to control device radios** to **Off**.
-139. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
-140. Click **Other devices**.
-141. Set **Communicate with unpaired devices** to **Off**.
-142. Click **Background apps.**
-143. Set background processing for all apps, including **Your Phone**, **Xbox**, **Windows Security**, **Voice Recorder**, **Sticky Notes**, **Snip & Sketch**, **Settings**, **Photos**, **People**, **Paint 3D**, **Movies & TV**, **Mixed Reality Viewer**, **Microsoft Store**, **Microsoft Edge**, **Messaging**, **Maps**, **Mail and Calendar**, **Groove Music**, **Get Help**, **Game bar**, **Connect**, **Camera**, **Calculator**, and **Alarms & Clock**, to **Off**.
-144. Set **Let apps run in the background** to **Off**.
-145. Click **App diagnostics**.
-146. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
-147. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
-148. Click **Documents**.
-149. Set document library access for **Voice Recorder** to **Off**.
-150. Click **Pictures**.
-151. Set pictures access for all apps, including **Xbox**, **Snip & Sketch**, **Paint 3D**, **Mixed Reality Viewer**, **Microsoft Edge**, **Game bar**, and **Cortana**, to **Off**.
-152. Set **Allow apps to access your pictures library** to **Off**.
-153. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
-154. Click **Videos**.
-155. Set video library access for all apps, including **Xbox**, **Movies & TV**, **Mixed Reality Viewer**, **Game bar**, and **Camera**, to **Off**.
-156. Set **Allow apps to access your videos library** to **Off**.
-157. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
-158. Click **File system**.
-159. Set **Allow apps to access your file system** to **Off**.
-160. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
-161. Click **Home**.
-162. Click **Update & Security**.
-163. Click **Delivery Optimization**.
-164. Set **Allow downloads from other PCs** to **Off**.
-165. Close the Settings window by clicking the **Close (X)** button in the upper-right corner of the window.
+1.   Click on the **Start** button in the lower-left corner of the screen, then **Settings** (gear icon).
+2.   Go to **Personalization**.
+3.   Go to **Colors**.
+4.   Scroll down and set **Choose your default app mode** to **Dark**.
+5.   Turn **Transparency effects** **Off**.
+6.   Go to **Background**.
+7.   Set **Background** to **Solid color**.
+8.   Go to **Lock screen**.
+9.   Set **Background** to **Picture**.
+10.  Set **Get fun facts, tips, and more from Windows and Cortana on your lock screen** to **Off**.
+11.  Go to **Start**.
+12.  Turn **Show recently added apps** **Off**.
+13.  Turn **Show suggestions occasionally in Start** **Off**.
+14.  Turn **Show recently opened items in Jump Lists on Start or the taskbar and in File Explorer Quick Access** **Off**.
+15.  Go to **Taskbar**.
+16.  Turn **Show badges on taskbar buttons** **Off**.
+17.  Click **Select which icons appear on the taskbar**.
+18.  Turn **Always show all icons in the notification area** **On**.
+19.  In the upper-left corner of the window, click the **Back** arrow button (the button may be hidden until the mouse cursor is placed over it, to the left of Settings in the window's title bar).
+20.  Go to **Turn system icons on or off**.
+21.  Set  **Input indicator**, **Location**, **Action Center**, **Microphone** to **Off**.
+22.  In the upper-left corner of the window, click the **Back** arrow button (the button may be hidden until the mouse cursor is placed over it, to the left of Settings in the window's title bar).
+23.  Go to **Themes**.
+24.  Click **Save theme**.
+25.  In the Save your theme popup that appears, in the Name your theme field, enter `Default` and click the **Save** button.
+26.  In the upper-left corner of the window, click the **Home** button.
+27.  Click **System**.
+28.  On the right side of the window, under Scale and layout set **Change the size of text, apps, and other items** to **100%**.
+29.  Click **Notifications & actions**.
+30.  Click **Edit your quick actions**.
+31.  Click the pin strikethrough icon on **Tablet Mode**, **Location**, **Connect**, **Project**, **VPN** to remove them each from the quick actions tiles.
+32.  Click **Done**.
+33.  Click back in the Settings window to close the Action Center.
+34.  Uncheck **Allow notifications to play sounds**.
+35.  Uncheck **Show me the Windows welcome experience after updates and occasionally when I sign in to highlight what's new and suggested**.
+36.  Uncheck **Suggest ways I can finish setting up my device to get the most out of Windows**.
+37.  Uncheck **Get tips, tricks, and suggestions as you use Windows**.
+38.  Click **Focus assist**.
+39.  Turn **When I'm playing a game** **Off**.
+40.  Turn **When I'm using an app in full screen mode** **Off**.
+41.  Click **Tablet mode**.
+42.  Turn **Hide app icons on the taskbar in tablet mode** **Off**.
+43.  Set **When this device automatically switches tablet mode on or off** to **Don't ask me and don't switch**.
+44.  Set **When I sign in** to **Use desktop mode**.
+45.  Click **Multitasking**.
+46.  Set **Show suggestions in your timeline** to **Off**.
+47.  Click **Shared experiences**.
+48.  Turn **Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa** **Off**.
+49.  In the upper-left corner of the window, click **Home**.
+50.  Click **Devices**.
+51.  Click **Printers & scanners**.
+52.  Uncheck **Let Windows manage my default printer**.
+53.  Click **AutoPlay**.
+54.  Turn **Use AutoPlay for all media and devices** **Off**.
+55.  Click **Home**.
+56.  Click **Apps**.
+57.  Click on and **Uninstall** the following apps in the list: **3D Viewer**, **Feedback Hub**, **Groove Music**, **Mail and Calendar**, **Microsoft OneDrive**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Movies & TV**, **Office**, **OneNote**, **Paint 3D**, **Skype**, **Tips**, **Weather**, **Web Media Extensions**, **Xbox**, **Xbox Live**.
+58.  Click **Offline Maps**.
+59.  Click **Delete all maps** and click **Delete all** in the popup that appears.
+60.  Set **Automatically update maps** to **Off**.
+61.  Click on **Apps for websites**.
+62.  Set **Maps** (there may be two Maps listed, set them both) to **Off**.
+63.  Click **Video playback**.
+64.  If there is an option for **When watching movies and videos on battery power**, set it to **Optimize for video quality**.
+65.  Click **Startup**.
+66.  Set **Windows Security notification icon** to **Off**.
+67.  Click **Home**.
+68.  Click **Gaming**.
+69.  Turn **Enable Xbox Game Bar for things like recording game clips, chatting with friends, and receiving game invites.** **Off.**
+70.  Uncheck **Open Game bar using this button on a controller**.
+71.  Click **Game Mode**.
+72.  Turn **Game Mode** **Off**.
+73.  Click **Home**.
+74.  Click **Search**.
+75.  Set **Allow Windows Search to provide results from the apps and services that you are signed in to with your Microsoft account.** **Off**.
+76.  Set **Allow Windows Search to provide results from the apps and services that you are signed in to with your work or school account.** **Off**.
+77.  Set **To improve your search suggestions, let Windows Search store your search history locally on this device.** **Off**.
+78.  Click **Clear device search history**.
+79.  Click **Home**.
+80.  Click **Privacy**.
+81.  Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
+82.  Click **Inking & typing personalization**.
+83.  Set **Getting to know you** **Off**.
+84.  Click **Diagnostics & feedback**.
+85.  Click **Delete** to delete the diagnostic data from the system.
+86.  Set **Windows should ask for my feedback** to **Never**.
+87.  Click **Activity History**.
+88.  Uncheck **Store my activity history on this device**.
+89.  Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
+90.  Click **Location**.
+91.  Click **Clear** to clear the location history from the system.
+92.  Click **Microphone**.
+93.  Set microphone access for **Cortana** to **Off**.
+94.  Click **Voice activation**.
+95.  Set **Choose your default app for headset button press** to **Off**.
+96.  Set **Allow apps to use voice activation when this device is locked** to **Off**.
+97.  Set **Allow apps to use voice activation** to **Off**.
+98.  Click **Notifications**.
+99.  Set **Allow apps to access your notifications** to **Off**.
+100. Click **Change** to change notification access and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
+101. Click **Account info**.
+102. Set account access for all apps, including **Microsoft Edge**, to **Off**.
+103. Set **Allow apps to access your account info** to **Off**.
+104. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
+105. Click **Contacts**.
+106. Set **Allow apps to access your contacts** to **Off**.
+107. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
+108. Click **Calendar**.
+109. Set **Allow apps to access your calendar** to **Off**.
+110. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
+111. Click **Phone calls**.
+112. Set **Allow apps to make phone calls"" to **Off**.
+113. Click **Change** to change phone call access for the device and set **Phone call access for this device** to **Off** in the popup, then click in the Phone calls settings window to close the popup.
+114. Click **Call History**.
+115. Set **Allow apps to access your call history** to **Off**.
+116. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
+117. Click **Email**.
+118. Set **Allow apps to access your email** to **Off**.
+119. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
+120. Click **Tasks**.
+121. Set **Allow apps to access your tasks** to **Off**.
+122. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
+123. Click **Messaging**.
+124. Set **Allow apps to read or send messages** to **Off**.
+125. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
+126. Click **Radios**.
+127. Set **Allow apps to control device radios** to **Off**.
+128. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
+129. Click **Other devices**.
+130. Set **Communicate with unpaired devices** to **Off**.
+131. Click **Background apps**.
+132. In the Choose which apps can run in the background section, set background processing for all apps listed to **Off**.
+133. Set **Let apps run in the background** to **Off**.
+134. Click **App diagnostics**.
+135. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
+136. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
+137. Click **Documents**.
+138. Set document library access for **Voice Recorder** to **Off**.
+139. Click **Pictures**.
+140. In the Choose which apps can access your pictures library, set pictures access for all apps to **Off**.
+141. Set **Allow apps to access your pictures library** to **Off**.
+142. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
+143. Click **Videos**.
+144. In the Choose which apps can access your videos library, set video library access for all apps to **Off**.
+145. Set **Allow apps to access your videos library** to **Off**.
+146. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
+147. Click **File system**.
+148. Set **Allow apps to access your file system** to **Off**.
+149. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
+150. Click **Home**.
+151. Click **Update & Security**.
+152. Click **Delivery Optimization**.
+153. Set **Allow downloads from other PCs** to **Off**.
+154. Click **Troubleshoot**.
+155. Set **Recommended troubleshooting** to **Don't run any troubleshooters**.
+156. Close the Settings window by clicking the **Close (X)** button in the upper-right corner of the window (the button may be hidden until the mouse cursor is placed over it).
 
 ## Part 10 - Enable Additional Windows Features
 
-1.  Right-click on the **Start** button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
-2.  In the PowerShell window that appears, to enable Microsoft Hyper-V, enter `dism /online /enable-feature /featurename:microsoft-hyper-v /norestart /all` and press the **Enter** key.
-3.  Optionally, to enable the older .Net 3.5 framework, enter `dism /online /enable-feature /featurename:netfx3 /limitaccess /source:d:\x64\sources\sxs /norestart /all` and press the **Enter** key.
-4.  Optionally, to enable the older SMB1 protocol (please note that enabling the SMB1 protocol can be a security risk), enter `dism /online /enable-feature /featurename:smb1protocol /norestart` and press the **Enter** key.  After the feature is enabled, enter `dism /online /disable-feature /featurename:smb1protocol-deprecation /norestart` and press the **Enter** key.   After the feature is disabled, enter `dism /online /disable-feature /featurename:smb1protocol-server /norestart` and press the **Enter** key.
-5.  Type `exit` and press the **Enter** key to close the PowerShell window.
+1.   Right-click on the **Start** button in the lower-left corner of the screen and select **Windows PowerShell (Admin)**.
+2.   In the PowerShell window that appears, to enable Microsoft Hyper-V, enter `dism /online /enable-feature /featurename:microsoft-hyper-v /norestart /all` and press the **Enter** key.
+3.   To enable Winodws Sandbox, enter `dism /online /enable-feature /featurename:containers-disposableclientvm /norestart /all` and press the **Enter** key.
+4.   Optionally, to enable the older .Net 3.5 framework (please note that this should only be enabled if it is a requirement), enter `dism /online /enable-feature /featurename:netfx3 /limitaccess /source:d:\x64\sources\sxs /norestart /all` and press the **Enter** key.
+5.   Optionally, to enable the older SMB1 protocol (please note that enabling the SMB1 protocol can be a security risk and this step should be skipped unless it is a requirement), enter `dism /online /enable-feature /featurename:smb1protocol /norestart` and press the **Enter** key.  After the feature is enabled, enter `dism /online /disable-feature /featurename:smb1protocol-deprecation /norestart` and press the **Enter** key.   After the feature is disabled, enter `dism /online /disable-feature /featurename:smb1protocol-server /norestart` and press the **Enter** key.
+6.   Type `del (get-psreadlineoption).historysavepath` and press the **Enter** key.
+7.   Click the **Close (X)** button in the upper-right corner of the Administrator: Windows PowerShell window (the button may be hidden until the mouse cursor is placed over it).
 
 ## Part 11 - Disable Server Service
 
-1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Computer Management**.
-2.  In the Computer Management window, in the left column, under Computer Management (Local), double-click **Services and Applications** to expand it.
-3.  Double-click on **Services**, then, in the Services pane in the middle of the window, scroll down to the service named Server and double click on **Server** to open the Server service.
-4.  In the Server Properties (Local Computer) window that appears, switch the Startup type pull down menu to **Disabled** and click the **Stop** button.
-5.  Wait for the service to stop, then click the **OK** button to close the Server Properties (Local Computer) window.
-6.  In the Computer Management window, click the **File** menu, then click **Exit** to close the Computer Management window.
+1.   Right-click on the **Start** button in the lower-left corner of the screen and click **Computer Management**.
+2.   In the Computer Management window, in the left column, under Computer Management (Local), double-click **Services and Applications** to expand it.
+3.   Double-click on **Services**, then, in the Services pane in the middle of the window, scroll down to the service named Server and double click on **Server** to open the Server service.
+4.   In the Server Properties (Local Computer) window that appears, switch the Startup type pull down menu to **Disabled**, then click the **Stop** button.
+5.   Wait for the service to stop, then click the **OK** button to close the Server Properties (Local Computer) window.
+6.   In the Computer Management window, click the **File** menu, then click **Exit** to close the Computer Management window.
 
 ## Part 12 - Configure Group Policies
 
-1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
-2.  In the Run window that appears, in the Open field, type `gpedit.msc` and press the **Enter** key.
-3.  In the Local Group Policy Editor window that appears, in the left column, under Local Computer Policy, Computer Configuration, double-click on **Administrative Templates** to expand it.
-4.  Under the expanded Administrative Templates section in the left column, double-click **Windows Components** to expand it.
-5.  Double-click **AutoPlay Policies**.
-6.  In the AutoPlay Policies pane on the right of the window, double-click **Turn Off AutoPlay**.
-7.  In the Turn Off AutoPlay window that appears, click the radio button to select **Enabled** then click the **OK** button (it may be necessary to resize and move the Turn off Autoplay window to reach the OK button).
-8.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, scroll down until Windows Update is visible (it may be necessary to maximize the window size and/or expand the left pane of the window to see read the names of the folders listed) and double-click **Windows Update**.
-9.  In the Windows Update pane on the right of the window, double-click **Configure Automatic Updates**.
-10. In the Configure Automatic Updates window that appears, click the radio button to select **Disabled** then click the **OK** button.
-11. In the Local Group Policy Editor window, click the **File** menu, then click **Exit** to close the Local Group Policy Editor.
+1.   Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
+2.   In the Run window that appears, in the Open field, type `gpedit.msc` and press the **Enter** key.
+3.   In the Local Group Policy Editor window that appears, in the left column, under Local Computer Policy, Computer Configuration, double-click on **Administrative Templates** to expand it.
+4.   Under the expanded Administrative Templates section in the left column, double-click **Windows Components** to expand it.
+5.   Double-click **AutoPlay Policies**.
+6.   In the AutoPlay Policies pane on the right of the window, double-click **Turn Off AutoPlay**.
+7.   In the Turn Off AutoPlay window that appears, click the radio button to select **Enabled** then click the **OK** button (it may be necessary to resize and move the Turn off Autoplay window to reach the OK button).
+8.   In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, click **BitLocker Drive Encryption**.
+9.   In the BitLocker Drive Encryption pane on the right of the window, double-click **Choose drive encryption method and cipher strength (Windows 10 \[Version 1511\] and later)** (it may be necessary to maximize the windows size, expand the size of the Setting column, or hover the mouse cursor over the setting name to get a pop up to be able to determine which of the 3 similarly-named settings is the right one).
+10.  In the Choose drive encryption method and cipher strength (Windows 10 \[Version 1511\] and later) window that appears, click the radio button next to **Enabled**.
+11.  In the Options pane in the lower-left of the window, set the **Select the encryption method for operating system drives** setting to **XTS-AES 256-bit**.
+12.  Set the **Select the encryption method for fixed data drives** setting to **XTS-AES 256-bit**.
+13.  Set the **Select the encryption method for removable data drives** setting to **AES-CBC 256-bit**.
+14.  Click the **OK** button (it may be necessary to resize and move the window to reach the OK button).
+15.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, click **Credential User Interface**.
+16.  In the Credential User Interface pane on the right side of the window, double-click **Prevent the use of security questions for local accounts**.
+17.  In the Prevent the use of security questions for local accounts window that appears, click the **Enabled** radio button.
+18.  Click the **OK** button.
+19.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, scroll down until Windows Update is visible (it may be necessary to maximize the window size and/or expand the left pane of the window to see read the names of the folders listed) and double-click **Windows Update**.
+20.  In the Windows Update pane on the right of the window, double-click **Configure Automatic Updates**.
+21.  In the Configure Automatic Updates window that appears, click the radio button to select **Disabled** then click the **OK** button.
+22.  In the Local Group Policy Editor window, click the **File** menu, then click **Exit** to close the Local Group Policy Editor.
 
-## Part 13 - Configure Control Panels
+## Part 13 - Rename The Boot Volume
 
-1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
-2.  In the Open field, type `control panel` and press the **Enter** key.
-3.  Click **Date and Time**, click **Change time zone...** select **(UTC-05:00) Eastern Time (US & Canada)** (or select the appropriate time zone for your location) and click the **OK** button.
-4.  In the Date and Time window, uncheck **Notify me when the clock changes** and click the **OK** button.
-5.  Click **File Explorer Options**.
-6.  Change Open File Explorer to **This PC**.
-7.  Uncheck **Show recently used files in Quick access**.
-8. Uncheck **Show frequently used folders in Quick access**.
-9. Click the **Clear** button.
-10. Click the **View** tab at the top of the File Explorer Options window.
-11. In the Advanced settings list, uncheck **Hide extensions for known file types**.
-12. Scroll down in the Advanced settings list and uncheck **Use Sharing Wizard (Recommended)**.
-13. Click the **OK** button to close the File Explorer Options window.
-14. Click **Network and Sharing Center**.
-15. In the left column of the Network and Sharing window, click **Change advanced sharing settings**.
-16. In the Advanced sharing settings window, expand the **Private** section (click on the arrow to the right of the section heading) and uncheck **Turn on automatic setup of network connected devices**.
-17. Click the radio button to select **Turn off network discovery** and click the **Save changes** button.
-18. In the left column of the Network and Sharing Center window, click **Control Panel Home**.
-19. Click **Power Options**.
-20. To the right of Balanced (recommended) click **Change plan settings**.
-21. Click **Change advanced power settings**.  Please note that different options may be available in this section depending upon whether your host device has battery power (e.g., a tablet or notebook computer) or if it is a desktop.  In some cases, there may be both On battery and Plugged in options available for settings.  In these cases, set all settings to the values indicated.
-22. In the Power Options window that appears, double-click **Hard disk**, double-click **Turn off hard disk after**, and set all settings to `0/Never`.
-23. If available, double-click **Wireless Adapter Settings**, double-click **Power Saving Mode**, and set all settings to **Maximum Performance**.
-24. If available, double-click **Sleep**, double-click **Allow wake timers**, and set all settings to **Enable**.
-25. Double-click **USB settings**, double-click **USB selective suspend setting**, and set all settings to **Disabled**.
-26. If available, double-click **Power buttons and lid**, double-click **Power buton action**, and set all settings to **Shut down**.  If available, double-click **Sleep button action** and set all settings to **Do nothing**. 
-27. Double-click **PCI Express**, double-click **Link State Power Management**, and set all settings to **Off**.
-28. Double-click **Display**, double-click **Turn off display after**, and set all settings to `10` Minutes.
-29. Double-click **Multimedia settings**.  Double-click **When sharing media** and set all settings to **Prevent idling to sleep**.  Double-click **Video playback quality bias** and set all settings to **Video playback performance bias**.  Double-click **When playing video** and set all settings to **Optimize video quality**.
-30. Click the **OK** button.
-31. Click the **Close (X)** button in the upper-right corner of the Edit Plan Settings window to close the window.
+1.   Right-click on the **Start** button in the lower-left corner of the screen and click **File Explorer**.
+2.   Right-click on **Local Disk (C:)** and click **Rename**.
+3.   Enter the drive name `Windows` and press the **Enter** key.
+4.   Click the **File** menu in the upper-left corner of the screen, then click **Close**.
 
-## Part 14 - Rename The Boot Volume
+## Part 14 - Customize Destop, Taskbar, Start Menu, And Internet Explorer
 
-1.  Right-click on the **Start** button in the lower-left corner of the screen and click **File Explorer**.
-2.  Right-click on **Local Disk (C:)** and click **Rename**.
-3.  Enter the drive name `Windows` and press the **Enter** key.
-4.  Click the **File** menu in the upper-right corner of the screen, then click **Close**.
+1.   Right-click on the **Microsoft Edge** shortcut on the Desktop and click **Delete**.
+2.   Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
+3.   In the context menu that appears, click to uncheck **Show Cortana button**.
+4.   Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
+5.   Click on **Search**, then click **Show search icon**.
+6.   Click on the **Start** button in the lower-left corner of the screen.
+7.   For each of the tiles on the right side of the Start Menu, right-click on the tile and click **Unpin from Start** or **Unpin folder from Start**.
+8.   In the Application List on the left side of the Start Menu, right-click on **Calculator**.
+9.   Click **Pin to Start**.
+10.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **More**, then click **Turn Live Tile off**.
+11.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **Resize**, then click **Small**.
+12.  Scroll in the Application List on the left side of the Start Menu down to Windows Accessories and click on **Windows Accessories**.
+13.  Click on **Internet Explorer**.
+14.  In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
+15.  Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
+16.  In the Internet Options window that appears, in the Home page field, erase the URL listed and enter `about:blank`.
+17.  Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
+18.  Back in the Internet Options window, click the **OK** button.
+19.  Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
+20.  Right-click on the **Bing** icon and click **Delete**.
+21.  Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Safety** then click **Delete browsing history...**.
+22.  Uncheck **Preserve Favorites website data** and check **Download History**, **Form data**, **Passwords**, and **Tracking Protection, ActiveX Filtering and Do Not Track** and click the **Delete** button.
+23.  Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
+24.  When prompted, click **Close all tabs**.
+25.  Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
+26.  Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+27.  When prompted, click **Close all tabs**.
+28.  Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
+29.  Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
+30.  Click the **Close all tabs** button.
+31.  Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
+32.  Click **Yes** to confirm deletion.
 
-## Part 15 - Customize Destop, Taskbar, Start Menu, And Internet Explorer
+## Part 15 - Restart The Virtual Machine
 
-1.  Right-click on the **Microsoft Edge** shortcut on the Desktop and click **Delete**.
-2.  Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
-3.  In the context menu that appears, click **Cortana** then click **Hidden**.
-4.  Click on the **Start** button in the lower-left corner of the screen.
-5.  For each of the tiles on the right side of the Start Menu, right-click on the tile and click **Unpin from Start**.
-6.  In the Application List on the left side of the Start Menu, right-click on **Calculator**.
-7.  Click **Pin to Start**.
-8.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **More**, then click **Turn Live Tile off**.
-9.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **Resize**, then click **Small**.
-10. Scroll in the Application List on the left side of the Start Menu down to Windows Accessories and click on **Windows Accessories**.
-11. Click on **Internet Explorer**.
-12. In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
-13. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
-14. In the Internet Options window that appears, in the Home page field, erase the URL listed and enter `about:blank`.
-15. Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
-16. Back in the Internet Options window, click the **OK** button.
-17. Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
-18. Right-click on the **Bing** icon and click **Delete**.
-19. Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Safety** then click **Delete browsing history...**.
-20. Uncheck **Preserve Favorites website data** and check **Download History**, **Form data**, **Passwords**, and **Tracking Protection, ActiveX Filtering and Do Not Track** and click the **Delete** button.
-21. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
-22. When prompted, click **Close all tabs**.
-23. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
-24. Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
-25. When prompted, click **Close all tabs**.
-26. Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
-27. Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
-28. Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
-29. Click **Yes** to confirm deletion.
+1.   Click the **Start** button in the lower-left corner of the screen, click the **Power** button, and click **Restart**.
+2.   The system may restart one or more times and will eventually restart in Audit Mode.
+3.   When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
 
-## Part 16 - Export Start Menu
+## Part 16 - Clean Up The Virtual Disk
 
-1.  Right-click on the **Start** button in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
-2.  Type `export-startlayout -path c:\StartLayout.xml` and press the **Enter** key.
-3.  Type `del (get-psreadlineoption).historysavepath` and press the **Enter** key.
-4.  Close the PowerShell window by clicking the **Close (X)** button in the upper-right corner of the window.
-5.  Click the **File Explorer** (yellow folder) icon on the Taskbar at the bottom of the screen.
-5.  Double-click on **Windows (C:)**.
-6.  Right-click on **StartLayout.xml** and click **Cut**.
-7.  Double-click on **Users**.
-8.  Double-click on **Public**.
-9. Right-click on an empty area of the Public folder and click **New**, then click **Folder**.
-10. Name the new folder `Settings`.
-11. Double-click on **Settings**.
-12. Right-click on an empty area of the Settings folder and click **Paste**.
-13. Right-click on **StartLayout.xml**, click **Open with**, and click **Notepad**.
-14. Locate and edit the tag
+1.   Right-click on the **Start** button in the lower-left corner of the screen, then clikc **Run**.
+2.   In the Open field, type `cleanmgr` and press the **Enter** key.
+3.   In the Disk Cleanup for Windows (C:) window that eventually appears, click the **More Options** tab.
+4.   In the System Restore and Shadow Copies section, click **Clean up...**.
+5.   Click **Delete** when prompted.
+6.   Click the **Disk Cleanup** tab in the Disk Cleanup for Windows (C:) window.
+7.   Ensure that all options in the Files to delete list are checked, then click **OK**.
+8.   Click **Delete Files** when prompted.  Wait a few moments while the system cleans the virtual disk.
+9.   Click the **Start** button in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
+10.  Until noted, the following procedure applies to actions inside the host environment.
 
-    ```xml
-    <DefaultLayoutOverride>
-    ```
+## Part 17 - Export The Virtual Machine
 
-15. Change the tag to read
+1.   In the Oracle VM VirtualBox Manager window, click **Settings**.
+2.   In the Windows2004ProEFI64 - Settings window, in the left column, click **Storage**.
+3.   In the Storage Devices list, click **Windows2004.iso**.
+4.   To the right of the Optical Drive menu, click the **Choose a virtual optical disk or a physical drive to use with the virtual drive** (blue disc) button.
+5.   Click **Remove Disk from Virtual Drive**.
+6.   Click **OK**.
+7.   In the Oracle VM VirtualBox Manager window, click the **File** menu, then click **Export Appliance...**.
+8.   In the Export Virtual Appliance window, click **Next**.
+9.   Note the location and file name in the File field, then click **Next**.
+10.  Click **Export**.  VirtualBox will export the virtual machine to an appliance file (this may take several minutes).
 
-    ```xml
-    <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">
-    ```
+## Part 18 - Capture An Image Of The Audit Mode Virtual Machine
 
-16. Click the **File** menu, click **Exit** and when prompted, click **Save**.
-17. Close the File Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
+1.   Once VirtualBox has completed exporting the virtual machine, in the Oracle VM VirtualBox Manager window, click **Settings**.
+2.   In the Windows2004ProEFI64 - Settings window, in the left column, click **Storage**.
+3.   In the Storage Devices list, click **Empty**.
+4.   To the right of the Optical Drive menu, click the **Choose a virtual optical disk or a physical drive to use with the virtual drive** (blue disc) button.
+5.   Click **Windows2004.iso**.
+6.   In the Storage Devices list, click **Windows2004ProEFI64.vdi**.
+7.   At the bottom of the Storage Devices list, click the **Removes selected storage attachment** (blue square with red X) button.
+8.   Click **OK**.
+9.   In the Oracle VM VirtualBox Manager window, click **Start**.
+10.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.  Until noted, the following procedure applies to actions inside the virtual machine environment.
+11.  At the Shell> prompt, type `exit` and press the **Enter** key.
+12.  On the system screen that appears, press the **Down Arrow** key three times to select **Boot Maintenance Manager** and press the **Enter** key.
+13.  The Boot Maintenance Manager will appear.  Press the **Enter** key to open the **Boot Options**.
+14.  Press the **Down Arrow** key twice to select **Delete Boot Option** and press the **Enter** key.
+15.  Press, in this order, **Space**, **Down Arrow**, **Down Arrow**, **Space** keys.  There should be **X** marks to the right of **Windows Boot Manager** and **UEFI VBOX HARDDISK** indicating that those two options are selected.
+16.  Press the **Down Arrow** key twice to select **Commit Changes and Exit** and press the **Enter** key.
+17.  Press the **Esc** key twice.
+18.  Press the **Down Arrow** key to select **Continue** and press the **Enter** key.
+19.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
+20.  Press the right **Ctrl** key on the keyboard to release the mouse from the virtual machine.  Until noted, the following procedure applies to actions inside the host environment.
+21.  Click the **Close (X)** button in the upper-right corner of the Windows2004ProEFI64 \[Running\] - Oracle VM VirtualBox window.
+22.  In the Close Virtual Machine window that appears, click the radio button next to **Power off the machine** and click **OK**.
+23.  In the Oracle VM VirtualBox Manager window, click **Settings**.
+24.  In the Windows2004ProEFI64 - Settings window, click **Storage** in the left column.
+25.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** (blue square with green +) button, then click **Hard Disk**.
+26.  In the Windows2004ProEFI64 - Hard Disk Selector window, click **Windows2004ProEFI64.vdi**, then click **Choose**.
+27.  In the Windows2004ProEFI64 - Settings window, click **OK**.
+28.  This and the next two steps are time sensitive.  In the Oracle VM VirtualBox Manager windows, click **Start**.  Until noted, the following procedure applies to actions inside the virtual machine environment.
+29.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
+30.  On the Windows Boot Manager Screen, ensure that **Windows 10 Setup (64-bit)** is selected.  Press **Enter**.
+31.  Click the mouse in the center of the Windows2004ProEFI64 window to allow the virtual machine to capture the mouse.
+32.  In the Windows Setup window that appears, click **Next**.
+33.  Click **Repair your computer**.
+34.  Click **Troubleshoot**.
+35.  Click **Command Prompt**.
+36.  In the Command Prompt window that appears, type `diskpart` and press the **Enter** key.
+37.  At the DISKPART> prompt, type `list disk` and press the **Enter** key.  Two disks should be listed.  Note which disk does not have a * character in the Gpt column (it is likely that Disk 1 does not have a * character in the Gpt column and the below instructions assume this; if the disk without the * character has a different disk number on your system, substitute that disk number in the instructions below).
+38.  Type `select disk 1` (be sure to substitute the correct disk number in the command) and press the **Enter** key.
+39.  Type `clean` and press the **Enter** key.
+40.  Type `create partition primary` and press the **Enter** key.
+41.  Type `format fs=ntfs quick label=Backup` and press the **Enter** key.
+42.  Type `assign` and press the **Enter** key.
+43.  Type `list volume` and press the **Enter** key.
+44.  Note the drive letter of the Backup volume (likely drive E) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not E and C, respectively, please substitute the drive letters for your system in the command below.
+45.  Type `exit` and press the **Enter** key.
+46.  Type `dism /capture-image /capturedir:c:\ /imagefile:e:\Windows2004ProEFI64AuditMode.wim /name:Audit` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
+47.  When the image capture has completed, type `exit` and press the **Enter** key.
+48.  On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
+49.  Until noted, the following procedure applies to actions inside the host environment.
 
-## Part 17 - Restart The Virtual Machine
+## Part 19 - Create A CopyProfile Answer File
 
-1.  Click the **Start** button in the lower-left corner of the screen, click the **Power** button, and click **Restart**.
-2.  The system may restart one or more times and will eventually restart in Audit Mode.
-3.  When Audit Mode starts, the system will automatically launch the System Preparation Tool 3.14 graphical interface.  Click **Cancel** to close the tool.
+1.   Right-click on the Start button and select **Disk Management**.
+2.   In the Disk Management window, click the **Action** menu, then click **Attach VHD**.
+3.   In the Attach Virtual Hard Disk window, click **Browse**.
+4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows2004ProEFI64** and double-click **Windows2004ProEFI64_1.vhd**.
+5.   In the Attach Virtual Hard Disk window, click **OK**.
+6.   In the bottom of the Disk Management window, note the drive letter of the Backup volume in the attached VHD.
+7.   Click the **Start** button, scroll down in the programs list and click **Windows Kits**, then click **Windows System Image Manager**.
+8.   In the Windows System Image Manager, click the **File** menu, click **Select Windows Image**.
+9.   In the Select a Windows Image window, navigate to This PC, then open the Backup volume and double click on **Windows2004ProEFIAuditMode.wim**.
+10.  When asked Do you want to create a catalog file, click **Yes**.
+11.  In the User Account Control dialog that appears, click **Yes**.
+12.  The system may take a moment to create a catalog file.
+13.  Once the catalog file is created, click the **File** menu, then click **New Answer File...**.
+14.  In the Windows Image pane, expand **Components**, then right-click on **amd64_Microsoft-Windows-Shell-Setup_10.0.19041.1_neutral** and click **Add Setting to Pass 4 specialize**.
+15.  In the Answer File pane, under **Components**, **4 specialize**, click **amd64-Microsoft-Windows-Shell-Setup_neutral**.
+16.  In the Microsoft-Windows-Shell-Setup Properties pane, in the Settings section, click on **CopyProfile**, then select **true** from the pull down menu to the right of CopyProfile.
+17.  Go to the **File** menu and click **Save Answer File As...**.
+18.  In the Save As window that appears, navigate to This PC, then open the Backup volume, enter `Windows2004ProEFI64CopyProfile.xml` in the File name field and click **Save**.
+19.  Go to the **File** menu and click **Close Windows Image**.
+20.  Go to the **File** menu and click **Exit**.
+21.  When asked Do you want to save the changes to the answer file, click **No**.
+22.  In the Disk Management window, right-click on the disk containing the Backup volume (the left-most column in the bottom pane) and click **Detach VHD**.
+23.  In the Detach Virtual Hard Disk window, click **OK**.
 
-## Part 18 - Shut Down The Virtual Machine
+## Part 20 - Export The Start Menu
 
-1.  Click the **Start** button in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
-2.  Until noted, the following procedure applies to actions inside the host environment.
+1.   In the Oracle VM VirtualBox Manager window, click **Start**.
+2.   Click inside the virtual machine window to allow the virtual machine to capture the keyboard and mouse.
+3.   Until noted, the following procedure applies to actions inside the virtual machine environment.
+4.   After the virtual machine starts and boots into Windows, click the **Cancel** button in the System Preparation Tool 3.14 window.
+5.   Right-click on the **Start** button in the lower-left corner of the screen and click **Windows PowerShell (Admin)**.
+6.   Type `export-startlayout -path $ENV:LOCALAPPDATA\Microsoft\Windows\Shell\LayoutModification.xml` and press the **Enter** key.
+7.   Type `del (get-psreadlineoption).historysavepath` and press the **Enter** key.
+8.   Close the PowerShell window by clicking the **Close (X)** button in the upper-right corner of the window.
 
-## Part 19 - Snapshot The Virtual Machine
+## Part 21 - Run Sysprep
 
-1.  In the Oracle VM VirtualBox Manager window, click **WindowsEFI64** in the left column to select it, then, towards the upper-right corner of the window, click the **down arrow** next to the **Machine Tools** icon and click **Snapshots**.
-2.  Click the **Take** button.
-3.  In the Take Snapshot of Virtual Machine window that appears, clear the Snapshot Name field and enter `Audit Mode` in the Snapshot Name field.
-4.  Click **OK**.
+1.   Click the **File Explorer** (yellow folder) icon on the Taskbar.
+2.   Note the drive letter for the Backup drive (likely E:).
+3.   Close File Explorer by clicking on the **Close (X)** button in the upper-right corner of the window.
+4.   Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
+5.   In the Open field, type `c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\Windows2004ProEFI64CopyProfile.xml` (be sure to substitute the correct letter if e: is not the drive letter for the Backup drive noted in step 2) and press the **Enter** key.
+6.   A message reading Sysprep is working... will appear.  Wait while the Sysprep program finishes running.
+7.   When the Sysprep process completes, the virtual machine will automatically shut down.
+8.   Until noted, the following procedure applies to actions inside the host environment.
 
-## Part 20 - Create Virtual Backup Disk
+## Part 22 - Capture An Image Of The Syspreped Virtual Machine
 
-1.  Click **Settings**.
-2.  Click **Storage** in the left column of the WindowsEFI64 - Settings window that appears.
-3.  At the bottom of the Storage Devices list in the middle of the window, click the **Adds a new storage attachment.** button (it is the blue square button with a green plus sign second from the right at the bottom of the Storage Devices list).
-4.  Click **Add Hard Disk**.
-5.  In the VirtualBox - Question window, click **Create new disk**.
-6.  If the window that appears has an Expert Mode button, click **Expert Mode**.
-7.  In the Create Virtual Hard Disk window, in the Hard disk file type section, select **VMDK (Virtual Machine Disk)**.
-7.  In the Storage on physical hard disk section, select **Dynamically allocated** and check **Split into files of less than 2GB**.
-8.  In the File size section, set the disk size to `50.00` GB.
-9.  Clear the text in the File location field and enter `Backup` in the field.
-9.  Click the folder icon in the File location section, in the Please choose a location for new virtual hard disk file window, open the Documents folder for your Windows user account, create a folder named `Virtual Disks`.
-10. Open the **Virtual Disks** folder, create a folder inside named `Backup`.
-11. Open the **Backup** folder, then click **Save** to save the virtual hard disk file as `Backup.vdmk` in that folder.
-12. Click the **Create** button.
-13. In the WindowsEFI64 - Settings window, click **System** in the left column.
-14. In the Boot Order pane, uncheck all options except **Optical**, leaving **Optical** as the only checked boot device.
-13. Click **OK**.
-14. Note that this and the following step are time sensitive.  In the Oracle VM VirtualBox Manager window, click the **Start** button.
-15. When the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window appears, immediately click the mouse cursor inside the window to activate it.  Rapidly tap the **A** key on the keyboard.  If successful, the virtual machine's UEFI menu will display.  Press the **Down Arrow Key** twice to select **Boot Manager** and press the **Enter** key.  Press the **Down Arrow Key** to select **EFI DVD/CDROM** and press the **Enter** key.  A black screen with white text should display a message to Press any key to boot from CD or DVD, while this is on screen press the **A** key.  The black Windows Boot Manager screen should appear.  Ensure that **Windows 10 Setup (64-bit)** is selected and press the **Enter** key.  The Windows Installer should start.  Because this is time sensitive, the virtual machine may boot into Windows Audit Mode instead of the UEFI menu or the Windows Boot Manager screen.  In that case, click **Cancel** in the System Preparation Tool 3.14, then click the **Start** button, click the **Power** button, then click **Restart**.  As the virtual machine restarts, repeat this step until the system boots into the Windows Installer.
-16. Until noted, the following procedure applies to actions inside the virtual machine.
+1.   In the Oracle VM VirtualBox Manager window, click **Settings**.
+2.   In the Windows2004ProEFI64 - Settings window, in the left column, click **Storage**.
+3.   In the Storage Devices list, click **Windows2004ProEFI64.vdi**.
+4.   At the bottom of the Storage Devices list, click the **Removes selected storage attachment** (blue square with red X) button.
+5.   Click **OK**.
+6.   In the Oracle VM VirtualBox Manager window, click **Start**.
+7.   Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.  Until noted, the following procedure applies to actions inside the virtual machine environment.
+8.   At the Shell> prompt, type `exit` and press the **Enter** key.
+9.   On the system screen that appears, press the **Down Arrow** key three times to select **Boot Maintenance Manager** and press the **Enter** key.
+10.  The Boot Maintenance Manager will appear.  Press the **Enter** key to open the **Boot Options**.
+11.  Press the **Down Arrow** key twice to select **Delete Boot Option** and press the **Enter** key.
+12.  Press, in this order, **Space**, **Down Arrow**, **Down Arrow**, **Down Arrow**, **Space** keys.  There should be **X** marks to the right of **Windows Boot Manager** and **UEFI VBOX HARDDISK** indicating that those two options are selected.
+13.  Press the **Down Arrow** key to select **Commit Changes and Exit** and press the **Enter** key.
+14.  Press the **Esc** key twice.
+15.  Press the **Down Arrow** key to select **Continue** and press the **Enter** key.
+16.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
+17.  Press the right **Ctrl** key on the keyboard to release the mouse from the virtual machine.  Until noted, the following procedure applies to actions inside the host environment.
+18.  Click the **Close (X)** button in the upper-right corner of the Windows2004ProEFI64 \[Running\] - Oracle VM VirtualBox window.
+19.  In the Close Virtual Machine window that appears, click the radio button next to **Power off the machine** and click **OK**.
+20.  In the Oracle VM VirtualBox Manager window, click **Settings**.
+21.  In the Windows2004ProEFI64 - Settings window, click **Storage** in the left column.
+22.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** (blue square with green +) button, then click **Hard Disk**.
+23.  In the Windows2004ProEFI64 - Hard Disk Selector window, click **Windows2004ProEFI64.vdi**, then click **Choose**.
+24.  In the Windows2004ProEFI64 - Settings window, click **OK**.
+25.  This and the next two steps are time sensitive.  In the Oracle VM VirtualBox Manager windows, click **Start**.  Until noted, the following procedure applies to actions inside the virtual machine environment.
+26.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
+27.  On the Windows Boot Manager Screen, ensure that **Windows 10 Setup (64-bit)** is selected.  Press **Enter**.
+28.  Click the mouse in the center of the Windows2004ProEFI64 window to allow the virtual machine to capture the mouse.
+29.  In the Windows Setup window that appears, click **Next**.
+30.  Click **Repair your computer**.
+31.  Click **Troubleshoot**.
+32.  Click **Command Prompt**.
+33.  In the Command Prompt window that appears, type `diskpart` and press the **Enter** key.
+34.  At the DISKPART> prompt, type `list volume` and press the **Enter** key.
+35.  Note the number of the 505MB NTFS Partition (likely Volume 2).
+36.  Type `select volume 2` (be sure to substitute the correct volume number for the 505MB NTFS partition in the command) and press the **Enter** key.
+37.  Type `assign letter=r` and press the **Enter** key.
+38.  Type `list volume` and press the **Enter** key.
+39.  Note the drive letter of the Backup volume (likely drive D) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not D and C, respectively, please substitute the drive letters for your system in the command below.
+40.  Type `exit` and press the **Enter** key.
+41.  Type `dism /capture-image /capturedir:c:\ /imagefile:d:\Windows2004ProEFI64SysprepWindows.wim /name:Windows` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
+42.  When the image capture has completed, type `dism /split-image /imagefile:d\Windows2004ProEFI64SysprepWindows.wim /swmfile:d\Windows2004ProEFI64SysprepWindows.swm /filesize:500` (be sure to substitute the correct drive letter in the command) and press the **Enter** key.
+43.  When the image splitting process has completed, type `exit` and press the **Enter** key.
+44.  On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
+45.  Until noted, the following procedure applies to actions inside the host environment.
+46.  In the Oracle VM VirtualBox Manager window, click the **File** menu, then click **Exit**.
 
-## Part 21 - Capture An Image Of The Virtual Machine
+## Part 23 - Copy Files From The Virtual Disk
 
-1.  In the Windows Setup window that appears, click **Next**.
-2.  Click **Repair your computer**.
-3.  Click **Troubleshoot**.
-4.  Click **Command Prompt**.
-5.  In the Command Prompt window that appears, type `diskpart` and press the **Enter** key.
-6.  At the DISKPART> prompt, type `list disk` and press the **Enter** key.  Two disks should be listed.  Note which disk does not have a * character in the Gpt column (it is likely that Disk 1 does not have a * character in the Gpt column and the below instructions assume this; if the disk without the * character has a different disk number on your system, substitute that disk number in the instructions below).
-7.  Type `select disk 1` and press the **Enter** key.
-8.  Type `clean` and press the **Enter** key.
-9.  Type `create partition primary` and press the **Enter** key.
-10. Type `format fs=ntfs quick label=Backup` and press the **Enter** key.
-11. Type `assign` and press the **Enter** key.
-12. Type `list volume` and press the **Enter** key.
-13. Note the drive letter of the Backup volume (likely drive E) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not E and C, respectively, please substitute the drive letters for your system in the command below.
-14. Type `exit` and press the **Enter** key.
-15. Type `dism /capture-image /capturedir:c:\ /imagefile:e:\WindowsEFI64AuditMode.wim /name:Audit` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
-16. When the image capture has completed, type `exit` and press the **Enter** key.
-17. On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
-18. Until noted, the following procedure applies to actions inside the host environment.
+1.   In the Disk Management window, click the **Action** menu, then click **Attach VHD**.
+3.   In the Attach Virtual Hard Disk window, click **Browse**.
+4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows2004ProEFI64** and double-click **Windows2004ProEFI64_1.vhd**.
+5.   In the Attach Virtual Hard Disk window, click **OK**.
+6.   Right-click on the **Start** button in the lower-left corner of the screen and click **File Explorer**.
+7.   Navigate to **This PC**, then open the **Backup** volume.
+8.   Hold down the **Ctrl** key and click once on each of the SWM files (there should be 10 files total).  Release the **Ctrl** key.
+9.   Right-click on one of the selected SWM files, then click **Copy**.
+10.  Navigate to the **Documents** folder for your Windows user account, right-click in an empty area of the folder, then click **New**, then **Folder**.
+11.  Name the folder `Images`.
+12.  Open the **Images** folder.
+13.  Right-click in an empty area of the folder, then click **Paste**.
+14.  In the File Explorer window, click the **File** menu, then click **Close**.
+15.  In the Disk Management window, right-click on the disk containing the Backup volume (the left-most column in the bottom pane) and click **Detach VHD**.
+16.  In the Detach Virtual Hard Disk window, click **OK**.
+17.  Click the **File** menu in the Disk Management window, then click **Exit**.
 
-## Part 22 - Enable The Virtual Machine To Boot Into Audit Mode And Connect To The Network
+## Part 24 - Prepare The Windows PE Environment
 
-1.  In the Oracle VM VirtualBox Manager window, click **Settings**.
-2.  In the left column of the WindowsEFI64 - Settings window, click **System**.
-3.  In the Boot Order list in the middle of the window, uncheck **Optical** and check **Hard Disk**.
-4.  In the left column of the WindowsEFI64 - Settings window, click **Network**.
-5.  Check **Enable Network Adapter**.
-6.  From the Attached to pull down menu, select **Bridged Adapter**.
-7.  Select the primary network adapter for your host computer from the Name pull down menu.
-8.  Click **Advanced** to expand the adapter's options.
-9.  Select **Allow All** from the Promiscuous Mode pull down menu.
-10.  Click **OK**.
-11. In the Oracle VM VirtualBox Manager window, click **Start**.
-12. Click inside the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window to activate it.
-13. Until noted, the following procedure applies to actions inside the virtual machine.
-
-## Part 23 - Enable File Sharing In The Virtual Machine
-
-1.  Once Windows starts, a blue message on the right side of the screen will prompt Do you want to allow your PC to be discoverable by other PCs and devices on this network?  Click **Yes**.
-2.  In the System Preparation Tool 3.14 window, click **Cancel**.
-3.  Right-click on the **Start** button in the lower-left corner of the screen and click **Computer Management**.
-4.  In the left column of the Computer Management window, under Computer Management (Local), System Tools, double-click on **Local Users and Groups**, then double-click on **Users**.
-5.  Click the **Action** menu, then click **New User...**.
-6.  Enter `transfer` as the user name and enter a secure password for the user in both the Password and Confirm password fields.
-7.  Uncheck **User must change password at next logon**, and check **Password never expires**.
-8.  Click **Create**.
-9.  Click **Close**.
-10. In the left column of the Computer Management window, under Computer Management (Local), double-click **Services and Applications**, then double-click on **Services**.
-11. In the middle pane of the window, scroll down in the Services list and locate Server, then double-click on **Server**.
-12. Set the Startup type for Server to **Automatic** and click **Apply**, then click the **Start** button, then click **OK**.
-13. Go to the **File** menu and click **Exit**.
-14. Right-click on the **Start** button in the lower-left corner of the screen, then click **Run**.
-15. Type `control panel` in the Open field and press the **Enter** key.
-16. Click **File Explorer Options**.
-17. In the File Explorer Options window, click the **View** menu.
-18. In the Advanced settings window, check **Use Sharing Wizard (Recommended)**, then click **OK**.
-19. Click the **Close (X)** button in the upper-right corner of the All Control Panel Items window.
-20. Right-click on an empty area of the Desktop and click **New** then click **Folder**.
-21. Name the folder `share`.
-22. Right-click on the **share** folder and click **Properties**.
-23. In the Share Properties window that appears, click on the **Sharing** tab.
-24. Click **Advanced Sharing**.
-25. Check **Share this folder**.
-26. Click **Permissions**.
-27. Click **Add**.
-28. In the Enter the object names to select field, enter `transfer` and click **Check Names**.  The name should resolve to COMPUTERNAME\transfer (where COMPUTERNAME is the current vm pseudo-random name).
-29. Click **OK**.
-30. In the Permissions for share window, with **transfer** selected, click the **Allow Full Control** checkbox.
-31. Click **OK**.
-32. Click **OK**.
-33. Click on the **Security** tab.
-34. Click **Edit**.
-35. Click **Add**.
-36. In the Enter the object names to select, enter `transfer` and click **Check Names**.
-37. Click **OK**.
-38. In the Permissions for share window, click on **transfer** in the Group or user names list, then click **Allow Full control**.  Click the **OK** button.
-39. Click **Close**.
-40. Right-click on the Start icon in the lower-left corner and click **Windows PowerShell (Admin)**.
-41. In the PowerShell Window, type `ipconfig` and press the **Enter** key.
-42. Note the IPv4 Address indicated for the virtual machine under Ethernet adapter Ethernet.
-43. Type `exit` and press the **Enter** key.
-44. Open the Windows File Explorer and open the Backup disk (likely drive letter E).
-45. Right-click on the **WindowsEFIAuditMode.wim** file and click **Copy**.
-46. Open the **Desktop** folder, then open the **share** folder, then right-click on an empty area of the folder window and click **Paste**.
-47. Press the right **Control** key on the keyboard to detach the keyboard and mouse from the virtual machine.
-48. Until noted, the following procedure applies to actions inside the host environment.
-49. Click the **Minimize (-)** button in the upper-right corner of the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window to minimize it.
-
-## Part 24 - Obtain Windows Image From The Virtual Machine
-
-1.  Open Windows File Explorer on the host and go to **This PC**.
-2.  Click **Computer** and then **Map network drive**.
-3.  In the Map Network Drive window that appears, in the Folder field, enter `\\IPAddressOfVirtualMachine\share` (where IPAddressOfVirtualMachine is the IP address noted in Part 23, Step 41).  Note the drive letter for the mapped drive (likely drive Z:).
-4.  Uncheck **Reconnect at sign-in** and click **Finish**.
-5.  In the Enter network credentials window that appears, enter `transfer` in the User name field and the password you created in the Password field, then click **OK**.
-6.  In the share folder that opens, right-click on **WindowsEFI64AuditMode.wim** and click **Copy**.
-7.  Navigate to the Documents folder for your Windows user account, right-click in an empty area of the folder, and click **Paste**.
-
-## Part 25 - Create A CopyProfile Answer File
-
-1.  Click the **Start** button, click **Windows Kits**, and click **Windows System Image Manager**.
-2.  In the Windows System Image Manager, click the **File** menu, click **Select Windows Image**.
-3.  Navigate to the Documents folder and double-click on **WindowsEFI64AuditMode.wim**.
-4.  When asked Do you want to create a catalog file, click **Yes**.
-5.  In the User Account Control dialog that appears, click **Yes**.
-6.  The system may take a moment to create a catalog file.
-7.  Once the catalog file is created, click the **File** menu, then click **New Answer File...**.
-8.  In the Windows Image pane, expand **Components**, then right-click on **amd64_Microsoft-Windows-Shell-Setup_10.0.17763.1_neutral** and click **Add Setting to Pass 4 specialize**.
-8.  In the Answer File pane, under **Components**, **4 specialize**, click **amd64-Microsoft-Windows-Shell-Setup_neutral**.
-9.  In the Microsoft-Windows-Shell-Setup Properties pane, in the Settings section, click on **CopyProfile**, then select **true** from the pull down menu to the right of CopyProfile.
-10. Go to the **File** menu and click **Save Answer File As...**.
-11. In the Save As window that appears, open the **Documents** folder for your Windows user account and then enter `CopyProfile.xml` in the File name field and click **Save**.
-12. Go to the **File** menu and click **Exit**.
-
-## Part 26 - Copy The Answer File To The Virtual Machine
-
-1.  Open the Windows File Explorer and open your Windows user account's **Documents** folder.
-2.  Right-click on the **CopyProfile.xml** file and click **Copy**.
-3.  Navigate to the mapped **share** folder from the virtual machine (the location should have been noted in step 3 of Part 24 and is likely drive Z:).
-4.  Right-click in an empty area of the open share folder and click **Paste**.
-5.  Go to **This PC**.  Right-click on the mapped drive from the virtual machine (the location should have been noted in step 3 of Part 24 and is likely drive Z:) and click **Disconnect**.
-6.  In the Windows File Explorer, open the **File** menu and click **Close**.
-7.  From the Taskbar, open the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window and click in the window to catpure the mouse input in the virtual machine.
-8.  Until noted, the following procedure applies to actions inside the virtual machine.
-9.  On the Desktop, open the **share** folder.
-10.  Right-click on the **CopyProfile.xml** file and click **Copy**.
-11. In File Explorer, navigate to **This PC** then open **Backup** and right-click in an empty area of the drive in File Explorer and click **Paste**.
-12. Click the **File** menu and click **Close**.
-13. Click the **Start** button icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
-14. Until noted, the following procedure applies to actions inside the host environment.
-
-## Part 27 - Snapshot The File Sharing Virtual Machine
-
-1.  In the Oracle VM VirtualBox Manager, click **Settings**.
-2.  In the WindowsEFI64 - Settings window, click **Storage** in the left column.
-3.  In the Storage Devices list, click **Backup.vmdk**.
-4.  Click the **Removes selected storage attachment.** button (the blue square with red minus icon on the right at the bottom of the Storage Devices list).
-5.  Click **OK**.
-6.  In the Oracle VM VirtualBox Manager window, click **WindowsEFI64** in the left column to select it, then, towards the upper-right corner of the window, click the **down arrow** next to the **Machine Tools** icon and click **Snapshots**.
-7.  Click the **Take** button.
-8.  In the Take Snapshot of Virtual Machine window that appears, clear the Snapshot Name field and enter `File Sharing` in the Snapshot Name field.
-9.  Click **OK**.
-10. In the list of snapshots, click **Audit Mode**.
-11. Click **Restore**.
-12. Click **Settings**.
-13. In the WindowsEFI64 - Settings window, click **Storage** in the left column.
-14. At the bottom of the Storage Devices list in the middle of the window, click the **Adds a new storage attachment.** button (it is the blue square button with a green plus sign second from the right at the bottom of the Storage Devices list).
-15. Click **Add Hard Disk**.
-16. In the VirtualBox - Question window, click **Choose existing disk**.
-17. In the Please choose a virtual hard disk file window, double-click **Backup** in the Backup folder inside Virtual Disks in the Documents folder of your Windows user account to attach it to the virtual machine.
-18. Click **OK**.
-19. In the Oracle VM VirtualBox Manager window, click **Start**.
-20. Click inside the virtual machine window to allow the virtual machine to capture the keyboard and mouse.
-21. Until noted, the following procedure applies to actions inside the virtual machine.
-22. After the virtual machine starts and boots into Windows, click the **Cancel** button in the System Preparation Tool 3.14 window.
-
-## Part 28 - Run Sysprep
-
-1.  Click the **File Explorer** (yellow folder) icon on the Taskbar and go to **This PC**.
-2.  Note the drive letter for the Backup drive (likely E:).
-3.  Close File Explorer by clicking on the **Close (X)** button in the upper-right corner of the window.
-4.  Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
-5.  In the Open field, type `c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\copyprofile.xml` (substituting the correct letter if e: is not the drive letter for the Backup drive noted in step 2) and press the **Enter** key.
-6.  A message reading Sysprep is working... will appear.  Wait while the Sysprep program finishes running and the virtual machine is shut down.
-7.  Until noted, the following procedure applies to actions inside the host environment.
-8.  In the Oracle VM VirtualBox Manager window, click **Settings**.
-9.  In the WindowsEFI64 - Settings window that appears, click **Storage** in the left column.
-10. Click **Backup.vmdk** in the Storage Devices list, then click the **Removes selected storage attachment.** button (the blue square with red minus icon on the right at the bottom of the Storage Devices list).
-11.  Click **OK**.
-12.  In the Oracle VM VirtualBox Manager window, click **WindowsEFI64** in the left column to select it, then, towards the upper-right corner of the window, click the **down arrow** next to the **Machine Tools** icon and click **Snapshots**.
-13.  Click the **Take** button.
-14.  In the Take Snapshot of Virtual Machine window that appears, clear the Snapshot Name field and enter `SysPrep` in the Snapshot Name field.
-15.  Click **OK**.
-16. Click **Settings**.
-17. In the WindowsEFI64 - Settings window, click **Storage** in the left column.
-18. At the bottom of the Storage Devices list in the middle of the window, click the **Adds a new storage attachment.** button (it is the blue square button with a green plus sign second from the right at the bottom of the Storage Devices list).
-19. Click **Add Hard Disk**.
-20. In the VirtualBox - Question window, click **Choose existing disk**.
-21. In the Please choose a virtual hard disk file window, double-click **Backup** in the Backup folder inside Virtual Disks in the Documents folder of your Windows user account to attach it to the virtual machine.
-22. In the left column of the window, click **System**.
-23. Uncheck **Hard Disk** from the Boot Order list (only **Optical** should be checked).
-24. Click **OK**.
-25. Note that this and the following step are time sensitive.  In the Oracle VM VirtualBox Manager window, click the **Start** button.
-15. When the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window appears, immediately click the mouse cursor inside the window to activate it.  Rapidly tap the **A** key on the keyboard.  If successful, the virtual machine's UEFI menu will display.  Press the **Down Arrow Key** twice to select **Boot Manager** and press the **Enter** key.  Press the **Down Arrow Key** to select **EFI DVD/CDROM** and press the **Enter** key.  A black screen with white text should display a message to Press any key to boot from CD or DVD, while this is on screen press the **A** key.  The black Windows Boot Manager screen should appear.  Ensure that **Windows 10 Setup (64-bit)** is selected and press the **Enter** key.  The Windows Installer should start.  If you get to this point, please move on to Part 29.  Because this is time sensitive, the virtual machine may boot into Windows Out Of Box Experience instead of the UEFI menu or the Windows Boot Manager screen.  In that case, press the right **Control** key to detach the keyboard and mouse from the virtual machine, then click **Machine** menu at the top of the virtual machine window, then click **ACPI Shutdown** and confirm shutdown of the machine.  In the Oracle VM VirtualBox Manager window, click the **SysPrep** snapshot in the list, then click **Restore** and restore the snapshot.  Then repeat steps 16-26 until the you get the Windows Installer to start.
-
-## Part 29 - Capture An Image Of The Sysprep Configuration
-
-1.  Until noted, the following procedure applies to actions inside the virtual machine.
-2.  In the Windows Setup window that appears, click **Next**.
-3.  Click **Repair your computer**.
-4.  Click **Troubleshoot**.
-5.  Click **Command Prompt**.
-6.  In the Command Prompt window that appears, type `diskpart` and press the **Enter** key.
-7.  At the DISKPART> prompt, type `list volume` and press the **Enter** key.
-8.  Note the drive letter of the Backup volume (possibly drive D) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not D and C, respectively, please substitute the drive letters for your system in the command below.
-14. Type `exit` and press the **Enter** key.
-15. Type `dism /capture-image /capturedir:c:\ /imagefile:d:\Sysprep.wim /name:Sysprep` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
-16. When the image capture has completed, type `exit` and press the **Enter** key.
-17. On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
-18. Until noted, the following procedure applies to actions inside the host environment.
-
-## Part 30 - Restore The File Sharing Virtual Machine
-
-1.  In the Oracle VM VirtualBox Manager window, click **Settings**.
-2.  In the left column of the WindowsEFI64 - Settings window, click **Storage**.
-3.  Click **Backup.vmdk** in the Storage Devices list.
-4.  Click the **Removes selected storage attachment.** button (the blue square with red minus icon on the right at the bottom of the Storage Devices list).
-5.  Click **OK**.
-6.  In the Oracle VM VirtualBox Manager window, towards the upper-right corner of the window, click the **down arrow** next to the **Machine Tools** icon and click **Snapshots**.
-7.  In the list of snapshots, click **File Sharing**.
-8.  Click **Restore**.
-9.  In the VirutalBox - Question window, uncheck **Create a snapshot of the current machine state**, then click **Restore**.
-10. Click **Settings**.
-11. In the WindowsEFI64 - Settings window, click **Storage** in the left column.
-12. At the bottom of the Storage Devices list in the middle of the window, click the **Adds a new storage attachment.** button (it is the blue square button with a green plus sign second from the right at the bottom of the Storage Devices list).
-15.  Click **Add Hard Disk**.
-16.  In the VirtualBox - Question window, click **Choose existing disk**.
-17.  In the Please choose a virtual hard disk file window, double-click **Backup** in the Backup folder inside Virtual Disks in the Documents folder of your Windows user account to attach it to the virtual machine.
-18.  Click **OK**.
-19.  In the Oracle VM VirtualBox Manager window, click **Start**.
-20. Click inside the virtual machine window to allow the virtual machine to capture the keyboard and mouse.
-21. Until noted, the following procedure applies to actions inside the virtual machine.
-
-## Part 31 - Edit The Image File
-
-1.  After the virtual machine starts and boots into Windows, click the **Cancel** button in the System Preparation Tool 3.14 window.
-2.  Click the **File Explorer** shortcut on the Taskbar, then open the **Backup** drive.
-3.  Right-click on **Sysprep.wim** and click **Copy**.
-4.  Click **Desktop** in the right column of the window.
-5.  Open **share**.
-6.  Right-click on an empty area of the share folder and click **Paste**.
-7.  Right-click on an empty area of the share folder and click **New** then click **Folder**.  Name the folder `mount`.
-8.  Click the **Close (X)** button in the upper-right corner of the File Explorer window to close it.
-9.  Right-click on the **Start** button in the lower-left corner of the screen, then click **Windows PowerShell (Admin)**.
-10. In the Select Administrator: Windows PowerShell window, at the prompt, type `dism /mount-image /imagefile:c:\users\administrator\desktop\share\sysprep.wim /index:1 /mountdir:c:\users\administrator\desktop\share\mount` and press the **Enter** key.  It will take a moment for the system to mount the Sysprep.wim image
-11. Type `notepad c:\users\administrator\desktop\share\mount\users\public\settings\startlayout.xml` and press the **Enter** key.
-12. Click the **Edit** menu, then click **Select All**.  Click the **Edit** menu, then click **Copy**.
-13. Click the **File** menu, then click **Exit**.
-14. In the PowerShell window, type `notepad c:\users\administrator\desktop\share\mount\users\default\appdata\local\microsoft\windows\shell\defaultlayouts.xml` and press the **Enter** key.
-15. Click the **Edit** menu, then click **Select All**.  Click the **Edit** menu, then click **Paste**.
-16. Click the **File** menu, then click **Exit**.  When prompted to save changes, click **Save**.
-17. In the PowerShell window, type `dism /unmount-image /mountdir:c:\users\administrator\desktop\share\mount /commit` and press the **Enter** key.  It will take a moment for the system to save the Sysprep.wim image
-18. In the PowerShell window, type `dism /split-image /imagefile:c:\users\administrator\desktop\share\sysprep.wim /swmfile:c:\users\administrator\desktop\share\WindowsEFI64.swm /filesize:500` and press the **Enter** key.  It will take a moment for Dism to split the image file.
-19. Once the operation is completed successfully, type `ipconfig` and note the IPv4 Address for Ethernet adapter Ethernet.
-20. Type `exit` and press the **Enter** key.
-21. Press the right **Control** key to detach the keyboard and mouse from the virtual machine.
-22. Until noted, the following procedure applies to actions inside the host environment.
-23. Click the **Minimize (-)** button in the upper-right corner of the WindowsEFI64 (File Sharing) \[Running] - Oracle VM VirtualBox window to minimize it.
-24. Open **File Explorer** and go to **This PC**.
-25. Click **Computer** and then **Map network drive**.
-26. In the Map Network Drive window that appears, in the Folder field, enter `\\IPAddressOfVirtualMachine\share` (where IPAddressOfVirtualMachine is the IP address noted in Part 23, Step 41).  Note the drive letter for the mapped drive (likely drive Z:).
-27. Uncheck **Reconnect at sign-in** and click **Finish**.
-28. In the Enter network credentials window that appears, enter `transfer` in the User name field and the password you created in the Password field, then click **OK**.
-29. In the share folder that opens, hold the **Control** key on the keyboard and click on all the files in the folder beginning with WindowsEFI64 except the WindowsEFI64AuditMode.wim file.  Once all the SWM files are selected, right-click on one of the selected files and click **Copy**.
-30. Go to your Windows user account's **Documents** folder, right-click in an empty area of the folder, click **New** then **Folder**.  Name the folder `Images`.
-31. Open the **Images** folder.  Right-click in an empty area of the folder and click **Paste**.
-32. After the SWM image files have been copied to the host computer, go to **This PC**.  Right-click on the mapped drive from the virtual machine (the location should have been noted in Step 3 of Part 24 and is likely drive Z:) and click **Disconnect**.
-33. In the Windows File Explorer, open the **File** menu and click **Close**.
-34. From the Taskbar, open the WindowsEFI64 (Audit Mode) \[Running] - Oracle VM VirtualBox window and click in the window to catpure the mouse input in the virtual machine.
-35. Until noted, the following procedure applies to actions inside the virtual machine.
-36. Click the **Start** button icon in the lower-left corner of the screen, click the **Power** button, and click **Shut down**.
-37. Click the **Close (X)** button in the upper-right corner of the Oracle VM VirtualBox Manager window to close it.
-38. The following procedure applies to actions inside the host environment.
-
-## Part 32 - Prepare The Windows PE Environment
-
-1.  Click the **Start** button in the lower-left corner of the screen.
-2.  In the Start menu's application list, click on **Windows Kits**.
-3.  Right-click on the **Deployment and Imaging Tools Environment**, click **More**, and click **Run as administrator**.
-4.  In the User Account Control window, click **Yes**.
-5.  In the Administrator: Deployment and Imaging Tools Environment window, enter `copype amd64 C:\amd64pe` and press the **Enter** key.
-6.  Copy the text of the script below and paste it into the Administrator: Deployment and Imaging Tools Environment window to add PowerShell to the Windows PE environment.  Ensure that each command completes successfully.
+1.   Click the **Start** button in the lower-left corner of the screen.
+2.   Scroll downn in the Start menu's application list, then click on **Windows Kits**.
+3.   Right-click on the **Deployment and Imaging Tools Environment**, click **More**, and click **Run as administrator**.
+4.   In the User Account Control window, click **Yes**.
+5.   In the Administrator: Deployment and Imaging Tools Environment window, enter `copype amd64 C:\amd64pe` and press the **Enter** key.
+6.   Copy the text of the script below and paste it into the Administrator: Deployment and Imaging Tools Environment window to add PowerShell to the Windows PE environment.  Ensure that each command completes successfully.
 
     ```
     Dism /Mount-Image /ImageFile:"C:\amd64pe\media\sources\boot.wim" /Index:1 /MountDir:"C:\amd64pe\mount"
@@ -773,8 +649,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
     
     ```
 
-7.  Type `notepad c:\amd64pe\mount\Windows\System32\startnet.cmd` and press the **Enter** key.
-8.  Leave `wpeinit` on the first line, then add the second line `%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Set-ExecutionPolicy Unrestricted` then add a third line with `%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe %SYSTEMDRIVE%\Windows\ImageComputer.ps1` and be sure that there is a Return after that line (so the cursor should be on the 4th line at the bottom of the file).  The entire file should now read as follows.
+7.   Type `notepad c:\amd64pe\mount\Windows\System32\startnet.cmd` and press the **Enter** key.
+8.   Leave `wpeinit` on the first line, then add the second line `%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Set-ExecutionPolicy Unrestricted` then add a third line with `%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe %SYSTEMDRIVE%\Windows\ImageComputer.ps1` and be sure that there is a Return after that line (so the cursor should be on the 4th line at the bottom of the file).  The entire file should now read as follows.
 
     ```
     wpeinit
@@ -783,39 +659,39 @@ Before beginning, it is critical to ensure that your computer's time zone and da
     
     ```
     
-9.  Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
-10. In the Administrator: Deployment and Imaging Tools Environment window, type `notepad c:\amd64pe\mount\windows\ImageComputer.ps1` and press the **Enter** key.
-11. When prompted to create a new file, click **Yes**.
-12. Copy the full content of the ImageComputer.ps1 script from this repository (avaialble [here](https://raw.githubusercontent.com/pedonc/windows-deployment/master/Code/PowerShell/ImageComputer.ps1) and paste it into Notepad.  Ensure that there is a final empty line in the script after the last command to ensure that the last command executes.
-13. Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
-14. To save the changes to the Windows PE image, type `dism /unmount-image /mountdir:c:\amd64pe\mount /commit` and press the **Enter** key.  It will take a moment for the system to save and unmount the image.
+9.   Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
+10.  In the Administrator: Deployment and Imaging Tools Environment window, type `notepad c:\amd64pe\mount\windows\ImageComputer.ps1` and press the **Enter** key.
+11.  When prompted to create a new file, click **Yes**.
+12.  Copy the full content of the ImageComputer.ps1 script from this repository (avaialble [here](https://raw.githubusercontent.com/pedonc/windows-deployment/master/Code/PowerShell/ImageComputer.ps1) and paste it into Notepad.  Ensure that there is a final empty line in the script after the last command to ensure that the last command executes.
+13.  Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
+14.  To save the changes to the Windows PE image, type `dism /unmount-image /mountdir:c:\amd64pe\mount /commit` and press the **Enter** key.  It will take a moment for the system to save and unmount the image.
 
-## Part 33 - Create The USB PE Media
+## Part 25 - Create The USB PE Media
 
-1.  In the Administator: Deployment and Imaging Tools Environment, type `diskpart` and press the **Enter** key.
-2.  Type `list disk` and press the **Enter** key.
-3.  Note the disk numbers and capacities of the disks listed.
-4.  Connect a USB flash drive that can be completely erased to the computer and wait a moment.  The ideal size for the flash drive is either 16GB or 32GB.
-5.  Type `list disk` and press the **Enter** key.
-6.  Compare the list of disks with the disk(s) listed in step 3 and determine the disk number of the USB flash drive.  It is critical to know the correct drive number before proceeding; do not proceed if you are unsure as you could erase important data.
-7.  Type `select disk #` where # is the number of the USB flash drive determined in Step 6 and press the **Enter** key.
-8.  Type `clean` and press the **Enter** key.
-9.  Type `create partition primary` (if the USB flash drive is larger than 32GB, type `create partition primary size=32000`) and press the **Enter** key.
-10. Type `format fs=fat32 quick label=winpe` and press the **Enter** key.
-11. Type `active` and press the **Enter** key.
-12. Type `assign` and press the **Enter** key.
-13. Type `exit` and press the **Enter** key.
-14. Open **File Explorer** and go to **This PC**.
-15. Note the drive letter of the WINPE USB drive.
-16. Return to the Administrator: Deployment and Imaging Tools Environment window.
-17. Type `xcopy c:\amd64pe\media\*.* /s /e /f u:` where u is the drive letter of the WINPE USB drive noted in Step 15.
-18. Return to **File Explorer**.  Open the **Documents** folder for your Windows user account and right-click on **Images**.  Click **Copy**.
-19. Open the **WINPE** USB drive in File Explorer, right-click in an empty area of the drive, and click **Paste**.
-20. The USB drive should now be bootable and will automate much of the Windows installation and configuration process.  Importantly, do not connect the USB drive to any computer that cannot be fully erased and please ensure that no additional USB disks or peripherals are connected to any computer when the USB drive is used (to avoid accidentally erasing other media).  It should be possible to repeat the steps in Part 33 with other USB drives to make multiple copies of the automated USB installer.  Good luck!
+1.   In the Administator: Deployment and Imaging Tools Environment, type `diskpart` and press the **Enter** key.
+2.   Type `list disk` and press the **Enter** key.
+3.   Note the disk numbers and capacities of the disks listed.
+4.   Connect a USB flash drive that can be completely erased to the computer and wait a moment.  The ideal size for the flash drive is either 16GB or 32GB.
+5.   Type `list disk` and press the **Enter** key.
+6.   Compare the list of disks with the disk(s) listed in step 3 and determine the disk number of the USB flash drive.  It is critical to know the correct drive number before proceeding; do not proceed if you are unsure as you could erase important data.
+7.   Type `select disk #` where # is the number of the USB flash drive determined in Step 6 and press the **Enter** key.
+8.   Type `clean` and press the **Enter** key.
+9.   Type `create partition primary` (if the USB flash drive is larger than 32GB, type `create partition primary size=32000`) and press the **Enter** key.
+10.  Type `format fs=fat32 quick label=winpe` and press the **Enter** key.
+11.  Type `active` and press the **Enter** key.
+12.  Type `assign` and press the **Enter** key.
+13.  Type `exit` and press the **Enter** key.
+14.  Open **File Explorer** and go to **This PC**.
+15.  Note the drive letter of the WINPE USB drive.
+16.  Return to the Administrator: Deployment and Imaging Tools Environment window.
+17.  Type `xcopy c:\amd64pe\media\*.* /s /e /f u:` where u is the drive letter of the WINPE USB drive noted in Step 15.
+18.  Return to **File Explorer**.  Open the **Documents** folder for your Windows user account and right-click on **Images**.  Click **Copy**.
+19.  Open the **WINPE** USB drive in File Explorer, right-click in an empty area of the drive, and click **Paste**.  Wait until the copy process completes.
+20.  The USB drive should now be bootable and will automate much of the Windows installation and configuration process.  Importantly, do not connect the USB drive to any computer that cannot be fully erased and please ensure that no additional USB disks or peripherals are connected to any computer when the USB drive is used (to avoid accidentally erasing other media).  It should be possible to repeat the steps in Part 33 with other USB drives to make multiple copies of the automated USB installer.  Good luck!
 
 ## License
 
-All content copyright (c) 2019 Curtis Glavin, Jonathan Huppi, Robert Burkey
+All content copyright (c) 2020 Curtis Glavin, Jonathan Huppi, Robert Burkey
 
 All code in this repository is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3 as published by the Free Software Foundation.
 
