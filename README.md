@@ -632,7 +632,6 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 5.   In the Administrator: Deployment and Imaging Tools Environment window, enter `copype amd64 C:\amd64pe` and press the **Enter** key.
 6.   Copy the text of the script below and paste it into the Administrator: Deployment and Imaging Tools Environment window to add PowerShell to the Windows PE environment.  Ensure that each command completes successfully.
 
-    ```
     Dism /Mount-Image /ImageFile:"C:\amd64pe\media\sources\boot.wim" /Index:1 /MountDir:"C:\amd64pe\mount"
     Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-WMI.cab"
     Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"
@@ -647,17 +646,14 @@ Before beginning, it is critical to ensure that your computer's time zone and da
     Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-DismCmdlets.cab"
     Dism /Add-Package /Image:"C:\amd64pe\mount" /PackagePath:"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-DismCmdlets_en-us.cab"
     
-    ```
 
 7.   Type `notepad c:\amd64pe\mount\Windows\System32\startnet.cmd` and press the **Enter** key.
 8.   Leave `wpeinit` on the first line, then add the second line `%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Set-ExecutionPolicy Unrestricted` then add a third line with `%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe %SYSTEMDRIVE%\Windows\ImageComputer.ps1` and be sure that there is a Return after that line (so the cursor should be on the 4th line at the bottom of the file).  The entire file should now read as follows.
 
-    ```
     wpeinit
     %SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe Set-ExecutionPolicy Unrestricted
     %SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe %SYSTEMDRIVE%\Windows\ImageComputer.ps1
     
-    ```
     
 9.   Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
 10.  In the Administrator: Deployment and Imaging Tools Environment window, type `notepad c:\amd64pe\mount\windows\ImageComputer.ps1` and press the **Enter** key.
