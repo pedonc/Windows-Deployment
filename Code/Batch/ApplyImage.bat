@@ -1,0 +1,25 @@
+dism /Apply-Image /ImageFile:"A:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"A:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"B:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"B:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"C:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"C:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"D:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"D:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"E:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"E:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"F:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"F:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"G:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"G:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"H:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"H:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"I:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"I:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"J:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"J:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"K:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"K:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"L:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"L:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"M:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"M:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"N:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"N:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"O:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"O:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"P:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"P:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"Q:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"Q:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"S:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"S:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"T:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"T:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"U:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"U:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"V:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"V:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"X:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"X:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"Y:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"Y:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+dism /Apply-Image /ImageFile:"Z:\Image\Windows2004ProEFI64SysprepWindows.swm" /SWMFile:"Z:\Image\Windows2004ProEFI64SysprepWindows*.swm" /Index:1 /ApplyDir:W:\
+W:\Windows\System32\bcdboot W:\Windows
