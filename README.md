@@ -248,7 +248,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 66.  Click **Video playback**.
 67.  If there is an option for **When watching movies and videos on battery power**, set it to **Optimize for video quality**.
 68.  Click **Startup**.
-     Set **Microsoft OneDrive (32 bit) Setup** to **Off**.
+     Set **Microsoft OneDrive** to **Off**.
 69.  Set **Windows Security notification icon** to **Off**.
 70.  Click **Home**.
 71.  Click **Gaming**.
@@ -346,9 +346,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 2.   In the PowerShell window that appears, to enable Microsoft Hyper-V, enter `dism /online /enable-feature /featurename:microsoft-hyper-v /norestart /all` and press the **Enter** key.
 3.   To enable Winodws Sandbox, enter `dism /online /enable-feature /featurename:containers-disposableclientvm /norestart /all` and press the **Enter** key.
 4.   Optionally, to enable the older .Net 3.5 framework (please note that this should only be enabled if it is a requirement), enter `dism /online /enable-feature /featurename:netfx3 /limitaccess /source:d:\x64\sources\sxs /norestart /all` and press the **Enter** key.
-5.   Optionally, to enable the older SMB1 protocol (please note that enabling the SMB1 protocol can be a security risk and this step should be skipped unless it is a requirement), enter `dism /online /enable-feature /featurename:smb1protocol /norestart` and press the **Enter** key.  After the feature is enabled, enter `dism /online /disable-feature /featurename:smb1protocol-deprecation /norestart` and press the **Enter** key.   After the feature is disabled, enter `dism /online /disable-feature /featurename:smb1protocol-server /norestart` and press the **Enter** key.
-6.   Type `del (get-psreadlineoption).historysavepath` and press the **Enter** key.
-7.   Click the **Close (X)** button in the upper-right corner of the Administrator: Windows PowerShell window (the button may be hidden until the mouse cursor is placed over it).
+5.   Type `del (get-psreadlineoption).historysavepath` and press the **Enter** key.
+6.   Click the **Close (X)** button in the upper-right corner of the Administrator: Windows PowerShell window (the button may be hidden until the mouse cursor is placed over it).
 
 ## Part 11 - Disable Server Service
 
