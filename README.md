@@ -69,26 +69,26 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 1.   In the Oracle VM VirtualBox Manager application, click the **New** button.
 2.   Click the **Expert Mode** button.
-3.   In the Create Virtual Machine window that appears, in the Name field, enter `Windows20H2ProEFI64`.
+3.   In the Create Virtual Machine window that appears, in the Name field, enter `Windows21H1ProEFI64`.
 4.   Select **Windows 10 (64-bit)** for Version, set Memory size to `4096` (or larger if your computer host computer has more than 8GB RAM).
 5.   Click the **Create** button.
 6.   In the Create Virtual Hard Disk window, click **Create**.
 7.   In the Oracle VM VirtualBox Manager window, click **Settings**.
-8.   In the Windows20H2ProEFI64 - Settings window, click on **System** in the left column.
+8.   In the Windows21H1ProEFI64 - Settings window, click on **System** in the left column.
 9.   On the Motherboard tab of System, set Pointing Device to **PS/2 Mouse**, and check **Enable EFI (special OSes only)**.
 10.  Click on **Storage** in the left column.
 11.  In the Storage Devices pane, click on the **Empty** optical drive.
 12.  In the Attributes area on the right side of the window, click on the disc icon to the right of the Optical Drive pull down menu, then click **Choose a disk file...**.
-13.  In the file browser that appears, select the **Windows20H2.iso** file you downloaded and click **Open**.
-14.  In the Windows20H2ProEFI64 - Settings window, under Storage Devices, click **Controller: SATA**.
+13.  In the file browser that appears, select the **Windows21H1.iso** file you downloaded and click **Open**.
+14.  In the Windows21H1ProEFI64 - Settings window, under Storage Devices, click **Controller: SATA**.
 15.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** button (the blue square button with a green plus sign).
 16.  Click **Hard Disk**.
-17.  In the Windows20H2ProEFI64 - Hard Disk Selector window, click **Create**.
+17.  In the Windows21H1ProEFI64 - Hard Disk Selector window, click **Create**.
 18.  In the Create Virtual Hard Disk window that appears, click the radio button to select **VHD (Virtual Hard Disk)**.
 19.  Click **Next**.
 20.  Click **Next**.
 21.  Click **Create**.
-22.  In the Windows20H2ProEFI64 - Hard Disk Selector window, click **Choose**.
+22.  In the Windows21H1ProEFI64 - Hard Disk Selector window, click **Choose**.
 23.  Click **Audio** in the left column.
 24.  Uncheck **Enable Audio**.
 25.  Click **Network** in the left column.
@@ -101,7 +101,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 1.   In the Oracle VM VirtualBox Manager window, click **Start** to start the virtual machine.
 2.   Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
-3.   At the top of the Windows20H2ProEFI64 \[Running\] virtual machine window, there will be a notification that "You have the Auto capture keyboard option turned on."  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
+3.   At the top of the Windows21H1ProEFI64 \[Running\] virtual machine window, there will be a notification that "You have the Auto capture keyboard option turned on."  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
 4.   At the Shell> prompt, type `exit` and press the **Enter** key.
 5.   On the system screen that appears, press the **Down Arrow** key 3 times to select **Boot Maintenance Manager** and press the **Enter** key.
 6.   Press the **Up Arrow** key to select **\[0\]** in the Auto Boot Time-out field.
@@ -113,7 +113,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 12.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
 13.  The Windows Boot Manager screen should appear.  **Windows 10 Setup (64-bit)** should be selected.  Press **Enter**.
 14.  The Windows Setup tool will load.  At the top of the window, there will be a notification about mouse pointer integration.  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
-15.  Click the mouse in the center of the Windows20H2ProEFI64 \[Running\] window.
+15.  Click the mouse in the center of the Windows21H1ProEFI64 \[Running\] window.
 16.  A message about the host key and mouse and keyboard capture will appear.  Read it, then check the **Do not show this message again** box and click **Capture**.
 17.  Until noted, the following procedure applies to actions inside the virtual machine environment.
 
@@ -454,8 +454,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part 17 - Export The Virtual Machine
 
 1.   In the Oracle VM VirtualBox Manager window, click **Settings**.
-2.   In the Windows20H2ProEFI64 - Settings window, in the left column, click **Storage**.
-3.   In the Storage Devices list, click **Windows20H2.iso**.
+2.   In the Windows21H1ProEFI64 - Settings window, in the left column, click **Storage**.
+3.   In the Storage Devices list, click **Windows21H1.iso**.
 4.   To the right of the Optical Drive menu, click the **Choose a virtual optical disk or a physical drive to use with the virtual drive** (blue disc) button.
 5.   Click **Remove Disk from Virtual Drive**.
 6.   Click **OK**.
@@ -467,11 +467,11 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part 18 - Capture An Image Of The Audit Mode Virtual Machine
 
 1.   Once VirtualBox has completed exporting the virtual machine, in the Oracle VM VirtualBox Manager window, click **Settings**.
-2.   In the Windows20H2ProEFI64 - Settings window, in the left column, click **Storage**.
+2.   In the Windows21H1ProEFI64 - Settings window, in the left column, click **Storage**.
 3.   In the Storage Devices list, click **Empty**.
 4.   To the right of the Optical Drive menu, click the **Choose a virtual optical disk or a physical drive to use with the virtual drive** (blue disc) button.
-5.   Click **Windows20H2.iso**.
-6.   In the Storage Devices list, click **Windows20H2ProEFI64.vdi**.
+5.   Click **Windows21H1.iso**.
+6.   In the Storage Devices list, click **Windows21H1ProEFI64.vdi**.
 7.   At the bottom of the Storage Devices list, click the **Removes selected storage attachment** (blue square with red X) button.
 8.   Click **OK**.
 9.   In the Oracle VM VirtualBox Manager window, click **Start**.
@@ -486,17 +486,17 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 18.  Press the **Down Arrow** key to select **Continue** and press the **Enter** key.
 19.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
 20.  Press the right **Ctrl** key on the keyboard to release the mouse from the virtual machine.  Until noted, the following procedure applies to actions inside the host environment.
-21.  Click the **Close (X)** button in the upper-right corner of the Windows20H2ProEFI64 \[Running\] - Oracle VM VirtualBox window.
+21.  Click the **Close (X)** button in the upper-right corner of the Windows21H1ProEFI64 \[Running\] - Oracle VM VirtualBox window.
 22.  In the Close Virtual Machine window that appears, click the radio button next to **Power off the machine** and click **OK**.
 23.  In the Oracle VM VirtualBox Manager window, click **Settings**.
-24.  In the Windows20H2ProEFI64 - Settings window, click **Storage** in the left column.
+24.  In the Windows21H1ProEFI64 - Settings window, click **Storage** in the left column.
 25.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** (blue square with green +) button, then click **Hard Disk**.
-26.  In the Windows20H2ProEFI64 - Hard Disk Selector window, click **Windows20H2ProEFI64.vdi**, then click **Choose**.
-27.  In the Windows20H2ProEFI64 - Settings window, click **OK**.
+26.  In the Windows21H1ProEFI64 - Hard Disk Selector window, click **Windows21H1ProEFI64.vdi**, then click **Choose**.
+27.  In the Windows21H1ProEFI64 - Settings window, click **OK**.
 28.  This and the next two steps are time sensitive.  In the Oracle VM VirtualBox Manager windows, click **Start**.  Until noted, the following procedure applies to actions inside the virtual machine environment.
 29.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
 30.  On the Windows Boot Manager Screen, ensure that **Windows 10 Setup (64-bit)** is selected.  Press **Enter**.
-31.  Click the mouse in the center of the Windows20H2ProEFI64 window to allow the virtual machine to capture the mouse.
+31.  Click the mouse in the center of the Windows21H1ProEFI64 window to allow the virtual machine to capture the mouse.
 32.  In the Windows Setup window that appears, click **Next**.
 33.  Click **Repair your computer**.
 34.  Click **Troubleshoot**.
@@ -511,7 +511,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 43.  Type `list volume` and press the **Enter** key.
 44.  Note the drive letter of the Backup volume (likely drive E) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not E and C, respectively, please substitute the drive letters for your system in the command below.
 45.  Type `exit` and press the **Enter** key.
-46.  Type `dism /capture-image /capturedir:c:\ /imagefile:e:\Windows20H2ProEFI64AuditMode.wim /name:Audit` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
+46.  Type `dism /capture-image /capturedir:c:\ /imagefile:e:\Windows21H1ProEFI64AuditMode.wim /name:Audit` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
 47.  When the image capture has completed, type `exit` and press the **Enter** key.
 48.  On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
 49.  Until noted, the following procedure applies to actions inside the host environment.
@@ -521,12 +521,12 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 1.   Right-click on the Start button and select **Disk Management**.
 2.   In the Disk Management window, click the **Action** menu, then click **Attach VHD**.
 3.   In the Attach Virtual Hard Disk window, click **Browse**.
-4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows20H2ProEFI64** and double-click **Windows20H2ProEFI64_1.vhd**.
+4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows21H1ProEFI64** and double-click **Windows21H1ProEFI64_1.vhd**.
 5.   In the Attach Virtual Hard Disk window, click **OK**.
 6.   In the bottom of the Disk Management window, note the drive letter of the Backup volume in the attached VHD.
 7.   Click the **Start** button, scroll down in the programs list and click **Windows Kits**, then click **Windows System Image Manager**.
 8.   In the Windows System Image Manager, click the **File** menu, click **Select Windows Image**.
-9.   In the Select a Windows Image window, navigate to This PC, then open the Backup volume and double click on **Windows20H2ProEFIAuditMode.wim**.
+9.   In the Select a Windows Image window, navigate to This PC, then open the Backup volume and double click on **Windows21H1ProEFIAuditMode.wim**.
 10.  When asked Do you want to create a catalog file, click **Yes**.
 11.  In the User Account Control dialog that appears, click **Yes**.
 12.  The system may take a moment to create a catalog file.
@@ -535,7 +535,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 15.  In the Answer File pane, under **Components**, **4 specialize**, click **amd64-Microsoft-Windows-Shell-Setup_neutral**.
 16.  In the Microsoft-Windows-Shell-Setup Properties pane, in the Settings section, click on **CopyProfile**, then select **true** from the pull down menu to the right of CopyProfile.
 17.  Go to the **File** menu and click **Save Answer File As...**.
-18.  In the Save As window that appears, navigate to This PC, then open the Backup volume, enter `Windows20H2ProEFI64CopyProfile.xml` in the File name field and click **Save**.
+18.  In the Save As window that appears, navigate to This PC, then open the Backup volume, enter `Windows21H1ProEFI64CopyProfile.xml` in the File name field and click **Save**.
 19.  Go to the **File** menu and click **Close Windows Image**.
 20.  Go to the **File** menu and click **Exit**.
 21.  When asked Do you want to save the changes to the answer file, click **No**.
@@ -559,7 +559,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 2.   Note the drive letter for the Backup drive (likely E:).
 3.   Close File Explorer by clicking on the **Close (X)** button in the upper-right corner of the window.
 4.   Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
-5.   In the Open field, type `c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\Windows20H2ProEFI64CopyProfile.xml` (be sure to substitute the correct letter if e: is not the drive letter for the Backup drive noted in step 2) and press the **Enter** key.
+5.   In the Open field, type `c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\Windows21H1ProEFI64CopyProfile.xml` (be sure to substitute the correct letter if e: is not the drive letter for the Backup drive noted in step 2) and press the **Enter** key.
 6.   A message reading Sysprep is working... will appear.  Wait while the Sysprep program finishes running.
 7.   When the Sysprep process completes, the virtual machine will automatically shut down.
 8.   Until noted, the following procedure applies to actions inside the host environment.
@@ -567,8 +567,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part 22 - Capture An Image Of The Syspreped Virtual Machine
 
 1.   In the Oracle VM VirtualBox Manager window, click **Settings**.
-2.   In the Windows20H2ProEFI64 - Settings window, in the left column, click **Storage**.
-3.   In the Storage Devices list, click **Windows20H2ProEFI64.vdi**.
+2.   In the Windows21H1ProEFI64 - Settings window, in the left column, click **Storage**.
+3.   In the Storage Devices list, click **Windows21H1ProEFI64.vdi**.
 4.   At the bottom of the Storage Devices list, click the **Removes selected storage attachment** (blue square with red X) button.
 5.   Click **OK**.
 6.   In the Oracle VM VirtualBox Manager window, click **Start**.
@@ -583,17 +583,17 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 15.  Press the **Down Arrow** key to select **Continue** and press the **Enter** key.
 16.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
 17.  Press the right **Ctrl** key on the keyboard to release the mouse from the virtual machine.  Until noted, the following procedure applies to actions inside the host environment.
-18.  Click the **Close (X)** button in the upper-right corner of the Windows20H2ProEFI64 \[Running\] - Oracle VM VirtualBox window.
+18.  Click the **Close (X)** button in the upper-right corner of the Windows21H1ProEFI64 \[Running\] - Oracle VM VirtualBox window.
 19.  In the Close Virtual Machine window that appears, click the radio button next to **Power off the machine** and click **OK**.
 20.  In the Oracle VM VirtualBox Manager window, click **Settings**.
-21.  In the Windows20H2ProEFI64 - Settings window, click **Storage** in the left column.
+21.  In the Windows21H1ProEFI64 - Settings window, click **Storage** in the left column.
 22.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** (blue square with green +) button, then click **Hard Disk**.
-23.  In the Windows20H2ProEFI64 - Hard Disk Selector window, click **Windows20H2ProEFI64.vdi**, then click **Choose**.
-24.  In the Windows20H2ProEFI64 - Settings window, click **OK**.
+23.  In the Windows21H1ProEFI64 - Hard Disk Selector window, click **Windows21H1ProEFI64.vdi**, then click **Choose**.
+24.  In the Windows21H1ProEFI64 - Settings window, click **OK**.
 25.  This and the next two steps are time sensitive.  In the Oracle VM VirtualBox Manager windows, click **Start**.  Until noted, the following procedure applies to actions inside the virtual machine environment.
 26.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
 27.  On the Windows Boot Manager Screen, ensure that **Windows 10 Setup (64-bit)** is selected.  Press **Enter**.
-28.  Click the mouse in the center of the Windows20H2ProEFI64 window to allow the virtual machine to capture the mouse.
+28.  Click the mouse in the center of the Windows21H1ProEFI64 window to allow the virtual machine to capture the mouse.
 29.  In the Windows Setup window that appears, click **Next**.
 30.  Click **Repair your computer**.
 31.  Click **Troubleshoot**.
@@ -602,8 +602,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 34.  At the DISKPART> prompt, type `list volume` and press the **Enter** key.
 35.  Note the drive letter of the Backup volume (likely drive D) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not D and C, respectively, please substitute the drive letters for your system in the command below.
 36.  Type `exit` and press the **Enter** key.
-37.  Type `dism /capture-image /capturedir:c:\ /imagefile:d:\Windows20H2ProEFI64SysprepWindows.wim /name:Windows` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
-38.  When the image capture has completed, type `dism /split-image /imagefile:d\Windows20H2ProEFI64SysprepWindows.wim /swmfile:d\Windows20H2ProEFI64SysprepWindows.swm /filesize:500` (be sure to substitute the correct drive letter in the command) and press the **Enter** key.
+37.  Type `dism /capture-image /capturedir:c:\ /imagefile:d:\Windows21H1ProEFI64SysprepWindows.wim /name:Windows` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
+38.  When the image capture has completed, type `dism /split-image /imagefile:d\Windows21H1ProEFI64SysprepWindows.wim /swmfile:d\Windows21H1ProEFI64SysprepWindows.swm /filesize:500` (be sure to substitute the correct drive letter in the command) and press the **Enter** key.
 39.  When the image splitting process has completed, type `exit` and press the **Enter** key.
 40.  On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
 41.  Until noted, the following procedure applies to actions inside the host environment.
@@ -613,7 +613,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 1.   In the Disk Management window, click the **Action** menu, then click **Attach VHD**.
 3.   In the Attach Virtual Hard Disk window, click **Browse**.
-4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows20H2ProEFI64** and double-click **Windows20H2ProEFI64_1.vhd**.
+4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows21H1ProEFI64** and double-click **Windows21H1ProEFI64_1.vhd**.
 5.   In the Attach Virtual Hard Disk window, click **OK**.
 6.   Right-click on the **Start** button in the lower-left corner of the screen and click **File Explorer**.
 7.   Navigate to **This PC**, then open the **Backup** volume.
