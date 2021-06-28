@@ -5,7 +5,7 @@ These instructions are for creating a customized Windows 10 environment that can
 ## Recommended Minimum PC Requirements
 
 * 64-bit UEFI
-* Windows 10 Professional 2004 64-bit
+* Windows 10 Professional 21H1 64-bit
 * 8GB of RAM
 * 60GB of free disk space
 * An active network connection with Internet access
@@ -15,8 +15,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## Part 1 - Download Windows 10
 
-1.   On a Windows 10 Professional computer running Windows version 2004 64-bit, go to Microsoft's Download Windows 10 page (currently available at <https://www.microsoft.com/en-us/software-download/windows10>).
-2.   Download the Create Windows 10 installation media tool (currently MediaCreationTool2004.exe available from <https://go.microsoft.com/fwlink/?LinkId=691209>).
+1.   On a Windows 10 Professional computer running Windows version 21H1 64-bit, go to Microsoft's Download Windows 10 page (currently available at <https://www.microsoft.com/en-us/software-download/windows10>).
+2.   Download the Create Windows 10 installation media tool (currently MediaCreationTool21H1.exe available from <https://go.microsoft.com/fwlink/?LinkId=691209>).
 3.   Run the downloaded tool.  In the User Account Control window that appears, click **Yes**.
 4.   In the Windows 10 Setup window that appears, click **Accept**.
 5.   On the What do you want to do? screen, select **Create installation media (USB flash drive, DVD, or ISO file) for another PC**.
@@ -26,7 +26,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 9.   Click **Next**.
 10.  On the Choose which media to use screen, select **ISO file**.
 11.  Click **Next**.
-12.  In the Select a path window that appears, open the **Documents** folder for your Windows user account, and enter `Windows2004.iso` in the File name field, then click **Save**.
+12.  In the Select a path window that appears, open the **Documents** folder for your Windows user account, and enter `Windows21H1.iso` in the File name field, then click **Save**.
 13.  The computer will download the ISO file (this may take several minutes).
 14.  When the download is complete, click **Finish**.
 
@@ -52,16 +52,16 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 1.   Go to <https://www.virtualbox.org>.
 2.   Click the [**Downloads**](https://www.virtualbox.org/wiki/Downloads) link in the navigation menu.
-3.   Click the link to download VirtualBox for [**Windows hosts**](https://download.virtualbox.org/virtualbox/6.1.8/VirtualBox-6.1.8-137981-Win.exe) and save the download on your computer (at the time of publication, the latest version of VirtualBox is 6.1.8).
-4.   Run the **VirtualBox-6.1.8-137981-Win.exe** installer.
-5.   In the Oracle VM VirtualBox 6.1.8 Setup window that appears, click **Next**.
+3.   Click the link to download VirtualBox for [**Windows hosts**](https://download.virtualbox.org/virtualbox/6.1.22/VirtualBox-6.1.22-144080-Win.exe) and save the download on your computer (at the time of publication, the latest version of VirtualBox is 6.1.22).
+4.   Run the **VirtualBox-6.1.22-144080-Win.exe** installer.
+5.   In the Oracle VM VirtualBox 6.1.22 Setup window that appears, click **Next**.
 6.   Click **Next**.
 7.   On the second Custom Setup screen, configure the options as preferred (suggested settings: Create start menu entries and Register file associations are checked, Create a shortcut on the desktop and Create a shortcut in the Quick Launch Bar are unchecked) and click **Next**.
 8.   On the Warning: Network Interfaces screen, click **Yes**.
 9.   On the Ready to Install screen, click **Install**.
 10.  In the User Account Control window that appears, click **Yes**.
 11.  In the Windows Security window that appears, ensure that **Always trust software from "Oracle Corporation"** is checked and click **Install**.
-12.  Once the installation is complete, ensure that Start Oracle VM VirtualBox 6.1.8 after installation is checked, then click **Finish**.
+12.  Once the installation is complete, ensure that Start Oracle VM VirtualBox 6.1.22 after installation is checked, then click **Finish**.
 13.  In the Oracle VM VirtualBox Manager application that appears, open the **File** menu and click **Preferences...**.
 14.  In the VirtualBox - Preferences window, click on **Update** in the left column, uncheck **Check for Updates** and click **OK**.
 
@@ -69,26 +69,26 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 1.   In the Oracle VM VirtualBox Manager application, click the **New** button.
 2.   Click the **Expert Mode** button.
-3.   In the Create Virtual Machine window that appears, in the Name field, enter `Windows2004ProEFI64`.
+3.   In the Create Virtual Machine window that appears, in the Name field, enter `Windows20H2ProEFI64`.
 4.   Select **Windows 10 (64-bit)** for Version, set Memory size to `4096` (or larger if your computer host computer has more than 8GB RAM).
 5.   Click the **Create** button.
 6.   In the Create Virtual Hard Disk window, click **Create**.
 7.   In the Oracle VM VirtualBox Manager window, click **Settings**.
-8.   In the Windows2004ProEFI64 - Settings window, click on **System** in the left column.
+8.   In the Windows20H2ProEFI64 - Settings window, click on **System** in the left column.
 9.   On the Motherboard tab of System, set Pointing Device to **PS/2 Mouse**, and check **Enable EFI (special OSes only)**.
 10.  Click on **Storage** in the left column.
 11.  In the Storage Devices pane, click on the **Empty** optical drive.
 12.  In the Attributes area on the right side of the window, click on the disc icon to the right of the Optical Drive pull down menu, then click **Choose a disk file...**.
-13.  In the file browser that appears, select the **Windows2004.iso** file you downloaded and click **Open**.
-14.  In the Windows2004ProEFI64 - Settings window, under Storage Devices, click **Controller: SATA**.
+13.  In the file browser that appears, select the **Windows20H2.iso** file you downloaded and click **Open**.
+14.  In the Windows20H2ProEFI64 - Settings window, under Storage Devices, click **Controller: SATA**.
 15.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** button (the blue square button with a green plus sign).
 16.  Click **Hard Disk**.
-17.  In the Windows2004ProEFI64 - Hard Disk Selector window, click **Create**.
+17.  In the Windows20H2ProEFI64 - Hard Disk Selector window, click **Create**.
 18.  In the Create Virtual Hard Disk window that appears, click the radio button to select **VHD (Virtual Hard Disk)**.
 19.  Click **Next**.
 20.  Click **Next**.
 21.  Click **Create**.
-22.  In the Windows2004ProEFI64 - Hard Disk Selector window, click **Choose**.
+22.  In the Windows20H2ProEFI64 - Hard Disk Selector window, click **Choose**.
 23.  Click **Audio** in the left column.
 24.  Uncheck **Enable Audio**.
 25.  Click **Network** in the left column.
@@ -101,7 +101,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 1.   In the Oracle VM VirtualBox Manager window, click **Start** to start the virtual machine.
 2.   Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
-3.   At the top of the Windows2004ProEFI64 \[Running\] virtual machine window, there will be a notification that "You have the Auto capture keyboard option turned on."  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
+3.   At the top of the Windows20H2ProEFI64 \[Running\] virtual machine window, there will be a notification that "You have the Auto capture keyboard option turned on."  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
 4.   At the Shell> prompt, type `exit` and press the **Enter** key.
 5.   On the system screen that appears, press the **Down Arrow** key 3 times to select **Boot Maintenance Manager** and press the **Enter** key.
 6.   Press the **Up Arrow** key to select **\[0\]** in the Auto Boot Time-out field.
@@ -113,7 +113,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 12.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
 13.  The Windows Boot Manager screen should appear.  **Windows 10 Setup (64-bit)** should be selected.  Press **Enter**.
 14.  The Windows Setup tool will load.  At the top of the window, there will be a notification about mouse pointer integration.  Click the **Do not show this message again** icon (the right-most text bubble strike through icon on the message) to disable this notification.
-15.  Click the mouse in the center of the Windows2004ProEFI64 \[Running\] window.
+15.  Click the mouse in the center of the Windows20H2ProEFI64 \[Running\] window.
 16.  A message about the host key and mouse and keyboard capture will appear.  Read it, then check the **Do not show this message again** box and click **Capture**.
 17.  Until noted, the following procedure applies to actions inside the virtual machine environment.
 
@@ -220,122 +220,125 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 38.  Click **Focus assist**.
 39.  Turn **When I'm playing a game** **Off**.
 40.  Turn **When I'm using an app in full screen mode** **Off**.
-41.  Click **Tablet mode**.
-42.  Turn **Hide app icons on the taskbar in tablet mode** **Off**.
-43.  Set **When this device automatically switches tablet mode on or off** to **Don't ask me and don't switch**.
-44.  Set **When I sign in** to **Use desktop mode**.
-45.  Click **Multitasking**.
-46.  Set **Show suggestions in your timeline** to **Off**.
-47.  Click **Shared experiences**.
-48.  Turn **Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa** **Off**.
-49.  In the upper-left corner of the window, click **Home**.
-50.  Click **Devices**.
-51.  Click **Printers & scanners**.
-52.  Uncheck **Let Windows manage my default printer**.
-53.  Click **AutoPlay**.
-54.  Turn **Use AutoPlay for all media and devices** **Off**.
-55.  Click **Home**.
-56.  Click **Apps**.
-57.  Click on and **Uninstall** the following apps in the list: **3D Viewer**, **Feedback Hub**, **Groove Music**, **Mail and Calendar**, **Microsoft OneDrive**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Movies & TV**, **Office**, **OneNote**, **Paint 3D**, **Skype**, **Tips**, **Weather**, **Web Media Extensions**, **Xbox**, **Xbox Live**.
-58.  Click **Offline Maps**.
-59.  Click **Delete all maps** and click **Delete all** in the popup that appears.
-60.  Set **Automatically update maps** to **Off**.
-61.  Click on **Apps for websites**.
-62.  Set **Maps** (there may be two Maps listed, set them both) to **Off**.
-63.  Click **Video playback**.
-64.  If there is an option for **When watching movies and videos on battery power**, set it to **Optimize for video quality**.
-65.  Click **Startup**.
-66.  Set **Windows Security notification icon** to **Off**.
-67.  Click **Home**.
-68.  Click **Gaming**.
-69.  Turn **Enable Xbox Game Bar for things like recording game clips, chatting with friends, and receiving game invites.** **Off.**
-70.  Uncheck **Open Game bar using this button on a controller**.
-71.  Click **Game Mode**.
-72.  Turn **Game Mode** **Off**.
-73.  Click **Home**.
-74.  Click **Search**.
-75.  Set **Allow Windows Search to provide results from the apps and services that you are signed in to with your Microsoft account.** **Off**.
-76.  Set **Allow Windows Search to provide results from the apps and services that you are signed in to with your work or school account.** **Off**.
-77.  Set **To improve your search suggestions, let Windows Search store your search history locally on this device.** **Off**.
-78.  Click **Clear device search history**.
-79.  Click **Home**.
-80.  Click **Privacy**.
-81.  Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
-82.  Click **Inking & typing personalization**.
-83.  Set **Getting to know you** **Off**.
-84.  Click **Diagnostics & feedback**.
-85.  Click **Delete** to delete the diagnostic data from the system.
-86.  Set **Windows should ask for my feedback** to **Never**.
-87.  Click **Activity History**.
-88.  Uncheck **Store my activity history on this device**.
-89.  Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
-90.  Click **Location**.
-91.  Click **Clear** to clear the location history from the system.
-92.  Click **Microphone**.
-93.  Set microphone access for **Cortana** to **Off**.
-94.  Click **Voice activation**.
-95.  Set **Choose your default app for headset button press** to **Off**.
-96.  Set **Allow apps to use voice activation when this device is locked** to **Off**.
-97.  Set **Allow apps to use voice activation** to **Off**.
-98.  Click **Notifications**.
-99.  Set **Allow apps to access your notifications** to **Off**.
-100. Click **Change** to change notification access and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
-101. Click **Account info**.
-102. Set account access for all apps, including **Microsoft Edge**, to **Off**.
-103. Set **Allow apps to access your account info** to **Off**.
-104. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
-105. Click **Contacts**.
-106. Set **Allow apps to access your contacts** to **Off**.
-107. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
-108. Click **Calendar**.
-109. Set **Allow apps to access your calendar** to **Off**.
-110. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
-111. Click **Phone calls**.
-112. Set **Allow apps to make phone calls** to **Off**.
-113. Click **Change** to change phone call access for the device and set **Phone call access for this device** to **Off** in the popup, then click in the Phone calls settings window to close the popup.
-114. Click **Call History**.
-115. Set **Allow apps to access your call history** to **Off**.
-116. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
-117. Click **Email**.
-118. Set **Allow apps to access your email** to **Off**.
-119. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
-120. Click **Tasks**.
-121. Set **Allow apps to access your tasks** to **Off**.
-122. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
-123. Click **Messaging**.
-124. Set **Allow apps to read or send messages** to **Off**.
-125. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
-126. Click **Radios**.
-127. Set **Allow apps to control device radios** to **Off**.
-128. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
-129. Click **Other devices**.
-130. Set **Communicate with unpaired devices** to **Off**.
-131. Click **Background apps**.
-132. In the Choose which apps can run in the background section, set background processing for all apps listed to **Off**.
-133. Set **Let apps run in the background** to **Off**.
-134. Click **App diagnostics**.
-135. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
-136. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
-137. Click **Documents**.
-138. Set document library access for **Voice Recorder** to **Off**.
-139. Click **Pictures**.
-140. In the Choose which apps can access your pictures library, set pictures access for all apps to **Off**.
-141. Set **Allow apps to access your pictures library** to **Off**.
-142. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
-143. Click **Videos**.
-144. In the Choose which apps can access your videos library, set video library access for all apps to **Off**.
-145. Set **Allow apps to access your videos library** to **Off**.
-146. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
-147. Click **File system**.
-148. Set **Allow apps to access your file system** to **Off**.
-149. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
-150. Click **Home**.
-151. Click **Update & Security**.
-152. Click **Delivery Optimization**.
-153. Set **Allow downloads from other PCs** to **Off**.
-154. Click **Troubleshoot**.
-155. Set **Recommended troubleshooting** to **Don't run any troubleshooters**.
-156. Close the Settings window by clicking the **Close (X)** button in the upper-right corner of the window (the button may be hidden until the mouse cursor is placed over it).
+41.  Click **Tablet**.
+42.  Set **When I sign in** to **Never use tablet mode**.
+43.  Click **Change additional tablet settings**.
+44.  Turn **Hide app icons on the taskbar** **Off**.
+45.  Turn **Make app icons on the taskbar easier to touch** **Off**.
+46.  Turn **Make buttons in File Explorer easier to touch** **Off**.
+47.  In the upper-left corner of the window, click the **Back** arrow button (the button may be hidden until the mouse cursor is placed over it, to the left of Settings in the window's title bar).
+48.  Click **Multitasking**.
+49.  Set **Show suggestions in your timeline** to **Off**.
+50.  Click **Shared experiences**.
+51.  Turn **Let apps on other devices (including linked phones and tablets) open and message apps on this device, and vice versa** **Off**.
+52.  In the upper-left corner of the window, click **Home**.
+53.  Click **Devices**.
+54.  Click **Printers & scanners**.
+55.  Uncheck **Let Windows manage my default printer**.
+56.  Click **AutoPlay**.
+57.  Turn **Use AutoPlay for all media and devices** **Off**.
+58.  Click **Home**.
+59.  Click **Apps**.
+60.  Click on and **Uninstall** the following apps in the list: **3D Viewer**, **Feedback Hub**, **Groove Music**, **Mail and Calendar**, **Microsoft Solitaire Collection**, **Mixed Reality Portal**, **Movies & TV**, **Office**, **OneNote**, **Paint 3D**, **Skype**, **Tips**, **Weather**, **Xbox**, **Xbox Live**.
+61.  Click **Offline Maps**.
+62.  Click **Delete all maps** and click **Delete all** in the popup that appears.
+63.  Set **Automatically update maps** to **Off**.
+64.  Click on **Apps for websites**.
+65.  Set **Maps** (there may be two Maps listed, set them both) to **Off**.
+66.  Click **Video playback**.
+67.  If there is an option for **When watching movies and videos on battery power**, set it to **Optimize for video quality**.
+68.  Click **Startup**.
+     Set **Microsoft OneDrive (32 bit) Setup** to **Off**.
+69.  Set **Windows Security notification icon** to **Off**.
+70.  Click **Home**.
+71.  Click **Gaming**.
+72.  Turn **Enable Xbox Game Bar for things like recording game clips, chatting with friends, and receiving game invites.** **Off.**
+73.  Uncheck **Open Game bar using this button on a controller**.
+74.  Click **Game Mode**.
+75.  Turn **Game Mode** **Off**.
+76.  Click **Home**.
+77.  Click **Search**.
+78.  Set **Allow Windows Search to provide results from the apps and services that you are signed in to with your Microsoft account.** **Off**.
+79.  Set **Allow Windows Search to provide results from the apps and services that you are signed in to with your work or school account.** **Off**.
+80.  Set **To improve your search suggestions, let Windows Search store your search history locally on this device.** **Off**.
+81.  Click **Clear device search history**.
+82.  Click **Home**.
+83.  Click **Privacy**.
+84.  Set **Let websites provide locally relevant content by accessing my language list**, **Let Windows track app launches to improve Start and search results**, **Show me suggested content in the Settings app** to **Off**.
+85.  Click **Inking & typing personalization**.
+86.  Set **Getting to know you** **Off**.
+87.  Click **Diagnostics & feedback**.
+88.  Click **Delete** to delete the diagnostic data from the system.
+89.  Set **Windows should ask for my feedback** to **Never**.
+90.  Click **Activity History**.
+91.  Uncheck **Store my activity history on this device**.
+92.  Click **Clear** to clear the activity history, then click **Ok** in the popup that appears.
+93.  Click **Location**.
+94.  Click **Clear** to clear the location history from the system.
+95.  Click **Microphone**.
+96.  Set microphone access for **Cortana** to **Off**.
+97.  Click **Voice activation**.
+98.  Set **Choose your default app for headset button press** to **Off**.
+99.  Set **Allow apps to use voice activation when this device is locked** to **Off**.
+100. Set **Allow apps to use voice activation** to **Off**.
+101. Click **Notifications**.
+102.  Set **Allow apps to access your notifications** to **Off**.
+103. Click **Change** to change notification access and set **User notification access for this device** to **Off** in the popup, then click in the Notifications settings window to close the popup.
+104. Click **Account info**.
+105. Set **Allow apps to access your account info** to **Off**.
+106. Click **Change** to change account info access for the device and set **Account info access for this device** to **Off** in the popup, then click in the Account info settings window to close the popup.
+107. Click **Contacts**.
+108. Set **Allow apps to access your contacts** to **Off**.
+109. Click **Change** to change contacts access for the device and set **Contacts access for this device** to **Off** in the popup, then click in the Contacts settings window to close the popup.
+110. Click **Calendar**.
+111. Set **Allow apps to access your calendar** to **Off**.
+112. Click **Change** to change calendar access for the device and set **Calendar access for this device** to **Off** in the popup, then click in the Calendar settings window to close the popup.
+113. Click **Phone calls**.
+114. Set **Allow apps to make phone calls** to **Off**.
+115. Click **Change** to change phone call access for the device and set **Phone call access for this device** to **Off** in the popup, then click in the Phone calls settings window to close the popup.
+116. Click **Call History**.
+117. Set **Allow apps to access your call history** to **Off**.
+118. Click **Change** to change call history access for the device and set **Call history access for this device** to **Off** in the popup, then click in the Call history settings window to close the popup.
+119. Click **Email**.
+120. Set **Allow apps to access your email** to **Off**.
+121. Click **Change** to change email access for the device and set **Email access for this device** to **Off** in the popup, then click in the Email settings window to close the popup.
+122. Click **Tasks**.
+123. Set **Allow apps to access your tasks** to **Off**.
+124. Click **Change** to change tasks access for the device and set **Tasks access for this device** to **Off** in the popup, then click in the Tasks settings window to close the popup.
+125. Click **Messaging**.
+126. Set **Allow apps to read or send messages** to **Off**.
+127. Click **Change** to change messaging access for the device and set **Messaging access for this device** to **Off** in the popup, then click in the Messaging settings window to close the popup.
+128. Click **Radios**.
+129. Set **Allow apps to control device radios** to **Off**.
+130. Click **Change** to change access to control radios for the device and set **Access to control radios on this device** to **Off** in the popup, then click in the Radios settings window to close the popup.
+131. Click **Other devices**.
+132. Set **Communicate with unpaired devices** to **Off**.
+133. Click **Background apps**.
+134. In the Choose which apps can run in the background section, set background processing for all apps listed to **Off**.
+135. Set **Let apps run in the background** to **Off**.
+136. Click **App diagnostics**.
+137. Set **Allow apps to access diagnostic info about your other apps** to **Off**.
+138. Click **Change** to change app diagnostic info access for the device and set **App diagnostic access for this device** to **Off** in the popup, then click in the App diagnostics settings window to close the popup.
+139. Click **Documents**.
+140. Set document library access for **Voice Recorder** to **Off**.
+141. Click **Pictures**.
+142. In the Choose which apps can access your pictures library, set pictures access for all apps to **Off**.
+143. Set **Allow apps to access your pictures library** to **Off**.
+144. Click **Change** to change pictures library access for the device and set **Pictures library access for this device** to **Off** in the popup, then click in the Pictures settings window to close the popup.
+145. Click **Videos**.
+146. In the Choose which apps can access your videos library, set video library access for all apps to **Off**.
+147. Set **Allow apps to access your videos library** to **Off**.
+148. Click **Change** to change videos library access for this device and set **Videos library access for this device** to **Off** in the popup, then click in the Videos settings window to close the popup.
+149. Click **File system**.
+150. Set **Allow apps to access your file system** to **Off**.
+151. Click **Change** to change file system access for the device and set **File system access for this device** to **Off** in the popup, then click in the File system settings window to close the popup.
+152. Click **Home**.
+153. Click **Update & Security**.
+154. Click **Delivery Optimization**.
+155. Set **Allow downloads from other PCs** to **Off**.
+156. Click **Troubleshoot**.
+157. Set **Recommended troubleshooting** to **Don't run any troubleshooters**.
+158. Close the Settings window by clicking the **Close (X)** button in the upper-right corner of the window (the button may be hidden until the mouse cursor is placed over it).
 
 ## Part 10 - Enable Additional Windows Features
 
@@ -365,21 +368,25 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 5.   Double-click **AutoPlay Policies**.
 6.   In the AutoPlay Policies pane on the right of the window, double-click **Turn Off AutoPlay**.
 7.   In the Turn Off AutoPlay window that appears, click the radio button to select **Enabled** then click the **OK** button (it may be necessary to resize and move the Turn off Autoplay window to reach the OK button).
-8.   In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, click **BitLocker Drive Encryption**.
+8.   In the Local Group Policy Editor, in the left column, under Local Computer Policy, Computer Configuration, Administrative Templates, Windows Components, click **BitLocker Drive Encryption**.
 9.   In the BitLocker Drive Encryption pane on the right of the window, double-click **Choose drive encryption method and cipher strength (Windows 10 \[Version 1511\] and later)** (it may be necessary to maximize the windows size, expand the size of the Setting column, or hover the mouse cursor over the setting name to get a pop up to be able to determine which of the 3 similarly-named settings is the right one).
 10.  In the Choose drive encryption method and cipher strength (Windows 10 \[Version 1511\] and later) window that appears, click the radio button next to **Enabled**.
 11.  In the Options pane in the lower-left of the window, set the **Select the encryption method for operating system drives** setting to **XTS-AES 256-bit**.
 12.  Set the **Select the encryption method for fixed data drives** setting to **XTS-AES 256-bit**.
 13.  Set the **Select the encryption method for removable data drives** setting to **AES-CBC 256-bit**.
 14.  Click the **OK** button (it may be necessary to resize and move the window to reach the OK button).
-15.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, click **Credential User Interface**.
+15.  In the Local Group Policy Editor, in the left column, under Local Computer Policy, Computer Configuration, Administrative Templates, Windows Components, click **Credential User Interface**.
 16.  In the Credential User Interface pane on the right side of the window, double-click **Prevent the use of security questions for local accounts**.
 17.  In the Prevent the use of security questions for local accounts window that appears, click the **Enabled** radio button.
 18.  Click the **OK** button.
-19.  In the Local Group Policy Editor, in the left column, under Local Computer Policies, Computer Configuration, Administrative Templates, Windows Components, scroll down until Windows Update is visible (it may be necessary to maximize the window size and/or expand the left pane of the window to see read the names of the folders listed) and double-click **Windows Update**.
+19.  In the Local Group Policy Editor, in the left column, under Local Computer Policy, Computer Configuration, Administrative Templates, Windows Components, scroll down until Windows Update is visible (it may be necessary to maximize the window size and/or expand the left pane of the window to see read the names of the folders listed) and double-click **Windows Update**.
 20.  In the Windows Update pane on the right of the window, double-click **Configure Automatic Updates**.
 21.  In the Configure Automatic Updates window that appears, click the radio button to select **Disabled** then click the **OK** button.
-22.  In the Local Group Policy Editor window, click the **File** menu, then click **Exit** to close the Local Group Policy Editor.
+22.  In the Local Group Policy Editor, in the left column, under Local Computer Policy, User Configuration, double-click **Administrative Templates**, then double-click **Start Menu and Taskbar**.
+23.  In the Start Menu and Taskbar pane on the right of the window, scroll down to find Remove the Meet Now icon and double-click **Remove the Meet Now icon**.
+24.  In the Remove the Meet Now icon window that appears, click the radio button to select **Enabled**.
+25.  Click the **OK** button.
+26.  In the Local Group Policy Editor window, click the **File** menu, then click **Exit** to close the Local Group Policy Editor.
 
 ## Part 13 - Rename The Boot Volume
 
@@ -391,37 +398,39 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part 14 - Customize Destop, Taskbar, Start Menu, And Internet Explorer
 
 1.   Right-click on the **Microsoft Edge** shortcut on the Desktop and click **Delete**.
-2.   Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
+2.   Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the Microsoft Store icon and the System Tray).
 3.   In the context menu that appears, click to uncheck **Show Cortana button**.
-4.   Right-click on an empty area of the Taskbar (e.g., 2/3 of the way from the bottom-left of the screen to the bottom-right of the screen on an empty black area between the yellow File Explorer folder icon and the white Windows Defender System Tray icon).
+4.   Right-click on an empty area of the Taskbar again.
 5.   Click on **Search**, then click **Show search icon**.
-6.   Click on the **Start** button in the lower-left corner of the screen.
-7.   For each of the tiles on the right side of the Start Menu, right-click on the tile and click **Unpin from Start** or **Unpin folder from Start**.
-8.   In the Application List on the left side of the Start Menu, right-click on **Calculator**.
-9.   Click **Pin to Start**.
-10.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **More**, then click **Turn Live Tile off**.
-11.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **Resize**, then click **Small**.
-12.  Scroll in the Application List on the left side of the Start Menu down to Windows Accessories and click on **Windows Accessories**.
-13.  Click on **Internet Explorer**.
-14.  In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
-15.  Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet Options**.
-16.  In the Internet Options window that appears, in the Home page field, erase the URL listed and enter `about:blank`.
-17.  Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
-18.  Back in the Internet Options window, click the **OK** button.
-19.  Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
-20.  Right-click on the **Bing** icon and click **Delete**.
-21.  Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Safety** then click **Delete browsing history...**.
-22.  Uncheck **Preserve Favorites website data** and check **Download History**, **Form data**, **Passwords**, and **Tracking Protection, ActiveX Filtering and Do Not Track** and click the **Delete** button.
-23.  Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
-24.  When prompted, click **Close all tabs**.
-25.  Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
-26.  Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+6.   Right-click on the **Microsoft Store** icon on the Taskbar, then click **Unpin from taskbar**.
+7.   Click on the **Start** button in the lower-left corner of the screen.
+8.   On the right side of the Start menu, right-click on **Productivity**, then click **Unpin group from Start**.
+9.   Right-click on **Explore**, then click **Upin group from Start**.
+10.  Click on the **Start** button in the lower-left corner of the screen.
+11.  In the Application List on the left side of the Start Menu, right-click on **Calculator**.
+12.  Click **Pin to Start**.
+13.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **More**, then click **Turn Live Tile off**.
+14.  Right-click on the **Calculator** tile on the right side of the Start Menu and click **Resize**, then click **Small**.
+15.  Scroll in the Application List on the left side of the Start Menu down to Windows Accessories and click on **Windows Accessories**.
+16.  Click on **Internet Explorer**.
+17.  In the Internet Explorer 11 window that appears, click the radio button to select **Don't use recommended settings** and click the **OK** button.
+18.  Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Internet options**.
+19.  In the Internet Options window that appears, in the Home page field, erase the URL listed and enter `about:blank`.
+20.  Click the **Tabs** button and in the Tabbed Browsing Settings window that appears, change the **When a new tab is opened, open:** field to **A blank page** and click the **OK** button.
+21.  Back in the Internet Options window, click the **OK** button.
+22.  Click the **View favorites, feeds, and history** (star) icon in the upper-right of the Internet Explorer window.
+23.  Right-click on the **Bing** icon and click **Delete**.
+24.  Click on the **Tools** (gear icon) menu in the upper-right corner of the Internet Explorer window and click **Safety** then click **Delete browsing history...**.
+25.  Uncheck **Preserve Favorites website data** and check **Download History**, **Form data**, **Passwords**, and **Tracking Protection, ActiveX Filtering and Do Not Track** and click the **Delete** button.
+26.  Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
 27.  When prompted, click **Close all tabs**.
 28.  Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
-29.  Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
-30.  Click the **Close all tabs** button.
-31.  Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
-32.  Click **Yes** to confirm deletion.
+29.  Close the Internet Explorer window by clicking the X close button in the upper-right corner of the window.
+30.  When prompted, click **Close all tabs**.
+31.  Click the Start icon in the lower-left corner of the screen, scroll down the Application List on the left side of the Start Menu and click on **Windows Accessories**, and click **Internet Explorer**.
+32.  Close the Internet Explorer window by clicking the **Close (X)** button in the upper-right corner of the window.
+33.  Right-click on **Recycle Bin** on the Desktop and click **Empty Recycle Bin**.
+34.  Click **Yes** to confirm deletion.
 
 ## Part 15 - Restart The Virtual Machine
 
@@ -431,7 +440,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## Part 16 - Clean Up The Virtual Disk
 
-1.   Right-click on the **Start** button in the lower-left corner of the screen, then clikc **Run**.
+1.   Right-click on the **Start** button in the lower-left corner of the screen, then click **Run**.
 2.   In the Open field, type `cleanmgr` and press the **Enter** key.
 3.   In the Disk Cleanup for Windows (C:) window that eventually appears, click the **More Options** tab.
 4.   In the System Restore and Shadow Copies section, click **Clean up...**.
@@ -445,8 +454,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part 17 - Export The Virtual Machine
 
 1.   In the Oracle VM VirtualBox Manager window, click **Settings**.
-2.   In the Windows2004ProEFI64 - Settings window, in the left column, click **Storage**.
-3.   In the Storage Devices list, click **Windows2004.iso**.
+2.   In the Windows20H2ProEFI64 - Settings window, in the left column, click **Storage**.
+3.   In the Storage Devices list, click **Windows20H2.iso**.
 4.   To the right of the Optical Drive menu, click the **Choose a virtual optical disk or a physical drive to use with the virtual drive** (blue disc) button.
 5.   Click **Remove Disk from Virtual Drive**.
 6.   Click **OK**.
@@ -458,11 +467,11 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part 18 - Capture An Image Of The Audit Mode Virtual Machine
 
 1.   Once VirtualBox has completed exporting the virtual machine, in the Oracle VM VirtualBox Manager window, click **Settings**.
-2.   In the Windows2004ProEFI64 - Settings window, in the left column, click **Storage**.
+2.   In the Windows20H2ProEFI64 - Settings window, in the left column, click **Storage**.
 3.   In the Storage Devices list, click **Empty**.
 4.   To the right of the Optical Drive menu, click the **Choose a virtual optical disk or a physical drive to use with the virtual drive** (blue disc) button.
-5.   Click **Windows2004.iso**.
-6.   In the Storage Devices list, click **Windows2004ProEFI64.vdi**.
+5.   Click **Windows20H2.iso**.
+6.   In the Storage Devices list, click **Windows20H2ProEFI64.vdi**.
 7.   At the bottom of the Storage Devices list, click the **Removes selected storage attachment** (blue square with red X) button.
 8.   Click **OK**.
 9.   In the Oracle VM VirtualBox Manager window, click **Start**.
@@ -477,17 +486,17 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 18.  Press the **Down Arrow** key to select **Continue** and press the **Enter** key.
 19.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
 20.  Press the right **Ctrl** key on the keyboard to release the mouse from the virtual machine.  Until noted, the following procedure applies to actions inside the host environment.
-21.  Click the **Close (X)** button in the upper-right corner of the Windows2004ProEFI64 \[Running\] - Oracle VM VirtualBox window.
+21.  Click the **Close (X)** button in the upper-right corner of the Windows20H2ProEFI64 \[Running\] - Oracle VM VirtualBox window.
 22.  In the Close Virtual Machine window that appears, click the radio button next to **Power off the machine** and click **OK**.
 23.  In the Oracle VM VirtualBox Manager window, click **Settings**.
-24.  In the Windows2004ProEFI64 - Settings window, click **Storage** in the left column.
+24.  In the Windows20H2ProEFI64 - Settings window, click **Storage** in the left column.
 25.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** (blue square with green +) button, then click **Hard Disk**.
-26.  In the Windows2004ProEFI64 - Hard Disk Selector window, click **Windows2004ProEFI64.vdi**, then click **Choose**.
-27.  In the Windows2004ProEFI64 - Settings window, click **OK**.
+26.  In the Windows20H2ProEFI64 - Hard Disk Selector window, click **Windows20H2ProEFI64.vdi**, then click **Choose**.
+27.  In the Windows20H2ProEFI64 - Settings window, click **OK**.
 28.  This and the next two steps are time sensitive.  In the Oracle VM VirtualBox Manager windows, click **Start**.  Until noted, the following procedure applies to actions inside the virtual machine environment.
 29.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
 30.  On the Windows Boot Manager Screen, ensure that **Windows 10 Setup (64-bit)** is selected.  Press **Enter**.
-31.  Click the mouse in the center of the Windows2004ProEFI64 window to allow the virtual machine to capture the mouse.
+31.  Click the mouse in the center of the Windows20H2ProEFI64 window to allow the virtual machine to capture the mouse.
 32.  In the Windows Setup window that appears, click **Next**.
 33.  Click **Repair your computer**.
 34.  Click **Troubleshoot**.
@@ -502,7 +511,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 43.  Type `list volume` and press the **Enter** key.
 44.  Note the drive letter of the Backup volume (likely drive E) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not E and C, respectively, please substitute the drive letters for your system in the command below.
 45.  Type `exit` and press the **Enter** key.
-46.  Type `dism /capture-image /capturedir:c:\ /imagefile:e:\Windows2004ProEFI64AuditMode.wim /name:Audit` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
+46.  Type `dism /capture-image /capturedir:c:\ /imagefile:e:\Windows20H2ProEFI64AuditMode.wim /name:Audit` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
 47.  When the image capture has completed, type `exit` and press the **Enter** key.
 48.  On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
 49.  Until noted, the following procedure applies to actions inside the host environment.
@@ -512,12 +521,12 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 1.   Right-click on the Start button and select **Disk Management**.
 2.   In the Disk Management window, click the **Action** menu, then click **Attach VHD**.
 3.   In the Attach Virtual Hard Disk window, click **Browse**.
-4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows2004ProEFI64** and double-click **Windows2004ProEFI64_1.vhd**.
+4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows20H2ProEFI64** and double-click **Windows20H2ProEFI64_1.vhd**.
 5.   In the Attach Virtual Hard Disk window, click **OK**.
 6.   In the bottom of the Disk Management window, note the drive letter of the Backup volume in the attached VHD.
 7.   Click the **Start** button, scroll down in the programs list and click **Windows Kits**, then click **Windows System Image Manager**.
 8.   In the Windows System Image Manager, click the **File** menu, click **Select Windows Image**.
-9.   In the Select a Windows Image window, navigate to This PC, then open the Backup volume and double click on **Windows2004ProEFIAuditMode.wim**.
+9.   In the Select a Windows Image window, navigate to This PC, then open the Backup volume and double click on **Windows20H2ProEFIAuditMode.wim**.
 10.  When asked Do you want to create a catalog file, click **Yes**.
 11.  In the User Account Control dialog that appears, click **Yes**.
 12.  The system may take a moment to create a catalog file.
@@ -526,7 +535,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 15.  In the Answer File pane, under **Components**, **4 specialize**, click **amd64-Microsoft-Windows-Shell-Setup_neutral**.
 16.  In the Microsoft-Windows-Shell-Setup Properties pane, in the Settings section, click on **CopyProfile**, then select **true** from the pull down menu to the right of CopyProfile.
 17.  Go to the **File** menu and click **Save Answer File As...**.
-18.  In the Save As window that appears, navigate to This PC, then open the Backup volume, enter `Windows2004ProEFI64CopyProfile.xml` in the File name field and click **Save**.
+18.  In the Save As window that appears, navigate to This PC, then open the Backup volume, enter `Windows20H2ProEFI64CopyProfile.xml` in the File name field and click **Save**.
 19.  Go to the **File** menu and click **Close Windows Image**.
 20.  Go to the **File** menu and click **Exit**.
 21.  When asked Do you want to save the changes to the answer file, click **No**.
@@ -550,7 +559,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 2.   Note the drive letter for the Backup drive (likely E:).
 3.   Close File Explorer by clicking on the **Close (X)** button in the upper-right corner of the window.
 4.   Right-click on the **Start** button in the lower-left corner of the screen and click **Run**.
-5.   In the Open field, type `c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\Windows2004ProEFI64CopyProfile.xml` (be sure to substitute the correct letter if e: is not the drive letter for the Backup drive noted in step 2) and press the **Enter** key.
+5.   In the Open field, type `c:\windows\system32\sysprep\sysprep.exe /generalize /oobe /shutdown /unattend:e:\Windows20H2ProEFI64CopyProfile.xml` (be sure to substitute the correct letter if e: is not the drive letter for the Backup drive noted in step 2) and press the **Enter** key.
 6.   A message reading Sysprep is working... will appear.  Wait while the Sysprep program finishes running.
 7.   When the Sysprep process completes, the virtual machine will automatically shut down.
 8.   Until noted, the following procedure applies to actions inside the host environment.
@@ -558,8 +567,8 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part 22 - Capture An Image Of The Syspreped Virtual Machine
 
 1.   In the Oracle VM VirtualBox Manager window, click **Settings**.
-2.   In the Windows2004ProEFI64 - Settings window, in the left column, click **Storage**.
-3.   In the Storage Devices list, click **Windows2004ProEFI64.vdi**.
+2.   In the Windows20H2ProEFI64 - Settings window, in the left column, click **Storage**.
+3.   In the Storage Devices list, click **Windows20H2ProEFI64.vdi**.
 4.   At the bottom of the Storage Devices list, click the **Removes selected storage attachment** (blue square with red X) button.
 5.   Click **OK**.
 6.   In the Oracle VM VirtualBox Manager window, click **Start**.
@@ -574,41 +583,37 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 15.  Press the **Down Arrow** key to select **Continue** and press the **Enter** key.
 16.  Wait a few moments.  The virtual machine will display several messages, then will boot into the UEFI Interactive Shell v2.2.
 17.  Press the right **Ctrl** key on the keyboard to release the mouse from the virtual machine.  Until noted, the following procedure applies to actions inside the host environment.
-18.  Click the **Close (X)** button in the upper-right corner of the Windows2004ProEFI64 \[Running\] - Oracle VM VirtualBox window.
+18.  Click the **Close (X)** button in the upper-right corner of the Windows20H2ProEFI64 \[Running\] - Oracle VM VirtualBox window.
 19.  In the Close Virtual Machine window that appears, click the radio button next to **Power off the machine** and click **OK**.
 20.  In the Oracle VM VirtualBox Manager window, click **Settings**.
-21.  In the Windows2004ProEFI64 - Settings window, click **Storage** in the left column.
+21.  In the Windows20H2ProEFI64 - Settings window, click **Storage** in the left column.
 22.  At the bottom of the Storage Devices list, click the **Adds a new storage attachment** (blue square with green +) button, then click **Hard Disk**.
-23.  In the Windows2004ProEFI64 - Hard Disk Selector window, click **Windows2004ProEFI64.vdi**, then click **Choose**.
-24.  In the Windows2004ProEFI64 - Settings window, click **OK**.
+23.  In the Windows20H2ProEFI64 - Hard Disk Selector window, click **Windows20H2ProEFI64.vdi**, then click **Choose**.
+24.  In the Windows20H2ProEFI64 - Settings window, click **OK**.
 25.  This and the next two steps are time sensitive.  In the Oracle VM VirtualBox Manager windows, click **Start**.  Until noted, the following procedure applies to actions inside the virtual machine environment.
 26.  When the Press any key to boot from CD or DVD message appears, press the **A** key.
 27.  On the Windows Boot Manager Screen, ensure that **Windows 10 Setup (64-bit)** is selected.  Press **Enter**.
-28.  Click the mouse in the center of the Windows2004ProEFI64 window to allow the virtual machine to capture the mouse.
+28.  Click the mouse in the center of the Windows20H2ProEFI64 window to allow the virtual machine to capture the mouse.
 29.  In the Windows Setup window that appears, click **Next**.
 30.  Click **Repair your computer**.
 31.  Click **Troubleshoot**.
 32.  Click **Command Prompt**.
 33.  In the Command Prompt window that appears, type `diskpart` and press the **Enter** key.
 34.  At the DISKPART> prompt, type `list volume` and press the **Enter** key.
-35.  Note the number of the 505MB NTFS Partition (likely Volume 2).
-36.  Type `select volume 2` (be sure to substitute the correct volume number for the 505MB NTFS partition in the command) and press the **Enter** key.
-37.  Type `assign letter=r` and press the **Enter** key.
-38.  Type `list volume` and press the **Enter** key.
-39.  Note the drive letter of the Backup volume (likely drive D) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not D and C, respectively, please substitute the drive letters for your system in the command below.
-40.  Type `exit` and press the **Enter** key.
-41.  Type `dism /capture-image /capturedir:c:\ /imagefile:d:\Windows2004ProEFI64SysprepWindows.wim /name:Windows` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
-42.  When the image capture has completed, type `dism /split-image /imagefile:d\Windows2004ProEFI64SysprepWindows.wim /swmfile:d\Windows2004ProEFI64SysprepWindows.swm /filesize:500` (be sure to substitute the correct drive letter in the command) and press the **Enter** key.
-43.  When the image splitting process has completed, type `exit` and press the **Enter** key.
-44.  On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
-45.  Until noted, the following procedure applies to actions inside the host environment.
-46.  In the Oracle VM VirtualBox Manager window, click the **File** menu, then click **Exit**.
+35.  Note the drive letter of the Backup volume (likely drive D) and the drive letter of the Windows volume (likely drive C).  If the drive letters are not D and C, respectively, please substitute the drive letters for your system in the command below.
+36.  Type `exit` and press the **Enter** key.
+37.  Type `dism /capture-image /capturedir:c:\ /imagefile:d:\Windows20H2ProEFI64SysprepWindows.wim /name:Windows` (be sure to substitute the correct drive letters in the command) and press the **Enter** key.  The image capture process will begin and will take some time.
+38.  When the image capture has completed, type `dism /split-image /imagefile:d\Windows20H2ProEFI64SysprepWindows.wim /swmfile:d\Windows20H2ProEFI64SysprepWindows.swm /filesize:500` (be sure to substitute the correct drive letter in the command) and press the **Enter** key.
+39.  When the image splitting process has completed, type `exit` and press the **Enter** key.
+40.  On the Choose an option screen, click **Turn off your PC** and wait a moment as the virtual machine stops.
+41.  Until noted, the following procedure applies to actions inside the host environment.
+42.  In the Oracle VM VirtualBox Manager window, click the **File** menu, then click **Exit**.
 
 ## Part 23 - Copy Files From The Virtual Disk
 
 1.   In the Disk Management window, click the **Action** menu, then click **Attach VHD**.
 3.   In the Attach Virtual Hard Disk window, click **Browse**.
-4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows2004ProEFI64** and double-click **Windows2004ProEFI64_1.vhd**.
+4.   In the Browse Virtual Disk files window, open **This PC**, then **C:**, then **Users**, open your Windows account's folder, then open **VirtualBox VMs**, then **Windows20H2ProEFI64** and double-click **Windows20H2ProEFI64_1.vhd**.
 5.   In the Attach Virtual Hard Disk window, click **OK**.
 6.   Right-click on the **Start** button in the lower-left corner of the screen and click **File Explorer**.
 7.   Navigate to **This PC**, then open the **Backup** volume.
@@ -687,7 +692,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 
 ## License
 
-All content copyright (c) 2020 Curtis Glavin, Jonathan Huppi, Robert Burkey
+All content copyright (c) 2021 Curtis Glavin, Jonathan Huppi, Joshua Casiano
 
 All code in this repository is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License version 3 as published by the Free Software Foundation.
 
@@ -703,7 +708,7 @@ Permission is granted to copy, distribute and/or modify this document under the 
 
 Version 1.3, 3 November 2008
 
-Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc. <https://fsf.org/>
+Copyright Â© 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc. <https://fsf.org/>
 
 Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 
@@ -790,7 +795,7 @@ N. Do not retitle any existing section to be Entitled "Endorsements" or to confl
 O. Preserve any Warranty Disclaimers.
 If the Modified Version includes new front-matter sections or appendices that qualify as Secondary Sections and contain no material copied from the Document, you may at your option designate some or all of these sections as invariant. To do this, add their titles to the list of Invariant Sections in the Modified Version's license notice. These titles must be distinct from any other section titles.
 
-You may add a section Entitled "Endorsements", provided it contains nothing but endorsements of your Modified Version by various parties—for example, statements of peer review or that the text has been approved by an organization as the authoritative definition of a standard.
+You may add a section Entitled "Endorsements", provided it contains nothing but endorsements of your Modified Version by various partiesâ€”for example, statements of peer review or that the text has been approved by an organization as the authoritative definition of a standard.
 
 You may add a passage of up to five words as a Front-Cover Text, and a passage of up to 25 words as a Back-Cover Text, to the end of the list of Cover Texts in the Modified Version. Only one passage of Front-Cover Text and one of Back-Cover Text may be added by (or through arrangements made by) any one entity. If the Document already includes a cover text for the same cover, previously added by you or by arrangement made by the same entity you are acting on behalf of, you may not add another; but you may replace the old one, on explicit permission from the previous publisher that added the old one.
 
@@ -858,7 +863,7 @@ Copyright (C)  YEAR  YOUR NAME.
 Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license is included in the section entitled "GNU Free Documentation License".
 
-If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts, replace the "with … Texts." line with this:
+If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts, replace the "with â€¦ Texts." line with this:
 
 with the Invariant Sections being LIST THEIR TITLES, with the Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST.
 If you have Invariant Sections without Cover Texts, or some other combination of the three, merge those two alternatives to suit the situation.
