@@ -662,7 +662,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 9.   Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
 10.  In the Administrator: Deployment and Imaging Tools Environment window, type `notepad c:\amd64pe\mount\windows\ImageComputer.ps1` and press the **Enter** key.
 11.  When prompted to create a new file, click **Yes**.
-12.  Copy the full content of the ImageComputer.ps1 script from this repository (avaialble [here](https://raw.githubusercontent.com/pedonc/windows-deployment/master/Code/PowerShell/ImageComputer.ps1) and paste it into Notepad.  Ensure that there is a final empty line in the script after the last command to ensure that the last command executes.
+12.  Copy the full content of the ImageComputer.ps1 script from this repository (avaialble [here](https://raw.githubusercontent.com/pedonc/windows-deployment/master/Code/PowerShell/ImageComputer.ps1)) and paste it into Notepad.  Ensure that there is a final empty line in the script after the last command to ensure that the last command executes.
 13.  Click the **Close (X)** button in the upper-right corner of the window to close Notepad.  When prompted, click **Save**.
 14.  To save the changes to the Windows PE image, type `dism /unmount-image /mountdir:c:\amd64pe\mount /commit` and press the **Enter** key.  It will take a moment for the system to save and unmount the image.
 
