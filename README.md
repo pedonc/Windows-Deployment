@@ -630,7 +630,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 ## Part 24 - Prepare The Windows PE Environment
 
 1.   Click the **Start** button in the lower-left corner of the screen.
-2.   Scroll downn in the Start menu's application list, then click on **Windows Kits**.
+2.   Scroll down in the Start menu's application list, then click on **Windows Kits**.
 3.   Right-click on the **Deployment and Imaging Tools Environment**, click **More**, and click **Run as administrator**.
 4.   In the User Account Control window, click **Yes**.
 5.   In the Administrator: Deployment and Imaging Tools Environment window, enter `copype amd64 C:\amd64pe` and press the **Enter** key.
