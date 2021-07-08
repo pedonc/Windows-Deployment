@@ -530,7 +530,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 11.  In the User Account Control dialog that appears, click **Yes**.
 12.  The system may take a moment to create a catalog file.
 13.  Once the catalog file is created, click the **File** menu, then click **New Answer File...**.
-14.  In the Windows Image pane, expand **Components**, then right-click on **amd64_Microsoft-Windows-Shell-Setup_10.0.19041.1_neutral** and click **Add Setting to Pass 4 specialize**.
+14.  In the Windows Image pane, expand **Components**, then right-click on **amd64_Microsoft-Windows-Shell-Setup_10.0.19041.746_neutral** and click **Add Setting to Pass 4 specialize**.
 15.  In the Answer File pane, under **Components**, **4 specialize**, click **amd64-Microsoft-Windows-Shell-Setup_neutral**.
 16.  In the Microsoft-Windows-Shell-Setup Properties pane, in the Settings section, click on **CopyProfile**, then select **true** from the pull down menu to the right of CopyProfile.
 17.  Go to the **File** menu and click **Save Answer File As...**.
