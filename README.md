@@ -684,7 +684,7 @@ Before beginning, it is critical to ensure that your computer's time zone and da
 14.  Open **File Explorer** and go to **This PC**.
 15.  Note the drive letter of the WINPE USB drive.
 16.  Return to the Administrator: Deployment and Imaging Tools Environment window.
-17.  Type `xcopy c:\amd64pe\media\*.* /s /e /f u:` where u is the drive letter of the WINPE USB drive noted in Step 15.
+17.  Type `xcopy c:\amd64pe\media\*.* /s /e /f u:` where u is the drive letter of the WINPE USB drive noted in Step 15 and press the **Enter** key.
 18.  Return to **File Explorer**.  Open the **Documents** folder for your Windows user account and right-click on **Images**.  Click **Copy**.
 19.  Open the **WINPE** USB drive in File Explorer, right-click in an empty area of the drive, and click **Paste**.  Wait until the copy process completes.
 20.  The USB drive should now be bootable and will automate much of the Windows installation and configuration process.  Importantly, do not connect the USB drive to any computer that cannot be fully erased and please ensure that no additional USB disks or peripherals are connected to any computer when the USB drive is used (to avoid accidentally erasing other media).  It should be possible to repeat the steps in Part 33 with other USB drives to make multiple copies of the automated USB installer.  Good luck!
